@@ -1,0 +1,473 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./styles/formate.css">
+    <link rel="shortcut icon" href="images/burricons.ico">
+    <title>Burr Tools</title>
+  </head>
+  <body>
+    <a name='top'>
+      <table width=90% align=center class='border'>
+        <tr>
+          <td class='wrow'><!--Hauptteil der Seite-->
+            <h1>Burr Tools</h1>
+            <p>
+            This (set of) program(s) will help you solve a certain kind of puzzle. Namely puzzles that
+            are made out "glued" together basic units. As basic units the program currently supports:
+            square or dice shaped units, spheres, prisms with an equilateral triangle as base
+            or 2 grids that use tetrahedra.
+            <p>
+            The problem of the puzzle must be to assemble them into a certain shape. An additional
+            constraint says that the pieces within the result shape must again aligned relative to the
+            grid of the basic unit.
+            <p>
+            To whet your appetite here are some screenshots that show off all the important features of the
+            program. If you click the images a normal sized version of the window will be loaded.
+            <p>
+            <table width='90%' align=center>
+
+              <colgroup>
+                <col width="1*">
+                <col width="1*">
+              </colgroup>
+
+              <tr>
+                <td align=center valign=top class='light'><a href='images/shape2.png'><img class=big src='images/shape2_th.png'></a>
+                  <br>This image shows the window in shape editing mode editing one of the pieces of the example
+                  puzzle "Broken Sticks". It uses the anaglyph mode for red-cyan/blue glasses</td>
+                <td align=center valign=top class='dark'><a href='images/problem2.png'><img class=big src='images/problem2_th.png'></a>
+                  <br>This image displays the window in problem editing mode. It shows the Puzzle "Draculas Dental Desaster"
+                  designed by Ronald Kint Bruynseels which is included as an example</td>
+              </tr>
+              <tr>
+                <td align=center valign=top class='dark'><a href='images/solution2.png'><img class=big src='images/solution2_th.png'></a>
+                  <br>This image shows the window in solution mode. It shows "More MazeN Cube" by Derek Bosch"</td>
+                <td align=center valign=top class='light'><a href='images/export.png'><img class=big src='images/export_th.png'></a>
+                  <br>This image contains the image export window one of "Interlocking Puzzle"s truncated octahedrons, a puzzle
+                  using the tetra-octa grid.</td>
+              </tr>
+              <tr>
+                <td align=center valign=top class='light'><a href='images/triangles.png'><img class=big src='images/triangles_th.png'></a>
+                  <br>This image shows the example puzzle with the triangle grid: "Bermuda" designed by Bill Cutler</td>
+                <td align=center valign=top class='dark'><a href='images/spheres.png'><img class=big src='images/spheres_th.png'></a>
+                  <br>And one example with the sphere grid: "Ball Room" by Stewart Coffin</td>
+              </tr>
+              <tr>
+                <td align=center valign=top class='dark'><a href='images/rhombic.png'><img class=big src='images/rhombic_th.png'></a>
+                  <br>Finally an example with the rhombic grid. Again a puzzle designed by Stewart Coffin: "Permutated 
+                  Third Stellation"</td>
+                <td align=center valign=top class='light'><a href='images/stlSpheres.png'><img class=big src='images/stlSpheres_th.png'></a>
+                  <br>This shows the stl export window for a sphere piece. You can see the rounded connections
+                  between spheres</td>
+              </tr>
+              <tr>
+                <td align=center valign=top class='dark'><a href='images/stlRhombic.png'><img class=big src='images/stlRhombic_th.png'></a>
+                  <br>And of course you can also export the shapes of all other space grids. This is a piece of the example puzzle
+                  "Pieces of Eight" designed by Stewart Coffin</td>
+              </tr>
+            </table>
+            <p>There are also 2 videos available that show how a puzzle is entered and solved using
+            BurrTools. The puzzle that is used can be found 
+            <a href="http://www.asahi-net.or.jp/~rh5k-isn/Puzzle/ChocolateDipBurr">here<img src='images/extern.png'></a>.
+            The video is divided
+            into 2 parts. <a href="data/part1.avi">Part&nbsp;1<img src='images/extern.png'></a> contains 
+            the creation of the shapes and solves the puzzle the first time.
+            <a href="data/part2.avi">Part&nbsp;2<img src='images/extern.png'></a> adds colours to the shapes to make the
+            puzzle complete and the solution unique. The files are 2 and 1.5MBytes big.
+            <p>
+            You can also find a <a href="data/rdTutorial.pdf">tutorial<img src='images/extern.png'></a> made by Lee Krasnow that explains the Rhombic Grid.
+            <p>
+            So what are the features
+            <ul>
+              <li>Does nearly all that PuzzleSolver 3D which is
+              <ul>
+                <li>You can enter all puzzles that are assembled out of dice shaped units
+                <li>Find assemblies for you puzzle
+                <li>Disassemble the found assemblies
+                <li>Show everything in a 3 dimensional image
+                <li>Animate how the puzzle has to be assembled
+                <li>Toggle the visibility of pieces in the solution to have a look at the inner workings of
+                    a puzzle. This is especially helpful for box packing puzzles
+              </ul>
+              <li>Runs on Windows, OSX, Linux, FreeBSD and probably other Unix variants as well.
+              <li>Has several different grids (Cubes, Triangles, Spheres, Rhombics)
+              <li>You can specify which cubes to fill and which can be empty or full. PuzzleSolver 3D has
+                  only 2 modes. Either all cubes may be left empty in the solution, or the cubes that have
+                  an empty neighbour must be filled. BurrTools are more flexible here.
+              <li>More than one problem in one file (e.g. have several Soma Cube problems in the
+                  same file)
+              <li>Constraints to piece placements (like checkerboard)
+              <li>Group pieces together to tell the disassembler that they don't need to be taken apart.
+                  This is necessary for puzzles like "Cube In Cage" where the cage can not be taken apart
+                  but has 3 movable pieces
+              <li>No limits (or at least very high limits) to sizes and number of shapes. As long as your 
+                  computer has the memory and
+                  you the patience the program will do it for you, even if it takes aeons.
+              <li>Create <a href="images/imageexportexample.png">images<img src='images/extern.png'></a> 
+                  that contain the pieces, or an instruction how to assemble the puzzle, or create
+                  vector images for further processing
+              <li>Create files suitable for STL aware hard and software (e.g. 3D printer)
+              <li>Free as in beer. It doesn't cost you anything
+              <li>Free as in speech. The source is available, so you can do your own programming
+                  or help me writing this software or even continue improving the program in case 
+                  I have to stop working on it.
+              <li>Save puzzles with solutions in compressed XML-files. This allows you to create
+                  puzzles with other means (like your own burrgrower, ...)
+              <li>A library is provided that helps you to write your own software for puzzle
+                  design and analysis
+              </ul>
+
+            <p>I've been asked many times why I don't sell the program. For
+            those that are interested 
+            <A HREF="why-free.html">here<img src='images/extern.png'></A>
+            I put up a small text explaining it.
+
+            <h2>Documentation</h2>
+            <p>
+            To learn more about BurrTools you can read an online version of the user guide and the library
+            documentation. The user guide documentation is also available as a PDF below in the download
+            section and as help inside the program.
+            <p>
+            The library documentation explains the library interface and can be generated from the source
+            code of the library using doxygen. This documentation is mainly for people wanting to use the
+            library and only of limited use for those who only want to use the GUI part of BurrTools.
+            <p>
+            Both documents are always for the latest release and will be updated with each release.
+            <p>
+            Click <a href="gui-doc/toc.html">here</a> for the user guide and <a href="lib-doc/index.html">here</a> for the
+            library documentation.
+
+            <h2>News</h2>
+
+            <table width=90% align=center>
+              <tr>
+                <td colspan=2 class='head'>News</td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>09.05.2013</td>
+                <td>
+                  <p>BurrTools 0.6.3 has been released this is a bugfix
+                  release. Two bugs have been fixed
+                  <ul>
+                    <li>Fix a problem that made BurrTools find an
+                    unpredictable amount of solutions when you started a new
+                    puzzle and solved it. When a saved puzzles was loaded the
+                    number of solutions was right
+                    <li>Fix a problem with the rotated solution removal when
+                    using a set of pieces including some mirror pairs and when
+                    not all pieces were used in all solutions
+                  </ul>
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>23.07.2011</td>
+                <td>
+                  <p>BurrTools 0.6.2 has been released this is a bugfix
+                  release. Two bugs have been fixed
+                  <ul>
+                    <li>Fix a problem with the "expensive rotation check". The
+                    check returns the wrong number of results when piece
+                    ranges are used.
+                    <li>Fix a crash when removing pieces from problems that
+                    already contain solutions.
+                  </ul>
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>12.02.2011</td>
+                <td>
+                  <p>BurrTools 0.6.1 has been released this is mainly a bugfix
+                  release fixing 2 nasty bugs:
+                  <ul>
+                    <li>STL export was broken, it sometimes crashed the
+                    program
+                    <li>The error message handling was broken, all error
+                    messages from the library were displayed as meaningless
+                    texts with a lot of zeros in there
+                  </ul>
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>10.10.2010</td>
+                <td>
+                  <p>I want to use this nice date to announce that version 0.6.0 has been released. This version has the
+                  following new features:
+                  <ul>
+                    <li>completely rewritten STL-export- and OpenGL-display-code, they do now share a
+                    common base. With this come the following features:
+                    <ul>
+                      <li>STL export for all grids, including hollow shapes for all grids
+                      <li>STL export preview in the STL export window, you see exactly what the STL
+                      shape looks like
+                      <li>for the programmers: it has become simpler to support new grids all polygon
+                      based grids now can create proper STL output and code for the 3D display
+                      much easier, grids like the spheres stay complicated, though
+                      <li>bigger sensitive click spots for spheres, they also look better
+                      <li>in the 3D view you can see the natural color and the color constraint color
+                    </ul>
+                    <li>improved STL export window (tooltips, ...)
+                    <li>STL export displays the exact volume of the generated object
+                    <li>add a new way how objects are rotated in the 3-D viewer
+                  </ul>
+
+                  <p>This version also fixes a few problems:
+                  <ul>
+                    <li>fix a problem loading puzzle files with complex groups
+                    <li>deleting the last shape crashed the program
+                    <li>make compilabe with gcc-4.4 and fltk-1.3
+                  </ul>
+
+                  <p>I want to thank Derek Bosch for his help in this release.
+                  Although we had to start over twice he managed in the end to
+                  come up with the bevel and offset code required for the STL
+                  export.
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>22.10.2009</td>
+                <td>
+                  <p>Version 0.5.2 has been released. This version is another bug-fix
+                  release. But it also contains 2 small but nice new features:
+                  <ul>
+                    <li>STL export of hollow spheres. It is now possible to
+                    generate hollow sphere for the 3d printer, saving you a
+                    lot of volume and costs. Thanks to George Bell for this
+                    feature.
+                    <li>Improvements to the movement browser: in the cube grid
+                    you can now push and pull pieces around by clicking onto
+                    their faces and holding the Shift or Ctrl key down. Thanks
+                    to Barry Downes for this feature.
+                  </ul>
+
+                  This version also fixes the following problems:
+
+                  <ul>
+                    <li>With some sphere puzzles BurrTools left in some
+                    rotations, leaving you with too many solutions. Thanks to
+                    ISHINO to give me a simple problem to investigate this
+                    problem. Also thanks to Joe Becker who thought that there
+                    was a problem but could not give me a simple example.
+                    <li>Fix a bug when importing sphere shapes from assemblies.
+                    This but caused a crash nearly every time you tries to do
+                    that.
+                    <li>Fix a bug in STL export for cubes that caused the
+                    generation of faulty STL files with some cube
+                    arrangements. Thanks to Derek Bosch for the fix.
+                  </ul>
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>29.4.2009</td>
+                <td>
+                  <p>Version 0.5.1 has been released. This version is a bug-fix
+                  release. It fixes 4 problems, some of them rather important, so please update.
+                  <ul>
+                    <li>Fix a problem in the new expensive rotation check
+                    functionality that resulted in too few solutions
+                    <li>Fix a rounding bug that happened when transforming
+                    sphere shapes that resulted in too few solutions
+                    <li>Fix a crash when opening the status window with sphere
+                    puzzles
+                    <li>Deactivate movement browser when not available.
+                    Opening it in those situations caused a crash
+                    <li>Fix a possible crash when minimizing shapes
+                    <li>Documentation updates
+                  </ul>
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>5.4.2009</td>
+                <td>
+                  <p>Version 0.5.0 has been released.
+                  <p>This is a major new release with a ton of new features
+                  <p>But before we start with the features I want to mention an important bug-fix.
+                  Joe Becker found this one. When you use piece ranges and assigned different
+                  ranges to the 2 pieces of a mirror pair of pieces versions prior to this may
+                  loose solutions, so I really urge you to update.
+                  <p>But now finally let's start with the features. Again BurrTools learned a new
+                  grid. The new grid is based on tetrahedra and octahedrons. With this grid you
+                  can analyse the tetrahedra-puzzles form Interlocking Puzzles. I want to thank
+                  Wayne Daniel who provided me with 2 example puzzles to test the new
+                  functionality.
+                  <p>Another great new feature is a disassembler for the triangle grid. You can not
+                  analyse disassembly sequences for those puzzles. Be aware though that
+                  coordinated motion moves are not supported by now.
+                  <p>Also the printable manual has returned and it is better than ever. BurrTools
+                  still contains the on-line help but if you want a proper manual you can
+                  download that manual formatted for A4 or letter paper format. The size of the
+                  manual has also reached more than 100 pages. It covers all the features of
+                  BurrTools and contains a lot of hints and usage examples to make life easier.
+                  <p>BurrTools now contains some features that can be used for piece generation. It
+                  has become very easy to create all shapes that fulfil a certain property. It
+                  will probably not help in all situations but many tedious manual tasks can be
+                  simplified a lot. For that tasks I also speed up the status window
+                  calculations by a huge amount.
+                  <p>While we are talking about speed up. I replaced the sorting algorithm that
+                  sorted solutions by a usable method. If you had more than a few solutions the
+                  old algorithm was way too slow. I also replaced the whole save and load code.
+                  The file format stayed the same but internally everything has changed. The new
+                  code is much much faster. It also requires much less memory. This can be
+                  important for big puzzles. The old code might fail to save an analysis because
+                  it ran out of memory. This will no longer happen.
+                  <p>I also optimized the disassembler to require less memory. It is now possible
+                  to analyse disassembly of puzzles with many more internal states. I also
+                  removed that stupid 256 piece limitation for the disassembler, so you can now
+                  analyse puzzles with lots and lots of shapes.
+                  <p>Besides these bigger improvements there are a lot of smaller things
+                  <ul>
+                    <li>add scrollwheel support for 3D view zoom
+                    <li>millability and notchability in status window
+                    <li>fix potential symmetry calculation problem with the rhombic grid
+                    <li>different config file format, the old one is thrown away)
+                    <li>fix a cursor drawing bug in the rhombic grid
+                    <li>converter from cube to rhombic grid and from cube to tetra-octa grid
+                    <li>add a simple movement browser to analyse the movements of pieces in an
+                    assembled puzzle
+                  </ul>
+
+                  <p>One final remark. I will no longer support the windows installer. I can not
+                  test that part of BurrTools on my computer. Lately I found out that there has
+                  been a bug in the installer that has been there for a very long time and no
+                  one cared to tell me. As I don't like to give out faulty software I will no
+                  longer support that feature. You will have to live with the ZIP-archive. I
+                  can look into the ZIP file and check everything is all right.
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top></td>
+                <td>
+                  <p>Older news can be found <a href="old-news.html">here</a><img src='images/extern.png'>
+                </td>
+              </tr>
+            </table>
+
+            <h2>Download</h2>
+
+            <table width=70% align=center>
+              <tr><td colspan=2 class='head'>Latest versions</td></tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>Source (for all systems, as long as you get it compiled)</td>
+                <td>
+                  <p><a href="http://prdownloads.sourceforge.net/burrtools/burrtools-0.6.3.tar.gz?download">0.6.3</a><img src='images/extern.png'>
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>Windows Binary (in zip archieve)</td>
+                <td>
+                  <p><a href="http://prdownloads.sourceforge.net/burrtools/burrtools-0.6.3-win32.zip?download">0.6.3</a><img src='images/extern.png'>
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>OSX Binary (64-bit, Mac OS X 10.7+)</td>
+                <td>
+                  <p><a href="http://prdownloads.sourceforge.net/burrtools/burrtools-0.6.3-osx.dmg?download">0.6.3</a><img src='images/extern.png'>
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>BurrTools user guide formatted for A4 paper size</td>
+                <td>
+                  <p><a href="http://prdownloads.sourceforge.net/burrtools/burrtools-0.6.3-A4.pdf?download">0.6.3</a><img src='images/extern.png'>
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>BurrTools user guide formatted for letter paper size</td>
+                <td>
+                  <p><a href="http://prdownloads.sourceforge.net/burrtools/burrtools-0.6.3-letter.pdf?download">0.6.3</a><img src='images/extern.png'>
+                </td>
+              </tr>
+            </table>
+
+            <h2>Contact</h2>
+            <p>You can make bug reports and feature requests on the
+            <a href="http://www.sf.net/projects/burrtools">project page</a><img src='images/extern.png'>.
+            There is also a mailing list to be found there where things can be discussed publicly. If you want to mail to this list
+            use the following adress:
+            <p><a href="mailto:burrtools-discussion@lists.sourceforge.net">burrtools-discussion@lists.sourceforge.net</a>
+            <p>You have to subscribe to this list if you want to mail to it. Sorry for the inconvenience but
+            there were too many spam mails.
+            <p>To subscribe to the list or read the archives use the
+            <a href="https://lists.sourceforge.net/lists/listinfo/burrtools-discussion">lists web page</a><img src='images/extern.png'>.
+            <p>
+            If you want to contact me personally mail to my sourceforge adress:
+            <a href="mailto:roever_at_users_dot_sourceforge_dot_net?subject=BurrTools">roever at users dot sourceforge dot net</a>
+            </p>
+
+            <h2>Development</h2>
+            <p>
+            If you want to contribute changes, improvements, fixes or whatever I suggest you get yourself the 
+            <a href="http://www.darcs.net">darcs</a><img src='images/extern.png'> revision control system. I 
+            use that system for the development. 
+            <p>
+            The repositories are available at <a href="http://burrtools.sf.net/repos">http://burrtools.sf.net/repos</a>. 
+            Currently there are three branches there
+            <table width=90% align=center>
+              <tr><td colspan=2 class='head'>Branches</td></tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td>head</td>
+                <td><p>This is the main development branch. It contains all releases (except 0.1.9), 
+                it is a darcs 2 repository</td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td>stable-0.4</td>
+                <td><p>This is the end state of the darcs 1 repository the last release with it is 0.4.2</td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td>stable-0.1.9</td>
+                <td><p>This branch contains the 0.1.9 release.
+                </td>
+              </tr>
+            </table>
+            <ul>
+            </ul>
+            <p>
+            The repositories are read only, so if you want to send me your changes you have to use the send feature 
+            of darcs. I will then apply the changes you made. The repository will be updated by me on a daily basis, 
+            when development goes on.
+            </p>
+
+            <h2>Credits</h2>
+            <p>My special thanks goes to the following people for continuing support or other help
+            <p>
+            <table width=90% align=center>
+              <tr class='light'>
+                <td align=center></td><td>
+                  <p>André van Kammen. His
+                  <a href='http://www.puzzle.cx/'>program (old link, no longer acitve...)</a><img src='images/extern.png'>
+                  has been a great inspiration. It has been the base for the GUI of BurrTools
+              </td></tr>
+              <tr class='dark'>
+                <td align=center></td><td>
+                  <p>Donald E. Knuth. His
+                  <a href='http://www-cs-faculty.stanford.edu/~knuth/musings.html'>dancing link</a><img src='images/extern.png'>
+                  algorithm is one base part of the program. Although it has now become modified by ideas from Wei-Hwa Huang
+              </td></tr>
+              <tr class='light'>
+                <td align=center></td><td>
+                  <p>Bill Cutler: His
+                  <a href='http://home.comcast.net/~billcutler/stock/booklet.html'>texts</a><img src='images/extern.png'>
+                  helped implementing the 2nd part of the core algorithm. And he also contributed other ideas.
+              </td></tr>
+              <tr class='dark'>
+                <td align=center></td><td>
+                  <p>Ronald Kint-Bruynseels: He is always a big source of ideas, he is beta tester, documentation writer
+                  GUI designer and usability improver, icon painter and what not all else. Without him BurrTools
+                  would not be what it is now.
+              </td></tr>
+              <tr class='light'>
+                <td align=center></td><td>
+                  <p>Derek Bosch: mainly responsible for the OSX port. But he also contributes the odd code snippet or even
+                  new feature here and there.
+              </td></tr>
+              <tr class='dark'>
+                <td align=center>
+                  <img src="http://sf.net/sflogo.php?group_id=583&amp;type=1" width="88" height="31" alt="SourceForge"></td><td>
+                  <p><a href='http://sourceforge.net'>Sourceforge</a><img src='images/extern.png'>
+                  provides the discspace for this webpage.
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </a>
+  </body>
+</html>
+
