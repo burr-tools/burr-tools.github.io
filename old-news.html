@@ -1,0 +1,414 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./styles/formate.css">
+    <title>Burr Tools</title>
+  </head>
+  <body>
+    <a name='top'>
+      <table width='800' align=center class='border'>
+        <tr>
+          <td class='wrow'><!--Hauptteil der Seite-->
+            <h1>Old News</h1>
+            <table width=90% align=center>
+              <tr>
+                <td colspan=2 class='head'>News</td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>14.1.2009</td>
+                <td>
+                  <p>Version 0.4.2 has been released. This version is a bug-fix
+                  release. It fixes 2 problems, the first of which is rather
+                  important, so please update.
+                  <ul>
+                    <li>In some puzzles BurrTools didn't find all solutions. I
+                    can not really say how many puzzles are endangered, so
+                    please check the designs that are dear to you. One puzzle
+                    involved is one of the example puzzles. Problem 1 of Ball
+                    Room now has 2 solutions instead of just one. The problem
+                    was discovered by Nick Baxter.
+                    <li>When the layer selector was used when no shape is in
+                    the puzzle, BurrTools crashed. Jan Dvorak found this
+                    problem.
+                  </ul>
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>11.5.2008</td>
+                <td>
+                  <p>Version 0.4.1 has been released. This version is mainly a
+                  bug-fix release. It fixes the following
+                  problem:
+                  <ul>
+                    <li>The program could not assembler trivial problems with
+                    the new rhombic grid. This could result in some solutions
+                    not found when your problem contains very simple pieces
+                    <li>The 255 piece limitation is now only applied when the
+                    disassembler is used. The assembler can handle more
+                    pieces. It is just the disassembler that is right now
+                    limited to 255 pieces.
+                  </ul>
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>27.4.2008</td>
+                <td>
+                  <p>Version 0.4.0 is released. This version features a brand new grid. With this grid it
+                  is possible to model puzzles that contain diagonally cut cubes, but more importantly it
+                  it possible to model puzzles that are based on the rhombic dodecaheron. You can now model
+                  and solve many of the famous Stewart Coffin puzzles, like "Broken Sticks", "Diagonal Cube",
+                  "12 Piece Separation", "Hexsticks" and many many more. The design of the basic unit for this
+                  space came from Lee Krasnow. He did the research into the matter, if the shapes work as
+                  expected and if they allow us to do all the things we want. He also wrote a comprehensive
+                  section in the documentation that explains all the details and design decision that went
+                  into this grid. Please read the documentation as this new grid is not as straight forward
+                  as the other grids of BurrTools.
+
+                  <p>I also want to thank Stewart Coffin. He allowed me to include his puzzles as examples. 
+                  So there are a lof of his puzzles included within the release.
+
+                  <p>Besides this new grid the version also contains the following improvements:
+
+                  <ul>
+                    <li>Improved STL export. You can now export spheres as well. Also the STL export now
+                    supports binary STL besides the ASCII variation. The binary STL files are quite a bit
+                    smaller
+                    <li>A new way to export images has been added. It is possible to export to vector images
+                    besides the already available bitmapped images. The vector export is a bit simpler. It only
+                    exports the image currently visible in the 3D window.
+                    <li>The Userguide pdf file is gone. The help is now included within the program. It is
+                    an html document. If you want to print it you can export the help into separate html files
+                    and print those
+                    <li>Some smaller things like: the status window allows you to remove shapes, a function
+                    to fill internal holes, a speed-up in the 3D view for those unfortunate of use that don't
+                    have such fast computers and finally some bugs were also found
+                  </ul>
+
+                  <p>This release will be the final release for a long period of time. Only important bug fixes
+                  will be done for the time being.
+
+                  <p>BurrTools has gained so many features that the GUI no longer can properly handle the many
+                  buttons. That is why a completely new GUI will be developed. The new GUI will be more modular
+                  to allow for future new features.
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>29.7.2007</td>
+                <td>
+                  <p>Version 0.3.1 has been released. This version is mainly a bugfix release. It fixes the following
+                  problems:
+                  <ul>
+                    <li>The assembler sometimes didn't find existing solutions. This happened when the total of
+                    all voxels defined by lower ranges was larger than the number of normal voxels in the result
+                    <li>The solver did abort in cases when piece ranges were used and some pieces didn't have
+                    a mirror partner piece
+                    <li>A Possible crash with very larger grids
+                    <li>A missing symmetry in the triangle grid
+                    <li>A crash in the sphere grid when empty (no used spheres) pieces were used
+                    <li>A crash when animating a solution while the solver is running and that
+                    solution has already been dropped due to a limit on the number of solutions
+                  </ul>
+                  <p>There are also a lot of improvements to the built system. BurrTools can now properly
+                  crosscompile, includes its NSIS-script, doesn't build unneeded table generators, contains
+                  better checks for OpenGL. Volker Grabsch did most of that work.
+                  <p>Joe Becker edited the whole manual and fixed a lot of Ronalds and mine Germanizmen within
+                  the document.
+                  <p>The new assembly method was improved so that is is quite a bit faster in some (rare) situations
+                  <p>Finally the program also contains a new feature. It is now possible to change pieces within
+                  the 3D-view. To add a voxel you need to click onto the face of a voxel while pressing the
+                  SHIFT or ALT key. Then the voxel touching that face will be added. Removing voxels it possible
+                  by clicking on the voxel while pressing CTRL. Additionally selection of shapes is possible in 
+                  the problem view. And hiding of pieces can be done in the solution view by clicking onto the
+                  piece while pressing SHIFT.
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>13.6.2007</td>
+                <td>
+                  <p>Version 0.3.0 is a big step for BurrTools. It now contains the first tool for designing
+                  puzzles. It is now possible to let BurrTools search for all kinds of solutions with different
+                  sets of pieces.
+                  <p>BurrTools now also handles puzzles with many identical pieces much more graceful (well the
+                  old versions did solve them but it took nearly forever)
+                  <p>For the new method that has this nice properties thanks goes to Wei-Hwa Huang for his
+                  source which gave the initial idea and Markus Götz who helped my write my own version.
+                  <p>Additionally the image export has been improved a bit and another smaller bug regarding
+                  mirror pieces has been fixed, as well as a memory leak pluged.
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>21.4.2007</td>
+                <td>
+                  <p>Version 0.2.3 has been released. This version fixes a bug that was sent in by
+                  R. J. Grimes. I ocured in puzzles that contain pairs of mirror pieces where one
+                  piece is not oriented by simply mirroring one piece along the x-axis. I never
+                  encountered this bug because I always entered the shapes by using the mirror transformation.
+                  <p>The result was again that too many solutions were removed.
+                  <p>Also from this version on I will no longer distribute the Linux binary. The chances
+                  that it works are way too small, BurrTools became simpler to compile because all libraries
+                  are now distributed in many Unix distributions. Finally BurrTools appeared in the
+                  first distribution: FreeBSD and hopefully more will follow.
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>15.4.2007</td>
+                <td>
+                  <p>Version 0.2.2 fixes a few problems with the last release. I suggest everyone to update
+                  quickly.
+                  <ul>
+                    <li>fix problems with mirror solution detection that sometimes removed too many solutions
+                    <li>fix compilation on non x86 CPUs, properly use the canonical system name and enable 
+                    assembly functions only when the code works on that CPU
+                    <li>(hopefully) fix a hanging program that sometimes ocured when the prepare button was used
+                  </ul>
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>21.3.2007</td>
+                <td>
+                  <p>Version 0.2.1 has been released. This version improves the following things:
+                  <ul>
+                    <li>Many new symmetry groups, many thanks to Markus G&ouml;tz
+                    <li>add a red - blue/green/cyan 3D mode (<a href="images/anaglyph.png">anagylph mode</a><img src='images/extern.png'>)
+                    <li>fix some bugs with sphere puzzles:
+                    <ul>
+                      <li>placement browser didn't work properly
+                      <li>shapes are now centered and don't jump around when adding new spheres
+                      <li>some puzzles where unsolvable due to internal shortcomings
+                    </ul>
+                    <li>add a progress display for the creation of the status window as
+                    calculating the information in the status window might take quite some time, some other
+                    smaller improvements
+                    <li>the zoom slider zooms much larger
+                    <li>huge speedup in preparation time. The program used to do a lot of unnecessary
+                    checks at the start. Now only the required ones are left. This makes 10% speed saving
+                    in my regression and speed test suite. (something like 80% savings for the sphere
+                    puzzles as the preparation has been especially wasteful there)
+                    <li>improvements to build system to install the documentation and leave out
+                    the headers for the library, include FLU and generally make compilation a bit
+                    easier and correct for those compiling on their own.
+                    <li>BurrTools now adds a default rule with each added constraint colour and
+                    upon creation of the problem it adds rules for all defined colours
+                    <li>fix a problem, when problems contain empty shapes
+                    <li>the check for mirrored solutions was not always enabled when it was required
+                    resulting in additional solutions
+                    <li>the mirror check was not able to correctly handle 2 pieces of identical
+                    shape. They should not be there but when they are they are now handled right                    
+                  </ul>
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>11.02.2007</td>
+                <td>
+                  <p>Hello, after nearly one year of development version 0.2.0 of BurrTools is now available. This version
+                  contains a great deal of exciting new features that we hope you will enjoy a lot.</p>
+                  <p>The probably most prominent new feature is the inclusion of new grids. It is now possible to solve
+                  sphere and triangle (hexagons can be made with triangles) problems.</p>
+                  <p>With this feature I will need your help: BurrTools needs to know about all
+                  possible ways shapes can have rotational symmetries. When a pieces turns up with
+                  a kind of symmetry unknown to BurrTools the program will output a message and
+                  asks you to send it to me. Although I spend a lot of time trying to find as many
+                  symmetric shapes as possible I am sure that I have missed some. So I will need you
+                  to send me your shapes that BurrTools doesn't know.</p>
+		  <p>The first one (arrival date of the e-mail) who sends me a shape with - until then -
+		  unknown symmetry will have the honor of getting mentioned on the website with the
+		  next release and bath in glory :-)</p>
+		  <p>If you now want start searching the most efficient way is to have a look at the
+                  last column of the new status window. Send me the shapes where that column is _not_ empty.</p>
+                  <p>And now a list of all the other new features
+                  <ul>
+                    <li>STL export to be able to quickly create prototypes of puzzles (right now it can only export cubes).
+		    This feature was contributed by Derek Bosch.
+                    <li>A status window that displays all kinds of useful and not so useful information for all the shapes 
+                    in the puzzle.
+                    <li>New functionality for solver tab:
+                    <ul>
+                      <li>sort solutions in different ways while solving
+                      <li>sort after the solving has finished
+                      <li>remove single and multiple solutions
+                      <li>add and remove disassemblies to save memory
+                      <li>limit number of solutions saved
+                      <li>only save statistics for disassemblies to save memory
+                    </ul>
+                    <li>Control over the disassembly animation. It is now possible, for example, to
+                    make the box of box packing puzzles static so that is doesn't move around in
+                    the disassembly animation. This results in better looking solution sheets.
+                    <li>A different disassembly animation generation. Now the action always
+                    takes place in the centre. Other pieces are temporarily hidden. For example a
+                    puzzle separates into 2 complex parts. The old version used to show the
+                    assembly of one part in the centre and the other part somewhere off the centre.
+                    This resulted in problems when examining this animation. Now one part is simply
+                    hidden while the other part is assembled and returns when needed.
+                    <li>The disassembler has also got some improvements. It should be a bit faster for
+                    really complex disassemblies and it also finds all possibilities to move groups
+                    of pieces. The old disassembler only used to find pairs and more pieces were a
+                    matter of luck. These many possible groups might slow down the disassembler if
+                    there are a lot of possibilities to consider.
+                    <li>The assembler also got some smaller improvements resulting in some slight speed
+                    increase for the preparation phase.
+                    <li>Updates in the documentation (besides the necessary updates for the changes
+                    in the interface it now contains some hints on emulating some space grids not
+                    supported by BurrTools)
+                    <li>Improved PuzzleSolver3D loader (does now sort out multiple identical pieces)
+                    <li>Fix for a loader problem spotted by Ishino Keiichiro (sometimes assemblies
+                    were not restored correctly when loading a file)
+                    <li>Buttons to add one of each shape to a problem, or remove all pieces from
+                    problem to create the problems more quickly
+                  </ul>
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>6.5.2006</td>
+                <td>
+                  <p>Version 0.1.9 of the BurrTools is now available. The changes in this version include</p>
+                  <ul>
+                    <li>Countless changes to the interface. Many new functions to make editing of puzzles easier and faster 
+		        and to make the whole program more userfriendly. This comes with Icons made by Ronald Kint-Bruynseels
+                    <ul>
+		      <li>Comments for puzzles
+                      <li>Names for pieces, problems without names (just a number)
+		      <li>Exchanging of pieces, shapes and problems (without destroying found solutions)
+		      <li>Proper cursor in 3D-View
+                      <li>Symmetric edit modes (like in PuzzleSolver3D)
+                      <li>More ergonomic interface
+		      <li>...
+		    </ul>
+                    <li>New documentation. Ronald Kint-Bruynseels has rewritten the first part of the documentation
+                        turning it into a very nice document that contains much more information than the old one
+                        with many examples, hints of how to do this and that and lots of other things. I suggest you
+                        at least skim through it once.
+			<p>The quality of the document has also dramatically improved, the images look better, the fonts
+			are now vector fonts and look much smoother, even with older acrobat reader versions. And all of that
+			fits into a file that is only slightly bigger than the old documentation
+                    <li>Speed improvements for many puzzles 
+                    <ul>
+                      <li>with many identical pieces. The time to solve JayCube on my computer dropped 
+                          from 2.5 hours to 7 minutes.
+                      <li>with many placements for their pieces. The preparation phase has been speed up
+                          considerably. The solving time for Nancy Alliegos IPP 25 exchange puzzle dropped from
+                          more than 6 Minutes to 15 seconds
+                      <li>where many cubes are always occupied by the same puzzle piece, meaning they are
+                          either all empty or all occupied by piece a or all occupied by piece b or so. This
+                          happens, for example when the basic unit of the puzzle is not a cube but you
+                          emulate it with cubes, e.g. Again Nancys puzzle. Here the basic unit is a 3x3x3
+                          cube with a hole through the middle.
+		      <li>all calculation intensive puzzles due to hand optimized mashine level code. This
+		          is only available for intel PCs sorry. The changes result in about 20% less time to
+                          search the possibilities
+                      <li>All in all I was able to halve the time my set of test puzzles requires to run
+                          through completely.
+                    </ul>      
+                    <li>Creation of <a href="images/imageexportexample.png">images<img src='images/extern.png'></a> 
+                        with single shapes, a whole problem or solutions
+		    <li>Pieces are no longer minimized when the puzzle is solved
+		    <li>Many bugfixes including:
+		    <ul>
+		      <li>Problem in rotation removal, sometimes the program found rotations after all
+		      <li>With mirrors it was the other way around. It could happen that real solutions
+		          were removed. Now it can happen that some mirrored solutions are left in the list
+			  of solutions
+		      <li>Memory leak that filled up memory when there were many undisassembable assemblies
+		      <li>Crash when removing last color is fixed
+		      <li>Always ask when quitting the program, even when pressing the x in the window corner
+		      <li>Don't try to disassemble 1 piece assemblies
+		    </ul>
+		    <li>Windows installer that is better suited for this small project. The new installer
+		        doesn't quatruple the size of the file to download.
+                  </ul>
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>27.11.2005</td>
+                <td>
+                  <p>I released Version 0.1.8b of the BurrTools. This is mainly a bugfix version with the following changes:</p>
+                  <ul>
+                    <li>Fix crash when all pieces are cubes (found by Markus Götz)
+                    <li>Fix not working slider for the problem selector on the solve tab (found by Primitivo Familiar Ramos)
+                    <li>Fix stale status line contents on solve tab (found by Peter Knoppers)
+                    <li>I also implemented some suggestions by Primitivo, like starting counting from 1 instead of 0 and more...
+                  </ul>
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>13.11.2005</td>
+                <td>
+                  <p>Version 0.1.8a is now available. This version has accumulated important changes, here
+                  are some of the more interesting:
+                  <ul>
+                    <li>BurrTools wont find rotated and mirrored solutions any longer. This has been the reason for the
+                        long time that this update took. But now it should be a quite general solution
+                    <li>When BurrTools crash they should display an error message and also they should try to save
+                        the current puzzle into a file
+                    <li>Usability enhancements (Key-Shortcuts, better variable cubes, larger edit grid, ...)
+                    <li>Documentation updates. The included PDF now contains some more information about the internals
+                        of the program and explains some of the used algorithms. Thanks to Dic Sonneveld, Ronald Kint-Bruynseels
+                        and Mineyuki Uyematsu I've been able to add a few real puzzles that demonstrate the important features
+                        of BurrTools.
+                    <li>Besides the windows binary Peter Knoppers has provided a windows installer. But because this
+                        file is more than 4 times as big as the simple compressed archive I continue providing the zip
+                        file for those with a tight connection to the net.
+                  </ul>
+                  <p>
+                  For a complete list look at the NEWS file inside the distribution.
+                  <p>
+                  Shortly before the release a problem was found. Sometimes BurrTools requires a very long time to solve
+                  simple problems. A puzzle was found that takes 500 times as long as PuzzleSolver 3D needs.
+                  As I was unable to find the solution quickly, didn't want to delay the release any longer and considered
+                  that the problem has always been there I release with this known problem.
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>1.10.2005</td>
+                <td>
+                  <p>Derek Bosch has provided a binary of burrtools 0.1.7 
+                  for OSX (he compiled for 10.4.2 and doesn't know
+                  if it works on other versions, so if it runs, please send me a note)
+                </td>
+              </tr>
+              <tr class='dark'><!--Beginn Eintrag in den News-->
+                <td valign=top>19.8.2005</td>
+                <td>
+                  <p>Version 0.1.7 released. This release features quite some interesting updates:
+                  <ul>
+                    <li> last version missed the placement optimisations for pieces
+                    resulting in an eternal solving time for some more complex
+                    puzzles like Bill Cutlers SM or Lovley18. This version
+                    switches the optimisations back on, that makes some puzzles
+                    a bit slower but on the other hand the solving time for some
+                    complex puzzles drops down considerable (from years to hours)
+                    Downside of this is that you can NOT continue stopped puzzles
+                    that were saved with version 0.1.6
+                    <li> huge speedup for the disassembler for puzzles that have lots of
+                    assemblies for EasyLiving for example only 25% of the time is left
+                    (time dropped from 24 to 6 seconds) and also for complex puzzles like
+                    Pelikan Burr time dropped to 66% (from 5.5 to 3.6 seconds). Downside
+                    of this is that old disassemblies don't work any more. You have to
+                    solve them again.
+                    <li> new editing possibilities: drag to fill rectangles and a button that
+                    makes your changes not just to the current layer but to all
+                    <li> add possibility to load PuzzleSolver3D files (this can be done
+                    with the "Import" entry in the main menu)
+                    <li> add function to make it possible to not completely disassemble
+                    the puzzles. This is done by putting pieces into groups. All
+                    pieces that are in the same group can stay together and the
+                    puzzle is still considered as disassembled.
+                    Group 0 is different. All pieces in group 0 need to be
+                    taken apart until single. You can set the group for each piece
+                    with the G+ and G- buttons in the problem tab
+                    <li> when puzzles where saved bevore a result shape was defined the
+                    program refused to load the file. This works now. Old files
+                    can be loaded as well
+                  </ul>
+                </td>
+              </tr>
+              <tr class='light'><!--Beginn Eintrag in den News-->
+                <td valign=top>16.7.2005</td>
+                <td>
+                  <p>The very first public release of the program as version 0.1.6 in time for the
+                  IPP25.
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </a>
+  </body>
+</html>
