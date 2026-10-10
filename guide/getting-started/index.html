@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting Started — BurrTools User Guide</title>
+<style>
+  :root{--bg:#16130f;--bg2:#1e1a14;--card:#241f17;--card2:#2b2419;--ink:#f2ead9;
+  --dim:#b3a78e;--faint:#7d7461;--accent:#f0a832;--line:#3a3226}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+  a{color:var(--accent)}a:hover{color:#ffd080}
+  nav.top{display:flex;align-items:center;gap:22px;padding:14px 28px;max-width:1000px;margin:0 auto}
+  .brand{color:var(--ink);text-decoration:none;font-size:20px;font-weight:650}
+  nav.top .links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  nav.top .links a{color:var(--dim);text-decoration:none;font-size:15px;padding:8px 12px;border-radius:8px}
+  nav.top .links a:hover{color:var(--ink);background:var(--card)}
+  main{max-width:1000px;margin:0 auto;padding:10px 28px 60px}
+  nav.chapters{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:12px 22px;margin:0 0 24px;font-size:14.5px;color:var(--dim)}
+  nav.chapters ol{margin:6px 0;padding-left:22px}
+  nav.pager{display:flex;justify-content:space-between;gap:12px;margin-top:36px;font-size:15px}
+  figure{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:16px;margin:20px 0;text-align:center}
+  figure img{max-width:100%;height:auto;margin:6px auto;border-radius:6px}
+  figcaption{color:var(--dim);font-size:14px;margin-top:8px}
+  code{background:#100d09;border:1px solid var(--line);border-radius:6px;
+  padding:1px 7px;font-size:.88em;color:#ffd9a0}
+  pre{background:#100d09;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;overflow-x:auto;font-size:14px;color:#ffd9a0}
+  dl{margin:12px 0}dt{font-weight:650;margin-top:10px}dd{margin:2px 0 6px 22px;color:var(--dim)}
+  footer.site{max-width:1000px;margin:0 auto;padding:26px 28px 60px;color:var(--faint);font-size:14px}
+</style>
+</head>
+<body>
+<nav class="top">
+  <a class="brand" href="../../">BurrTools</a>
+  <div class="links">
+    <a href="../../">Home</a>
+    <a href="../">All on one page</a>
+    <a href="https://burr-tools.github.io/burr-tools/">API reference</a>
+    <a href="https://github.com/burr-tools/burr-tools">GitHub</a>
+  </div>
+</nav>
+<main>
+<nav class="chapters"><b>Guide contents</b><ol><li><a href="../prologue/">Prologue</a></li><li><a href="../getting-started/">Getting Started</a></li><li><a href="../interface/">The BurrTools Interface</a></li><li><a href="../shapes/">Shapes</a></li><li><a href="../puzzles/">Defining Puzzles</a></li><li><a href="../solving/">Solving Puzzles</a></li><li><a href="../reporting/">Reporting with BurrTools</a></li><li><a href="../scripting/">Scripting with Python</a></li><li><a href="../what-came-next/">What Came Next</a></li><li><a href="../appendix/">Appendix</a></li></ol></nav>
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This user guide is written from a <em>procedural</em> approach. Rather than
+sequentially describing the elements of the GUI and their functions, this
+manual guides you through the program the way you should create your first
+design. Terms may be briefly repeated at several places in the text.</p>
+<p>Throughout the text the following fonts and notations are used:</p>
+<p>Roman: This font is used for the main text.</p>
+<p><em>Roman Italics</em>: Italics are used to emphasis words or sentences in the main text.</p>
+<p><strong>Roman Bold</strong>: Used for titles, subtitles and <em>concepts</em>.</p>
+<p><em>Sans Serif</em>: Used for elements of the GUI. The same wording is used as in the GUI.</p>
+<p><strong><em>Sans Serif Bold</em></strong>: Used for elements of the GUI and indicating that an in-depth explanation follows.</p>
+<p>CAPITALS: Used for program names and puzzle names.</p>
+<p><code>Typewriter</code>: Used for file names, directories, URL&rsquo;s and code examples.</p>
+<p><code>[Typewriter]</code>: Between square brackets. Denotes a keyboard command.</p>
+<p>→ Followed by a link: Points to more information on the subject.</p>
+<p>A note regarding the screen-shots in this manual. They don&rsquo;t always show
+the very latest version of the program. Only in the sections where a certain
+element of the GUI is explained you can be reasonably certain that the image is
+recent enough to contain the elements explained. It is just too much work to
+always keep all screen-shots up to date.</p>
+<h2 id="installing-burrtools">Installing BurrTools</h2>
+<h3 id="downloading-burrtools">Downloading BurrTools</h3>
+<p>BURRTOOLS is an <em>Open Source</em> software project, released under the <em>GNU General Public Licence</em>. The most recent release of
+the program is always available for <em>free</em> download on GitHub:</p>
+<p>[latest release on GitHub https://github.com/burr-tools/burr-tools/releases/latest]</p>
+<p>There are ready-to-run builds for Windows, macOS and Linux, plus the complete
+source code. Every download includes the <code>examples</code> folder with dozens of
+ready-to-open puzzles that illustrate the capabilities and functions of
+BURRTOOLS. A brief overview of the examples is presented in the
+<a href="../appendix/#ChExamples">Example section</a>.</p>
+<h3 id="installation-of-burrtools">Installation of BurrTools</h3>
+<h4 id="microsoft-windows">Microsoft Windows</h4>
+<p>Download the <code>-windows-x86_64.zip</code> archive and unpack it anywhere you like.
+No installer is needed: run <code>burrtools.exe</code> to start the program, and no
+traces are left on your system when you delete the folder again. The archive
+also contains the command-line solvers <code>burrTxt.exe</code> and <code>burrTxt2.exe</code>.</p>
+<h4 id="mac-os-x">Mac OS X</h4>
+<p>Download the <code>.dmg</code> for Apple Silicon, open it and drag the app into your
+<code>Applications</code> folder. On the first start macOS may complain that
+&ldquo;BurrTools.app is damaged and can&rsquo;t be opened&rdquo;. This is only the Gatekeeper
+quarantine flag on unsigned downloads; clear it once with:</p>
+<p><code>xattr -cr /Applications/BurrTools.app</code></p>
+<p>After that the app starts normally. Puzzles can be opened by double-clicking
+them in Finder or by dropping them onto the Dock icon.</p>
+<h4 id="linux-unix">Linux / Unix</h4>
+<p>Download the <code>-linux-x86_64.tar.gz</code> archive, unpack it and run
+<code>./burrtools</code>. The archive also contains the command-line solvers
+<code>burrTxt</code> and <code>burrTxt2</code>.</p>
+<p>To build BURRTOOLS yourself from the source code (which is also how you get
+the Python bindings), follow <code>BUILD.md</code> in the source tree. You need a C++20
+compiler, Meson and Ninja; the <code>just</code> recipes take care of the rest.</p>
+<h2 id="concepts-and-definitions">Concepts and Definitions</h2>
+<p>Before we start describing the functions of BURRTOOLS, let&rsquo;s synchronise our
+use of vocabulary and explain a few concepts that are crucial to the way
+BURRTOOLS works.</p>
+<h3 id="definitions">Definitions</h3>
+<dl>
+<dt><strong>Voxel</strong></dt>
+<dd>A voxel <em>(volume element)</em> is a space unit in the 3-D space. The shape of the
+voxels is defined by the space grid type. Currently BURRTOOLS supports cubic
+voxels, triangular prisms, tightly packed spheres, and two types of grid made
+from tetrahedrons. Each voxel has one of the following three states: <em>Empty</em>,
+<em>Fixed</em> (<em>Filled</em>) and <em>Variable</em> (→ <a href="#ChConcepts">Concepts</a>).
+Additionally each voxel can also contain supplementary information in the form
+of colours that are attached to the whole of that voxel.</dd>
+<dt><strong>Spacegrid</strong></dt>
+<dd>The spacegrid defines the shape, orientation and arrangement of the voxels.
+Right now there are 5 space grids available in BURRTOOLS: cubes, prisms with a
+equilateral triangle as base, tightly packed spheres, rhombic and
+tetrahedral-octahedral tetrahedrons. Spacegrids are always fixed and periodic.
+That means that a voxel in a certain position will always have the same shape
+and orientation. So a spacegrid defining, for example, all Penrose patterns is
+not possible because these are neither fixed nor a periodic patterns.</dd>
+<dt><strong>Shape</strong></dt>
+<dd>This is a definition of a 3-dimensional object. Shapes are assembled out of
+voxels.</dd>
+<dt><strong>Piece</strong></dt>
+<dd>A piece is a shape that is used as a part of the puzzle.</dd>
+<dt><strong>Multipiece</strong></dt>
+<dd>Some pieces may have the same shape. BURRTOOLS requires you to tell it that two
+or more pieces do have the same shape, otherwise it will find all solutions
+with all permutations. So a multipiece is a piece that&rsquo;s used more than once in
+the problem.</dd>
+<dt><strong>Group (also Piece Group)</strong></dt>
+<dd>A collection of pieces (and/or multipieces) than can move with respect to each
+other, but cannot be separated from one another. Denoted with {}.</dd>
+<dt><strong>Result</strong></dt>
+<dd>This is the shape that the pieces of the puzzle are supposed to assume once the
+puzzle is assembled.</dd>
+<dt><strong>Problem</strong></dt>
+<dd>A problem in BURRTOOLS consists of a list of pieces and/or multipieces, a
+result shape and possibly some constraints. You can have more than one problem
+in a file, as it may be possible to have more than a single task with the same
+set of pieces (e.g. Piet Hein&rsquo;s SOMA CUBE). In other words, a problem is a
+statement about <em>what to do</em> with the pieces.</dd>
+<dt><strong>Puzzle</strong></dt>
+<dd>A puzzle is either a single problem or a collection of problems.</dd>
+<dt><strong>Identifier</strong></dt>
+<dd>A unique code to identify a shape, colour or problem. This consists of an
+automatically assigned prefix to which a custom name may be added. The prefix
+is already unique. It is a letter followed by a number. The letter is
+different for all items that required identifiers, e.g. it is S for shapes, P
+for problems and C for colours.</dd>
+<dt><strong>Assembly</strong></dt>
+<dd>An assembly is a physically possible arrangement of pieces (meaning the pieces
+do not overlap in space) so that the resulting shape is formed. It is not
+guaranteed that it is actually possible to get the pieces into the positions of
+the assembly without using advanced technologies like Star Trek beaming.</dd>
+<dt><strong>Solution</strong></dt>
+<dd>A Solution is an assembly with instructions how to assemble/disassemble the
+pieces.</dd>
+<dt><strong>Assembler</strong></dt>
+<dd>The part of the program or algorithm that tries to find all assemblies of the puzzle.</dd>
+<dt><strong>Disassembler</strong></dt>
+<dd>The part of the program that tries to find out how the pieces must be moved to
+assemble the puzzle. It does this by trying to disassemble an assembly. Some
+puzzles like PENTOMINOES don&rsquo;t require separate instruction how to assemble the
+pieces. It suffices to know where the pieces are in the assembly. Other puzzles
+require detailed instructions how to move the pieces to assemble the final
+shape. That is why the task of finding the assemblies and creating
+assembly/disassembly instructions are separated from one another.</dd>
+<dt><strong>Solver</strong></dt>
+<dd>A short name to refer to the assembler and disassembler as a unit or just one
+of these without specifying which one.</dd>
+</dl>
+<h3 id="ChConcepts">Concepts</h3>
+<p>As described above, BURRTOOLS works with shapes which are merely a collection
+of voxels that each can have either one of three different states: <em>empty</em>,
+<em>fixed</em> or <em>variable</em>. Particularly the difference between fixed and
+variable voxels has a great impact on the way the solver works and which
+assemblies are considered to be valid and which are not. Besides that, the
+validity of solutions can be further restricted by imposing colour constraints.</p>
+<h4 id="voxel-states">Voxel States</h4>
+<dl>
+<dt><strong>Empty</strong></dt>
+<dd>The empty state is rather superfluous as it can also be regarded as the absence
+of any voxel. It is just used in the result shape to indicate the spots that
+can&rsquo;t be filled at all (holes).</dd>
+<dt><strong>Fixed (or Normal)</strong></dt>
+<dd>The normal or fixed voxels <em>need to be filled</em> in the final result, otherwise
+it is not considered to be a valid assembly.</dd>
+<dt><strong>Variable</strong></dt>
+<dd>The variable state is used to instruct the program that for a particular voxel
+it is unknown whether it will be filled or empty in the final assembly. This is
+required for puzzles that have holes in <em>undetermined</em> places (like all the
+higher level six-piece burrs). All voxels that <em>might</em> be empty <em>must</em> have
+the variable state in the result shape. Right now the variable state can only be
+used in result shapes and the solver will pop up an error message whenever it
+encounters a variable state in a normal piece.</dd>
+</dl>
+<h4 id="ChColourConstraints">Colour Constraints</h4>
+<p>Colours allow you to add constraints to the possible placement of pieces. This
+is done by assigning a colour to one or more voxels of the piece(s) and the
+result shape (→<a href="../shapes/#ChAddingColour">Adding Colour</a>). Then you can set some
+colour placement conditions for each problem
+(→<a href="../puzzles/#ChProblemColourConstraints">Colour Constraints</a>). The program will place pieces
+only at positions that fulfil the colour conditions defined.</p>
+<p>These colour conditions currently allow the definition of what coloured voxels
+of the pieces may go into what coloured voxels in the result shape. The
+<em>default colour</em> is special: it always makes a colour match. Voxels in a
+piece that are in the default colour fit everywhere and default coloured voxels
+in the result shape can accommodate any piece voxel, independent of its custom
+colour.</p>
+<p>Currently the assigned colour is interpreted as painting the whole voxel with
+this colour, but in the future more advanced possibilities for colouring and
+conditions may be added.</p>
+<h3 id="symmetry-considerations">Symmetry Considerations</h3>
+<p>This chapter contains some advanced material that might not be suitable or
+understandable for first time readers. So you might skip it for the moment. It
+is advisable though that you finally read and understand the information given
+in the following sections as otherwise you might get into trouble interpreting
+analysis results.</p>
+<p>The way BURRTOOLS handles symmetries in the result shape and the found
+assemblies tries to be as close to &ldquo;normally expected behaviour&rdquo; as possible.
+But sometimes it does strangely, unexpected things. To understand that you
+need to know how BURRTOOLS goes on removing rotated solutions.</p>
+<h4 id="rotation-removal-algorithm">Rotation Removal Algorithm</h4>
+<p>BURRTOOLS tries to avoid finding rotations of solutions in the first place by
+placing certain pieces in only a few of its possible rotations. But this method
+doesn&rsquo;t work in all cases so a more general solution needs to be found that can
+detect rotated or inflected solutions and drop them when they are found by the
+assembler.</p>
+<p>As said this filter is placed after the assembler and before further processing
+(disassembling, sorting into solution lists) of the found assemblies is done.
+To be usable the filter must have one important property: it must be
+independent of the already found assemblies. So what is not working is to save
+a list of all found assemblies and compare the new one with the entries of this
+list.</p>
+<p>Apart from getting very slow when the list is becoming long, it requires that
+all assemblies are saved and this can be a real problem when there is a huge
+amount of assemblies for a problem.</p>
+<p>So an other approach had to be used. This method works by &ldquo;normalizing&rdquo;
+assemblies and only allowing normal assemblies to pass the filter all other
+assemblies are blocked.</p>
+<p>Normalizing in this case means to be able to always find one special
+orientation out of all possible orientations of an assembly. If we, for
+example, start with 2 assemblies that are identical assemblies with different
+orientations. Each of these 2 assemblies has a list of other possible
+orientations. The list do contain the same entries but in a different order due
+to the different starting orientation. We must now be able to independently
+identify one special orientation from both lists. And those selected
+orientations must be identical.</p>
+<p>This is achieved by applying a comparison operation on the assemblies and
+choosing the smallest or the biggest assembly.</p>
+<p>Once we have this operation we implement our filter by only letting through
+assemblies that are identical to the &ldquo;smallest&rdquo; orientation out of all of its
+orientations.</p>
+<p>It is obvious that this filter blocks all bot one assembly when fed with all
+possible orientations of one assembly.</p>
+<p>This filter also works when removing inflections (mirror solutions) of an
+assembly. For that it needs an additional thought though. After mirroring an
+assembly it might happen that pieces that are not mirror symmetric become
+invalid. They changed shape and became their own mirror shape.</p>
+<p>This, of course, is a different assembly, maybe even a different puzzle so we
+need to try to rectify this by replacing pieces with their mirror shape, if
+that shape is available. So what we do is that we go through all pieces in the
+assemblies and check if a piece is placed in a mirror orientations. If that is
+the case we search if we have a piece with mirror shape for the current piece
+and exchange those 2 pieces. The new piece is then placed in a non-mirror
+orientation. If we have been able to remove all mirror orientated pieces from
+the assembly we got a valid new orientation that will go into the comparison
+operation. If there are pieces left in mirror orientation, the whole assembly
+is invalid and will not go to the comparison.</p>
+<p>Now all this sounds like a good thing and it works pretty well, but it has some
+important consequences that will be explained in the next section.</p>
+<h4 id="ChMirrorParadox">The Mirror Paradox</h4>
+<p>This is probably the most important consequence of the rotation removal
+algorithm. When not considered it will result in useless statistics about
+puzzle solutions and generally rubbish puzzle analyses.</p>
+<p>As we have seen BURRTOOLS will exchange pieces in the process of trying
+to eliminate mirror solutions from a list of assemblies. This manipulation
+will lead to unexpected results like missing solutions or different counts
+of solutions containing a certain piece.</p>
+<p>To understand that have a look at the figure
+<a href="#FigMirrorParadoxExample">Mirror Paradox Example</a> You can see 2 solutions to a
+simple puzzle. Each solution contains 2 pieces. On closer inspection you will
+see that each solution uses 2 identical pieces but the 2 solutions each use
+2 different sets of 2 pieces each. The 2 piece pairs of the 2 solutions are
+mirror shapes of one another.</p>
+<figure id="FigMirrorParadoxExample">
+<img src="../img/MirrorParadox1.png" alt="">
+<img src="../img/MirrorParadox2.png" alt="">
+<figcaption>Figure: Pieces, Resuls and solutions for a Puzzle</figcaption>
+</figure>
+
+<p>When the mirror removal of BURRTOOLS is enabled BURRTOOLS will only display one
+of the 2 solutions. To explore this you can have a look at the demo file
+<code>DemoMirrorParadox.xmpuzzle</code> included in the examples of BURRTOOLS.</p>
+<p>This explains different numbers of solutions that contain the various pieces.
+The overall number of solutions will be constant but the number of solutions
+that contain a certain piece may vary depending on the actual implementation
+of the &ldquo;smaller&rdquo; operation of the rotation removal filter.</p>
+<p>To avoid this problem it is best to know when exactly is may happen and when
+not. Here is a list of conditions:</p>
+<ul>
+<li>it will not happen when you have at least one shape in your puzzle that
+  doesn&rsquo;t has a mirror symmetry. This shape needs to be always in the
+  assemblies.</li>
+<li>it only happens when you use ranges because we need to be able to <em>not</em>
+  use pieces. When always all pieces are used it can not happen</li>
+</ul>
+<p>And now we need to know what to do about it. The first possibility is to
+change your puzzle so that the problem can not happen. If that is not possible
+you <em>must</em> check the checkbox <em>Keep Mirror Solutions</em>.</p>
+<h4 id="shorten-waiting-times">Shorten Waiting Times</h4>
+<p>Due to the nature of the rotation removal algorithm is may happen that the first
+solutions found don&rsquo;t pass the filter. For big solutions with a big number of
+pieces this waiting time might even be very long.</p>
+<p>If you just want to know <em>if</em> there are solutions and don&rsquo;t need the precise
+number you can check the checkbox <em>Keep Rotated Solutions</em>. In this
+case the rotation removal filter is disabled and all found assemblies pass.</p>
+<h4 id="ChRotationRemoval2">Rotation Removal 2</h4>
+<p>When I explained the Rotation Removal Algorithm I intentionally left out one
+fact: BURRTOOLS will not create all possible orientations of the assemblies but
+only those orientations that are required. Required are the rotations that are
+in the symmetry of the result shape.</p>
+<p>Normally a found rotation will fill up the result shape pretty well, it will
+also normally have an identical outer appearance which means that the found
+assemblies will have the same symmetry as the result shape. This fact is used
+to save some work. Only those orientations are considered that are part of
+the symmetry of the result shape.</p>
+<p>Now this works pretty well in most situations. In some cases though it is
+necessary to do a more complete analysis and remove more solutions. For
+example: imagine are single cube is to be put into a 4x4 square. Everybody will
+agree that there is just one solution. BURRTOOLS will find 3. In one solution
+the cube is in the corner, one solution has the cube on the edge and one
+solution places the cube into the middle of the square.</p>
+<p>All 3 solutions are identical in external appearance. For BURRTOOLS though they
+are different because BURRTOOLS always looks at the found solution in relation
+to the result shape.</p>
+<p>Sometimes this is not what we need. In that case you will need a more thorough
+analysis that will remove all possible orientations and also translations of
+the solution so that no 2 solutions exist that are just a translation, rotation,
+mirror or a combination of those 3 of one another.</p>
+<p>For this the above explained filter will <em>always</em> create all possible
+rotations and additionally will shift those orientations so that they are
+closest to the origin before submitting the result to the comparison operation.</p>
+<p>BURRTOOLS can do that. See chapter <a href="../solving/#ChSolverSettings">Solver Settings</a> for how
+to activate this functionality and chapter <a href="../shapes/#ChPieceGeneration">Piece Generation</a>
+for an example of its use.</p>
+<h2 id="notes-for-puzzlesolver3d-users">Notes for PuzzleSolver3D Users</h2>
+<p>BURRTOOLS was initially very much based on PUZZLESOLVER3D by André van Kammen
+but, by now has diverged quite a bit from that. We strongly advise you to read
+this user guide since there are some features in BURRTOOLS that work somewhat
+differently to their counterparts in PUZZLESOLVER3D and there are also a lot of
+functions that PUZZLESOLVER3D doesn&rsquo;t have. Below are the most prominent
+differences that need your attention:</p>
+<ul>
+<li>
+<p>BURRTOOLS doesn&rsquo;t handle holes automatically as PUZZLESOLVER3D does. This may
+  at first sound like a disadvantage but in fact it isn&rsquo;t. Unless you select
+  <em>&lsquo;Outer limits of result must be filled&rsquo;</em> on the solve tab, PUZZLESOLVER3D
+  treats all cubes of the target shape as cubes that might be filled but don&rsquo;t
+  need to be. But knowing which cubes <em>must</em> be filled speeds up the search
+  process. The more there are of these (as compared to the total number of
+  cubes), the faster the solver will run, as fewer possibilities are left to
+  test. BURRTOOLS requires you to specify exactly which cubes in the result
+  shape must be filled and which ones may be empty.</p>
+</li>
+<li>
+<p>The BURRTOOLS solver doesn&rsquo;t automatically detect multiple identical pieces.
+  You need to specify if a piece is used more than once. If you just copy them
+  the way you do in PUZZLESOLVER3D the program will find way too many
+  solutions. For example, with Bruce Love&rsquo;s LOVELY 18 PIECE BURR it will find
+  nearly 40,000,000 times as many solutions as there really are. So be careful.</p>
+</li>
+<li>
+<p>BURRTOOLS allows you to define multiple problems in a single session. So you
+  can, for example, save all the SOMA CUBE (Piet Hein) problems within one
+  single file.</p>
+</li>
+<li>
+<p>BURRTOOLS has no limits to the number and size of pieces. You can have as
+  many pieces as you want and they are not confined to a grid of 24x24x24.</p>
+</li>
+<li>
+<p>There is no limit to the number of possible positions for the pieces. So
+  BURRTOOLS won&rsquo;t stop and complain about too many placements. As long as your
+  computer has sufficient memory the program will merrily continue working —
+  even if it would take longer than the universe exists — to complete the
+  search.</p>
+</li>
+<li>
+<p>BURRTOOLS supports other spacegrids besides the cube space supported by
+  PUZZLESOLVER3D. This allows the design and analysis of completely new puzzles.</p>
+</li>
+<li>
+<p>BURRTOOLS knows piece ranges, which enables you to search for puzzles and not
+  just solve them.</p>
+</li>
+</ul>
+<h3 id="ChImportingPS3D">Importing PUZZLESOLVER3D files</h3>
+<p>BURRTOOLS has capabilities for <em>importing</em> PUZZLESOLVER3D files. So there&rsquo;s
+no need to redo your designs from scratch, although some post-editing may be
+required because of the differences in handling duplicates of pieces and holes
+in the puzzle.</p>
+<p>There are 2 possibilities for the holes. Depending on whether the option <code>Fill outer Cubes</code> is enabled or not when you solve the puzzle with PUZZLESOLVER3D,
+you must either make the inner cubes of the result shape or the whole shape
+variable if you want to get the same results with BURRTOOLS. This can be done
+with the tools described in section <a href="../shapes/#ChConstrainingTools">Constraining Tools</a>.
+With these tools you can make a shapes inner or outer cubes variable.</p>
+<p>The duplicate pieces are handled automatically. BURRTOOLS adds all shapes to
+the new puzzle and marks the duplicates. The unused shapes are marked as unused
+and can be deleted if they are not required.</p>
+<nav class="pager"><a href="../prologue/">← Prologue</a><a href="../interface/">The BurrTools Interface →</a></nav>
+</main>
+<footer class="site">
+  BurrTools user guide — sources: <a href="https://github.com/burr-tools/burr-tools.github.io/tree/master/guide">Markdown</a>
+</footer>
+</body>
+</html>

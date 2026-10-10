@@ -19,7 +19,7 @@ provides all the tools needed to build a variety of puzzle problems that are
 suited for the *Solver*.
 
 <figure id="FigPuzzleTab">
-<img src="../guide/img/Window_DDD_2.png" alt="">
+<img src="img/Window_DDD_2.png" alt="">
 <figcaption>Figure: Defining problems on the Puzzle tab</figcaption>
 </figure>
 
@@ -60,7 +60,7 @@ pieces, it's not necessary that all shapes be used in a single problem or in
 any problem at all.
 
 <figure id="FigClarissa">
-<img src="../guide/img/Window_Clarissa.png" alt="">
+<img src="img/Window_Clarissa.png" alt="">
 <figcaption>Figure: A simple puzzle problem with multipieces</figcaption>
 </figure>
 
@@ -284,7 +284,7 @@ define groups and to define piece ranges without having to subtract values. The
 window also contains rarely-used parameters.
 
 <figure id="FigGroupEditor">
-<img src="../guide/img/Form_Group_Editor.png" alt="">
+<img src="img/Form_Group_Editor.png" alt="">
 <figcaption>Figure: The Problem Details Editor</figcaption>
 </figure>
 
@@ -350,8 +350,8 @@ result colours. The buttons ***Sort by Piece*** and ***Sort by Result*** switch
 between these two views.
 
 <figure id="FigColourAssignment">
-<img src="../guide/img/Panel_Colour_Assignment_A.png" alt="">
-<img src="../guide/img/Panel_Colour_Assignment_B.png" alt="">
+<img src="img/Panel_Colour_Assignment_A.png" alt="">
+<img src="img/Panel_Colour_Assignment_B.png" alt="">
 <figcaption>Figure: Colour assignment</figcaption>
 </figure>
 

@@ -33,7 +33,7 @@ Depending on what is present in the puzzle, the following things can be
 exported:
 
 <figure id="FigImageExport">
-<img src="../guide/img/Window_ImageExport.png" alt="">
+<img src="img/Window_ImageExport.png" alt="">
 <figcaption>Figure: The image export window</figcaption>
 </figure>
 
@@ -191,7 +191,7 @@ shape. This is useful if you print hollow shapes and need to see what the
 internal void looks like.
 
 <figure id="FigSTLExportWindow">
-<img src="../guide/img/Window_StlExport.png" alt="">
+<img src="img/Window_StlExport.png" alt="">
 <figcaption>Figure: The STL-Export window (showing older options)</figcaption>
 </figure>
 

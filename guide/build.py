@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Prototype Markdown guide builder: guide-md/*.md -> single + multi-page HTML.
+"""Markdown user guide builder: guide/*.md -> guide/index.html + guide/<slug>/.
 
 Usage (website repo root):
     pip install markdown            # once (pure python)
-    python3 guide-md/build_md.py    # writes guide-md/site/index.html (all-in-one)
-                                    #   and guide-md/site/<slug>/index.html (multi-page)
+    python3 guide/build.py          # writes guide/index.html (all-in-one) and
+                                    #   guide/<slug>/index.html (one page per chapter)
 
-Shares the dark theme of guide/build_guide.py (CSS copied, not imported, so
-the prototype stands alone). Internal '#Label' links are rewritten to
-'<page>/#Label' when the label lives on another chapter page.
+Sources are the guide/*.md chapter files (title/nav_order front matter).
+Images live in guide/img/ next to them. Internal '#Label' links are
+rewritten to '<page>/#Label' when the label lives on another chapter page.
+The generated HTML files are committed, like the old txt2tags output was.
 """
 import re
 import sys
@@ -18,7 +19,7 @@ import markdown
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT
-OUT = ROOT / 'site'
+OUT = ROOT
 
 MD_EXT = ['def_list', 'attr_list', 'toc', 'sane_lists', 'smarty']
 
@@ -75,7 +76,7 @@ TEMPLATE = '''<!DOCTYPE html>
 {pager}
 </main>
 <footer class="site">
-  BurrTools user guide (Markdown prototype) — sources: <a href="https://github.com/burr-tools/burr-tools.github.io">this site</a>
+  BurrTools user guide — sources: <a href="https://github.com/burr-tools/burr-tools.github.io/tree/master/guide">Markdown</a>
 </footer>
 </body>
 </html>
@@ -116,9 +117,9 @@ def fix_links(html, own_slug, label_page, depth, img_prefix):
         prefix = '../' * depth
         return f'href="{prefix}{page}/#{lab}"'
     html = re.sub(r'href="#([A-Za-z0-9_]+)"', sub, html)
-    # images live in the existing guide/img/ store; rebase to the page depth
-    # (md sources say ../guide/img/ relative to guide-md/*.md)
-    html = re.sub(r'src="\.\./guide/img/', f'src="{img_prefix}guide/img/', html)
+    # images live in guide/img/ next to the .md sources; rebase to page depth
+    # (chapter pages sit one level deeper than the all-in-one page)
+    html = re.sub(r'src="img/', f'src="{img_prefix}img/', html)
     return html
 
 
@@ -136,15 +137,15 @@ def main():
     nav_top = chapters_nav(chapters, '')
     nav_sub = chapters_nav(chapters, '../')
 
-    # multi-page: site/<slug>/index.html -> repo root is ../../../
+    # multi-page: guide/<slug>/index.html -> repo root is ../../
     for i, ch in enumerate(chapters):
         prev = (f'<a href="../{chapters[i-1]["slug"]}/">← {chapters[i-1]["title"]}</a>'
                 if i > 0 else '<span></span>')
         nxt = (f'<a href="../{chapters[i+1]["slug"]}/">{chapters[i+1]["title"]} →</a>'
                if i + 1 < len(chapters) else '<span></span>')
         body = fix_links(ch['html'], ch['slug'], label_page, depth=1,
-                         img_prefix='../../../')
-        page = TEMPLATE.format(title=ch['title'], css=CSS, root='../../../',
+                         img_prefix='../')
+        page = TEMPLATE.format(title=ch['title'], css=CSS, root='../../',
                                sitehome='../', chapters_nav=nav_sub,
                                body=body,
                                pager=f'<nav class="pager">{prev}{nxt}</nav>')
@@ -152,18 +153,14 @@ def main():
         d.mkdir(exist_ok=True)
         (d / 'index.html').write_text(page, encoding='utf8')
 
-    # all-in-one page (parity check against guide/index.html)
-    (OUT / 'contents.html').write_text(
-        TEMPLATE.format(title='Contents', css=CSS, root='../../',
-                        sitehome='index.html', chapters_nav='',
-                        body=nav_top, pager=''), encoding='utf8')
+    # all-in-one page at guide/index.html (keeps the long-standing guide/ URL)
     all_body = ''.join(
         f'<section id="page-{c["slug"]}">'
         + fix_links(c['html'], c['slug'], label_page, depth=0,
-                    img_prefix='../../')
+                    img_prefix='')
         + '</section>' for c in chapters)
     (OUT / 'index.html').write_text(
-        TEMPLATE.format(title='User Guide', css=CSS, root='../../',
+        TEMPLATE.format(title='User Guide', css=CSS, root='../',
                         sitehome='index.html', chapters_nav=nav_top,
                         body=all_body, pager=''), encoding='utf8')
 

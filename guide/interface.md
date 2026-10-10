@@ -17,7 +17,7 @@ about the task at hand. In between there is a *tools section* on the left and
 a *3-D viewport* on the right.
 
 <figure id="FigMainWindowStart">
-<img src="../guide/img/Window_StartUp.png" alt="">
+<img src="img/Window_StartUp.png" alt="">
 <figcaption>Figure: The main window on start-up</figcaption>
 </figure>
 
@@ -141,7 +141,7 @@ back to their factory values. These settings are stored in a configuration
 file in your home directory and the program uses them each time it is started.
 
 <figure id="FigConfig">
-<img src="../guide/img/Window_Config.png" alt="">
+<img src="img/Window_Config.png" alt="">
 <figcaption>Figure: The settings dialogue (showing older options)</figcaption>
 </figure>
 
@@ -226,7 +226,7 @@ printed piece will look like (→[Exporting to STL](#ChExportingSTL)). The choic
 is remembered between sessions.
 
 <figure id="FigWindowAnaglyph">
-<img src="../guide/img/Window_Anaglyph.png" alt="">
+<img src="img/Window_Anaglyph.png" alt="">
 <figcaption>Figure: Disassembler in Anaglyph Mode</figcaption>
 </figure>
 
@@ -282,7 +282,7 @@ pointer over the lines until it changes into an up-down arrow, indicating that
 you can drag the separator up or down to resize the panel.
 
 <figure id="FigResize">
-<img src="../guide/img/SizeBar.png" alt="">
+<img src="img/SizeBar.png" alt="">
 <figcaption>Figure: Resize handles</figcaption>
 </figure>
 

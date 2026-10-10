@@ -77,7 +77,7 @@ Some of the unconnected shapes might be possible as well but there is no
 warrant, so if you want to be sure stay with "proper" sphere shapes.
 
 <figure id="FigSphereGridProblem">
-<img src="../guide/img/SphereGridProblem.png" alt="">
+<img src="img/SphereGridProblem.png" alt="">
 <figcaption>Figure: Sphere Grid Limitation</figcaption>
 </figure>
 
@@ -112,7 +112,7 @@ Those variable voxels are a nice trick to see the inner structure of shapes,
 when the bevel edges are not enough.
 
 <figure id="FigCuttingTheCube">
-<img src="../guide/img/rhTetrahedra.png" alt="">
+<img src="img/rhTetrahedra.png" alt="">
 <figcaption>Figure: Cutting of the cubes into the units of the rhombic grid</figcaption>
 </figure>
 
@@ -120,7 +120,7 @@ The next important thing to know is how are these 24 tetrahedra managed. The
 picture below shows how it is done.
 
 <figure id="FigMappingRhombicVoxels">
-<img src="../guide/img/rh555grid.png" alt="">
+<img src="img/rh555grid.png" alt="">
 <figcaption>Figure: Mapping of the rhombic tetrahedra to a cube grid</figcaption>
 </figure>
 
@@ -153,7 +153,7 @@ left is a diamond shaped square rod. Repeat the same process for the other
 axes. (More details in the RD-Tutorial)
 
 <figure id="FigRdConstruction">
-<img src="../guide/img/rhRdconstruction.png" alt="">
+<img src="img/rhRdconstruction.png" alt="">
 <figcaption>Figure: How to make a rhombic dodecahedron</figcaption>
 </figure>
 
@@ -179,8 +179,8 @@ that both shapes do have the same outer appearance but a completely different
 inner structure.
 
 <figure id="FigShapeDualism">
-<img src="../guide/img/rhShapeDualism1.png" alt="">
-<img src="../guide/img/rhShapeDualism2.png" alt="">
+<img src="img/rhShapeDualism1.png" alt="">
+<img src="img/rhShapeDualism2.png" alt="">
 <figcaption>Figure: The shape dualism</figcaption>
 </figure>
 
@@ -209,11 +209,11 @@ cut square. You can see one of those cubes in an exploded view in image
 see the regular tetrahedron red in the middle and the other blue surrounding it.
 
 <figure id="FigTetraOctaConstr">
-<img src="../guide/img/toConstruction.png" alt="">
+<img src="img/toConstruction.png" alt="">
 <figcaption>Figure: Exploded Tetrahedral Octahedral view</figcaption>
 </figure>
 <figure id="FigTetraOctaGrid">
-<img src="../guide/img/to333grid.png" alt="">
+<img src="img/to333grid.png" alt="">
 <figcaption>Figure: The grid representation of Tetrahedral Octahedral grid</figcaption>
 </figure>
 
@@ -248,7 +248,7 @@ set — are located on the ***Entities*** tab which has — from top to bottom �
 three main sections (Figure [EntitiesTab](#FigEntitiesTab)):
 
 <figure id="FigEntitiesTab">
-<img src="../guide/img/Window_DDD_0.png" alt="">
+<img src="img/Window_DDD_0.png" alt="">
 <figcaption>Figure: Creating shapes on the Entities tab</figcaption>
 </figure>
 
@@ -326,7 +326,7 @@ shapes, can be accomplished with the functions on the ***Size*** subtab (Figure
 [SizeSubtab](#FigSizeSubtab)) of the ***Edit*** panel.
 
 <figure id="FigSizeSubtab">
-<img src="../guide/img/Subtab_Size.png" alt="">
+<img src="img/Subtab_Size.png" alt="">
 <figcaption>Figure: Grid and scaling functions</figcaption>
 </figure>
 
@@ -385,13 +385,13 @@ more general transformation tools (→[TransformationTool](#ChTransformationTool
 and have the advantage that they can act on all shapes at once
 (→[AdjustAllShapes](#ChAdjustAllShapes)).
 
-![](../guide/img/Button_Size_Grid_Minimize.png):
+![](img/Button_Size_Grid_Minimize.png):
 :   **Minimise the grid -** This function will minimise the grid to fit the
 dimensions of the shape it contains. Use it to reduce the disk space occupied
 by your puzzle files. Note that the result of this function is strictly based
 on the contents of the grid and will have no effect whatsoever on empty grids.
 
-![](../guide/img/Button_Size_Grid_Center.png):
+![](img/Button_Size_Grid_Center.png):
 :   **Centre the shape in the grid -** This function centres the shape in the
 surrounding grid thus allowing you to edit all sides of the shape. In some
 cases this will also *increase* one or more dimensions of the grid by a single
@@ -399,7 +399,7 @@ unit to provide true centring. The function is most useful in editing
 symmetrical shapes in combination with the compound drawing methods
 (→[CompoundDrawing](#ChCompoundDrawing)).
 
-![](../guide/img/Button_Size_Grid_Align.png):
+![](img/Button_Size_Grid_Align.png):
 :   **Align the shape to the origin -** This function brings the shape as close as
 possible to the origin of the grid. It can very useful if you want to make a
 descending series of rectangular blocks by copying the shape and manually
@@ -417,7 +417,7 @@ grouped to make an upscaled shape that looks like a voxel of the grid, e.g. a
 group of 2x2x2 cubes looks like a bigger cube. As this doesn't work with
 spheres, these tools are not available there.
 
-![](../guide/img/Button_Size_Shape_11.png):
+![](img/Button_Size_Shape_11.png):
 :   **Minimise the size of the shape (1:1 tool) -** This function tries to make the
 shape as small as possible without any loss of information and at the same time
 scales down the grid by the same factor. Use this function to check the design
@@ -426,14 +426,14 @@ function can undo the effects of both of the next scaling functions, the result
 cannot be guaranteed since the algorithm may scale down beyond the initial
 size.
 
-![](../guide/img/Button_Size_Shape_x2.png):
+![](img/Button_Size_Shape_x2.png):
 :   **Double the scale -** This function will double the scale of the shape (and
 its grid). In other words, it will replace every voxel in the shape with a
 group of voxels that all have the same characteristics (state and colour) as
 the original voxel. This can be very useful to introduce half-unit notches or
 colouring into the design without having to redraw the shape(s).
 
-![](../guide/img/Button_Size_Shape_x3.png):
+![](img/Button_Size_Shape_x3.png):
 :   **Triple the scale -** This function is similar to doubling the scale, only now
 a scaling factor of 3 is used and hence every voxel in the shape will be
 replaced by 27 identical voxels. This can be very useful if you want to
@@ -473,7 +473,7 @@ and/or the state and colour of the voxels drawn by clicking in or dragging over
 the cells in the 2-D grid.
 
 <figure id="FigToolbarGrid">
-<img src="../guide/img/ToolbarGrid.png" alt="">
+<img src="img/ToolbarGrid.png" alt="">
 <figcaption>Figure: Toolbar and 2-D grid für cube space-grid</figcaption>
 </figure>
 
@@ -506,8 +506,8 @@ these z-layers is by pressing `[+]` (moves up one layer) or `[-]` (moves
 down one layer) on the keyboard.
 
 <figure id="FigNavigation">
-<img src="../guide/img/NavigationA.png" alt="">
-<img src="../guide/img/NavigationB.png" alt="">
+<img src="img/NavigationA.png" alt="">
+<img src="img/NavigationB.png" alt="">
 <figcaption>Figure: Selections of grid cells in 2-D and 3-D</figcaption>
 </figure>
 
@@ -536,13 +536,13 @@ they are all that's needed to create any shape in BURRTOOLS. The
 following is a description of these tools. Note that each is also accessible
 through a keyboard short cut.
 
-![](../guide/img/Button_Toolbar_Draw_Fixed.png):
+![](img/Button_Toolbar_Draw_Fixed.png):
 :   **Fixed pen -** Use this tool to draw *normal* or *fixed* voxels. Fixed
 voxels are represented by completely filled cells in both the 2-D and the 3-D
 grid (→[Representation](#ChRepresentations)). Remember that these fixed voxels
 *must be filled* in the final result. Keyboard short cut: `[F5]`.
 
-![](../guide/img/Button_Toolbar_Draw_Variable.png):
+![](img/Button_Toolbar_Draw_Variable.png):
 :   **Variable pen -** This tool allows you to draw *variable* voxels. In the 2-D
 grid these variable voxels do not completely fill the cells, but have a narrow
 border showing the background of the grid. In the 3-D viewport the variable
@@ -552,7 +552,7 @@ voxels instruct the solver that these particular places may be *either*
 result shapes, and the solver will give a warning whenever it encounters any
 variable voxels in a shape used as a piece. Short cut: `[F6]`.
 
-![](../guide/img/Button_Toolbar_Draw_Eraser.png):
+![](img/Button_Toolbar_Draw_Eraser.png):
 :   **Eraser -** The eraser will remove voxels from the shape. Note that clicking
 or dragging with the right mouse button has the same effect of erasing voxels.
 The eraser tool however proves its use in minute adaptations of shapes. Short
@@ -566,7 +566,7 @@ BURRTOOLS has two different drawing styles. These styles affect the way voxels
 are drawn/erased or colours are added by *dragging* with the mouse. In
 drawing shapes by simply clicking 'cell-by-cell' both are equivalent.
 
-![](../guide/img/Button_Toolbar_Drag_Rubber.png):
+![](img/Button_Toolbar_Drag_Rubber.png):
 :   **Rectangular dragging style ('rubber band') -** On dragging over the 2-D grid
 with the mouse, a *rectangular selection* of cells will be made. This is
 shown with a heavy border around the selected cells and the voxels will only be
@@ -575,7 +575,7 @@ the actual grid will make the whole operation void and can serve as a sort of
 'undo'. This style is useful not only for drawing rectangular shapes or parts,
 but also for adding colour to (large areas of) the shape.
 
-![](../guide/img/Button_Toolbar_Drag_Free.png):
+![](img/Button_Toolbar_Drag_Free.png):
 :   **Free dragging style -** All drawing and colouring operations will be
 performed on a single cell basis and *as soon as* the mouse cursor is dragged
 over that particular cell. This drawing style is very useful for creating
@@ -600,7 +600,7 @@ spaces as they might behave differently along the 3 axes. The triangular prisms
 for example are stacked along the z-axis, side by side along the x-axis and tip
 by tip along the y-axis.
 
-![](../guide/img/Button_Toolbar_Symm_X.png)![](../guide/img/Button_Toolbar_Symm_Y.png)![](../guide/img/Button_Toolbar_Symm_Z.png):
+![](img/Button_Toolbar_Symm_X.png)![](img/Button_Toolbar_Symm_Y.png)![](img/Button_Toolbar_Symm_Z.png):
 :   **Symmetrical drawing methods -** For every voxel drawn, erased, or coloured
 its symmetrically placed counterpart (with respect to the centre of the grid
 and along one of the space axes) will be affected as well. Activating only one
@@ -610,7 +610,7 @@ simultaneously. These options are not only useful for drawing symmetrical
 shapes, but they are also very well suited for finding the centre of the grid
 and (temporarily) setting the extents of a shape.
 
-![](../guide/img/Button_Toolbar_Cols_X.png)![](../guide/img/Button_Toolbar_Cols_Y.png)![](../guide/img/Button_Toolbar_Cols_Z.png):
+![](img/Button_Toolbar_Cols_X.png)![](img/Button_Toolbar_Cols_Y.png)![](img/Button_Toolbar_Cols_Z.png):
 :   **Column drawing methods -** These options — possibly combined with the
 symmetrical drawing tools — can really speed up drawing shapes as they will
 affect *all* voxels that are in the same row or column along one of the space
@@ -664,7 +664,7 @@ pieces, whereas the white colour of the parts on the inside of the pieces is
 used only to make them look nice.
 
 <figure id="FigCustomColours">
-<img src="../guide/img/Window_DDD_1.png" alt="">
+<img src="img/Window_DDD_1.png" alt="">
 <figcaption>Figure: A shape with custom colours</figcaption>
 </figure>
 
@@ -728,7 +728,7 @@ Colours can be applied while drawing the shape. Just select a colour and it
 will become an extra attribute of the fixed pen or the variable pen.
 Additional colouring can be done by using the *Brush* tool.
 
-![](../guide/img/Button_Toolbar_Draw_Brush.png):
+![](img/Button_Toolbar_Draw_Brush.png):
 :   **Brush tool -** This is a *'colouring only'* device and merely adds the
 selected colour to the voxels without altering their state. The brush tool can
 also be activated by pressing `[F8]` on the keyboard.
@@ -749,16 +749,16 @@ possibilities. In this picture the default colour is red (= shape S3) and the
 custom colour is yellow (RGB = 1, 1, 0).
 
 <figure id="FigRepresentations">
-<img src="../guide/img/RepresentationA.png" alt="">
-<img src="../guide/img/RepresentationC.png" alt="">
-<img src="../guide/img/RepresentationE.png" alt="">
-<img src="../guide/img/RepresentationG.png" alt="">
-<img src="../guide/img/RepresentationI.png" alt="">
-<img src="../guide/img/RepresentationB.png" alt="">
-<img src="../guide/img/RepresentationD.png" alt="">
-<img src="../guide/img/RepresentationF.png" alt="">
-<img src="../guide/img/RepresentationH.png" alt="">
-<img src="../guide/img/RepresentationJ.png" alt="">
+<img src="img/RepresentationA.png" alt="">
+<img src="img/RepresentationC.png" alt="">
+<img src="img/RepresentationE.png" alt="">
+<img src="img/RepresentationG.png" alt="">
+<img src="img/RepresentationI.png" alt="">
+<img src="img/RepresentationB.png" alt="">
+<img src="img/RepresentationD.png" alt="">
+<img src="img/RepresentationF.png" alt="">
+<img src="img/RepresentationH.png" alt="">
+<img src="img/RepresentationJ.png" alt="">
 <figcaption>Figure: Representations in 2-D and 3-D</figcaption>
 </figure>
 
@@ -791,13 +791,13 @@ available gridtypes. At the top of the figure you see the tab for cubes, below
 for triangles, and at the bottom for spheres.
 
 <figure id="FigTransformationTools">
-<img src="../guide/img/Subtab_TransformA.png" alt="">
-<img src="../guide/img/Subtab_TransformB.png" alt="">
-<img src="../guide/img/Subtab_TransformC.png" alt="">
+<img src="img/Subtab_TransformA.png" alt="">
+<img src="img/Subtab_TransformB.png" alt="">
+<img src="img/Subtab_TransformC.png" alt="">
 <figcaption>Figure: Transformation tools</figcaption>
 </figure>
 
-![](../guide/img/Button_Transform_Flip_X.png)![](../guide/img/Button_Transform_Flip_Y.png)![](../guide/img/Button_Transform_Flip_Z.png):
+![](img/Button_Transform_Flip_X.png)![](img/Button_Transform_Flip_Y.png)![](img/Button_Transform_Flip_Z.png):
 :   **Flip -** These 'three' functions are merely *one single mirroring tool*,
 the only difference is the orientation of the mirrored shape they provide. The
 first will mirror the shape along the x-axis (or in a plane through the centre
@@ -809,7 +809,7 @@ the outcome of any other. However, there are three buttons to provide some
 control over the orientation of the mirrored shape in the grid space, which can
 save time if the shape needs further editing.
 
-![](../guide/img/Button_Transform_Nudge_X.png)![](../guide/img/Button_Transform_Nudge_Y.png)![](../guide/img/Button_Transform_Nudge_Z.png) and more:
+![](img/Button_Transform_Nudge_X.png)![](img/Button_Transform_Nudge_Y.png)![](img/Button_Transform_Nudge_Z.png) and more:
 :   **Nudge -**These functions provide *translations* (along the x-axis, y-axis
 or z-axis for the cubes, or along different axes for other gridtypes) of the
 shapes in their surrounding grids. These buttons have two parts, of which the
@@ -818,7 +818,7 @@ part will move it away from the origin. Note that shifting a shape beyond the
 boundaries of the grid will (partially) destroy it. So these nudging operations
 can also be used to erase unwanted parts on the outer limits of the shapes.
 
-![](../guide/img/Button_Transform_Rotate_X.png)![](../guide/img/Button_Transform_Rotate_Y.png)![](../guide/img/Button_Transform_Rotate_Z.png):
+![](img/Button_Transform_Rotate_X.png)![](img/Button_Transform_Rotate_Y.png)![](img/Button_Transform_Rotate_Z.png):
 :   **Rotate -** These functions allow you to *rotate* the shapes around an axis
 parallel to the x-axis, y-axis or the z-axis. Again, these buttons have two
 parts, of which the left rotates the shape 90° anti-clockwise (viewed towards
@@ -836,7 +836,7 @@ The ***Tools*** subtab (Figure [Tools](#FigTools)) offers extra editing
 tools. Currently only some constraint related tools are available.
 
 <figure id="FigTools">
-<img src="../guide/img/Subtab_Tools.png" alt="">
+<img src="img/Subtab_Tools.png" alt="">
 <figcaption>Figure: Extra editing tools</figcaption>
 </figure>
 
@@ -849,14 +849,14 @@ the outside of the shape. Voxels that are considered to be on the inside are
 voxels that have another voxel adjacent to *all* of their *faces*.
 Consequently, outside voxels have at least one empty voxel neighbouring.
 
-![](../guide/img/Button_Constraints_Fixed.png):
+![](img/Button_Constraints_Fixed.png):
 :   **Fixed Inside/Outside -** These functions allow you to change the state of the
 voxels that are either on the inside (left button) or on the outside (right
 button) of the shape into fixed voxels. Although one can think of situations in
 which these can be useful as such, they are mostly used to undo the effects of
 the next two functions.
 
-![](../guide/img/Button_Constraints_Variable.png):
+![](img/Button_Constraints_Variable.png):
 :   **Variable Inside/Outside -** These functions will respectively make all the
 voxels on the inside or the outside of the shape variable. Making the inside
 variable is very useful for puzzles with internal holes in undetermined places.
@@ -865,7 +865,7 @@ situations (e.g. adding extensions to the pieces). Clicking both buttons will
 make the shape completely built out of variable voxels. Use these wisely as the
 more variable voxels there are, the slower the solver will run.
 
-![](../guide/img/Button_Constraints_Colour.png):
+![](img/Button_Constraints_Colour.png):
 :   **Colour Remover -** These buttons will remove any custom colours from the
 voxels that are either on the inside or the outside of the shape, and replace
 them with the default colour. Removing the colour from the inside can prevent
@@ -916,7 +916,7 @@ window in Figure [Assembly Import](#FigAssmImportWindow). A few of the options
 are not available in all grids and might be missing in your actual window.
 
 <figure id="FigAssmImportWindow">
-<img src="../guide/img/Window_AssmImport.png" alt="">
+<img src="img/Window_AssmImport.png" alt="">
 <figcaption>Figure: The assembly import window</figcaption>
 </figure>
 
@@ -986,7 +986,7 @@ of information about all the shapes available inside the puzzle. The table
 columns have the following meanings:
 
 <figure id="FigWindowStatus">
-<img src="../guide/img/Window_Status.png" alt="">
+<img src="img/Window_Status.png" alt="">
 <figcaption>Figure: The Status window</figcaption>
 </figure>
 
@@ -1251,7 +1251,7 @@ around the z-axis is also no longer possible. An example can be seen in Figure
 [Emul2Sided](#FigEmul2Sided)
 
 <figure id="FigEmul2Sided">
-<img src="../guide/img/Emulation_2Layer.png" alt="">
+<img src="img/Emulation_2Layer.png" alt="">
 <figcaption>Figure: Emulation of 2-sided pieces</figcaption>
 </figure>
 
@@ -1262,7 +1262,7 @@ Cubes can be cut in many different ways, to approximate shapes such as given in
 Figure [EmulDiagCut](#FigEmulDiagCut) use the 2x2x2 cube displayed there.
 
 <figure id="FigEmulDiagCut">
-<img src="../guide/img/Emulation_DiagonalCut.png" alt="">
+<img src="img/Emulation_DiagonalCut.png" alt="">
 <figcaption>Figure: Diagonally cut cube</figcaption>
 </figure>
 
@@ -1281,7 +1281,7 @@ to emulate them using squares. Figure [EmulCairos](#FigEmulCairos) demonstrates 
 that can be done.
 
 <figure id="FigEmulCairos">
-<img src="../guide/img/Emulation_Cairos.png" alt="">
+<img src="img/Emulation_Cairos.png" alt="">
 <figcaption>Figure: Emulation of Cairos using squares</figcaption>
 </figure>
 
@@ -1297,7 +1297,7 @@ Sometimes it is possible to emulate edge matching problems by using notches and
 dents at the outside of the shapes.
 
 <figure id="FigEmulEdgeMatching">
-<img src="../guide/img/Emulation_EdgeMatching.png" alt="">
+<img src="img/Emulation_EdgeMatching.png" alt="">
 <figcaption>Figure: Emulation edge matching cubes</figcaption>
 </figure>
 
@@ -1328,12 +1328,12 @@ Besides their shape the pieces have a top side and a bottom. Figure
 emulate the T-shaped piece seen on the bottom right.
 
 <figure id="FigEmulPagoda1">
-<img src="../guide/img/Emulation_Pagoda.png" alt="">
+<img src="img/Emulation_Pagoda.png" alt="">
 <figcaption>Figure: The Knit Pagoda</figcaption>
 </figure>
 
 <figure id="FigEmulPagoda2">
-<img src="../guide/img/Emulation_Pagoda2.png" alt="">
+<img src="img/Emulation_Pagoda2.png" alt="">
 <figcaption>Figure: Emulation for one of the KNIT PAGODA Pieces</figcaption>
 </figure>
 

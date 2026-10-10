@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reporting with BurrTools — BurrTools User Guide</title>
+<style>
+  :root{--bg:#16130f;--bg2:#1e1a14;--card:#241f17;--card2:#2b2419;--ink:#f2ead9;
+  --dim:#b3a78e;--faint:#7d7461;--accent:#f0a832;--line:#3a3226}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+  a{color:var(--accent)}a:hover{color:#ffd080}
+  nav.top{display:flex;align-items:center;gap:22px;padding:14px 28px;max-width:1000px;margin:0 auto}
+  .brand{color:var(--ink);text-decoration:none;font-size:20px;font-weight:650}
+  nav.top .links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+  nav.top .links a{color:var(--dim);text-decoration:none;font-size:15px;padding:8px 12px;border-radius:8px}
+  nav.top .links a:hover{color:var(--ink);background:var(--card)}
+  main{max-width:1000px;margin:0 auto;padding:10px 28px 60px}
+  nav.chapters{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:12px 22px;margin:0 0 24px;font-size:14.5px;color:var(--dim)}
+  nav.chapters ol{margin:6px 0;padding-left:22px}
+  nav.pager{display:flex;justify-content:space-between;gap:12px;margin-top:36px;font-size:15px}
+  figure{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:16px;margin:20px 0;text-align:center}
+  figure img{max-width:100%;height:auto;margin:6px auto;border-radius:6px}
+  figcaption{color:var(--dim);font-size:14px;margin-top:8px}
+  code{background:#100d09;border:1px solid var(--line);border-radius:6px;
+  padding:1px 7px;font-size:.88em;color:#ffd9a0}
+  pre{background:#100d09;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;overflow-x:auto;font-size:14px;color:#ffd9a0}
+  dl{margin:12px 0}dt{font-weight:650;margin-top:10px}dd{margin:2px 0 6px 22px;color:var(--dim)}
+  footer.site{max-width:1000px;margin:0 auto;padding:26px 28px 60px;color:var(--faint);font-size:14px}
+</style>
+</head>
+<body>
+<nav class="top">
+  <a class="brand" href="../../">BurrTools</a>
+  <div class="links">
+    <a href="../../">Home</a>
+    <a href="../">All on one page</a>
+    <a href="https://burr-tools.github.io/burr-tools/">API reference</a>
+    <a href="https://github.com/burr-tools/burr-tools">GitHub</a>
+  </div>
+</nav>
+<main>
+<nav class="chapters"><b>Guide contents</b><ol><li><a href="../prologue/">Prologue</a></li><li><a href="../getting-started/">Getting Started</a></li><li><a href="../interface/">The BurrTools Interface</a></li><li><a href="../shapes/">Shapes</a></li><li><a href="../puzzles/">Defining Puzzles</a></li><li><a href="../solving/">Solving Puzzles</a></li><li><a href="../reporting/">Reporting with BurrTools</a></li><li><a href="../scripting/">Scripting with Python</a></li><li><a href="../what-came-next/">What Came Next</a></li><li><a href="../appendix/">Appendix</a></li></ol></nav>
+<h1 id="reporting-with-burrtools">Reporting with BurrTools</h1>
+<p>BURRTOOLS comes with some extra features to assist you in making puzzle
+solution sheets, either for your personal archives or to be issued with your
+exchange puzzles and commercially produced puzzles. Currently, these
+capabilities are very basic and need to be improved in a future update of the
+program. So, don&rsquo;t expect too much from them right now, but rather consider
+them to be merely a preview of coming attractions.</p>
+<h2 id="ChAddingComments">Adding Comments</h2>
+<p>The <strong><em>Edit Comment</em></strong> entry on the menu bar opens a new window that allows you
+to add textual information to the puzzle file. It can be used to append extra
+information such as the name of the designer, or a &lsquo;to do&rsquo; list for your own
+designs.</p>
+<h2 id="ChExportingImages">Exporting Images</h2>
+<p>The <strong><em>Export - Images</em></strong> entry on the menu opens a window that allows you to
+export a portion of the current puzzle to (a list of) images (see Figure
+<a href="#FigImageExport">ImageExport</a>). On the right the window has a 3D view, and
+on the left it has input elements that control what is being created. On the
+very bottom of these controls you can select what you want to create images of.
+Depending on what is present in the puzzle, the following things can be
+exported:</p>
+<figure id="FigImageExport">
+<img src="../img/Window_ImageExport.png" alt="">
+<figcaption>Figure: The image export window</figcaption>
+</figure>
+
+<dl>
+<dt><strong><em>Shape</em></strong></dt>
+<dd>An image of a single shape (a shape that was made on the entities tab) is
+created. You can select which shape with the shape selector below.</dd>
+<dt><strong><em>Problem</em></strong></dt>
+<dd>An image containing all shapes that are used for a problem is created. Again
+you will find the problem selector below that is used to select which problem
+you are going to create images of.</dd>
+<dt><strong><em>Assembly</em></strong></dt>
+<dd>An image showing the positions of the pieces in an assembly is created. You can
+select the problem. The first assembly of that problem is exported.</dd>
+<dt><strong><em>Solution</em></strong></dt>
+<dd>An image containing all steps necessary to disassemble a problem is created. In
+this case you also select the problem with the selector below. The images will
+be created for the last solution of that problem.</dd>
+</dl>
+<p>What to export is the first thing that you have to select. Naturally only the
+choices are available for which the puzzle has data. So if you have not run the
+solver on the current puzzle, it is impossible to export solutions or
+assemblies.</p>
+<p>Above these selectors you find the file output parameters. First the name and
+the path to where the images are supposed to be created. If you give no path,
+the images are put into the working directory of the program. The file name is
+just a prefix, so if you keep &lsquo;test&rsquo; as file name you get files of the form
+&lsquo;test000.png&rsquo;, &lsquo;test001.png&rsquo;, &hellip; . (BURRTOOLS creates only PNG image files)</p>
+<p>Finally, you can say how many images you intend to create. BURRTOOLS will try
+to do so, but might use less. If you only have one assembly to export, only one
+page can be created. The <strong><em>Number of images</em></strong> entry is ignored by the
+software for the time being, it will be used later on.</p>
+<p>Above these input elements you find the last section that defines your output.
+Here you can define the quality and some additional parameters that influence
+how the images look, but not what is to be seen.</p>
+<p>In the top left corner you find the definition of the background of the image.
+You can choose between transparent or white. Transparent is useful if you want
+to have a background with patterns or want to further edit the images.</p>
+<p>Below you find the settings for the oversampling factor. The higher that is,
+the smoother the images will look, but the more memory and calculation time is
+required.</p>
+<p>Below you can choose whether you want to use the constraint colours for the
+output or rather the default colour of the shapes.</p>
+<p>The checkbox <strong><em>Dim static pieces</em></strong> makes BURRTOOLS draw pieces that are not
+involved in the current move in a lighter colour, so that the pieces actually
+moving are easier to spot. This, of course, only works when exporting
+solutions.</p>
+<p>Finally there are the parameters for the image size that the program creates.
+There are 2 choices: either define the pixel size directly, or define the size
+of the image in millimetres and the DPI printer resolution. If you want to
+create A4 or letter sized images for printing, you can use the predefined
+sizes.</p>
+<p>To position the shapes in the output images, you can use the 3D view at the
+right of the export window. All images exported will use the same settings for
+angle and zoom as in that 3D view. If the shapes reach above or below the 3D
+view they will be trimmed. Left and right is different. The width of the images
+to generate is not fixed. So the program will make them quite a bit wider to
+accommodate the horizontal spread of the pieces.</p>
+<p>When you have finished with all settings, press <strong><em>Export Image(s)</em></strong>. You
+will see a flurry of images in the 3-D view. The program draws the shapes there
+and grabs the content from the display. This may take a while. First the size
+of the images is determined, then the images are drawn in the required high
+resolution for the output. The progress can be seen on the left beside the 2
+buttons. You will see how many images are finished and how many there are
+overall.</p>
+<p>Hint: If you get unexpected results and broken images, try to do nothing while
+the images are exported. On Linux it is forbidden to change the virtual desktop
+because then nothing is drawn.</p>
+<p>The export facilities are far from what we want them to be, many important
+features are missing, so you can expect some progress in later versions of
+BURRTOOLS.</p>
+<h2 id="ChExportingVectors">Exporting Vector Images</h2>
+<p>As well as the bitmap images explained in the section above BURRTOOLS can also
+export vector images in various different formats. These images have the
+advantage of being freely scalable without loss of precision.</p>
+<p>The vector image export doesn&rsquo;t have functionality to export a complete
+assembly or disassembly sequence, but only one image. The image exported is the
+one currently visible in the 3D view.</p>
+<p>To export that display into a vector image select <strong><em>Vector Image</em></strong> from the
+<em>Export</em> menu. A small window will open which lets you select the possible
+image format and the file name. You have to append the right extension to the
+file name on your own.</p>
+<p>The export may take a while (a few seconds up to a minute or so) and within
+that time the application is unresponsive so please be patient.</p>
+<h2 id="ChExportingSTL">Exporting to STL</h2>
+<p>STL, which stands for Standard Triangulation Language or Standard Tesselation
+Language is a file format used by stereolithography software. STL-Files
+describe the surface of 3-dimensional objects. BURRTOOLS can export single
+shapes into STL files so that 3D printers can quickly fabricate prototypes of
+them.</p>
+<h3 id="introduction-to-3-d-printing">Introduction to 3-D printing</h3>
+<p>There are two popular forms of 3-D printing: SLS and FDM.</p>
+<p>The SLS (ShapeWays and TNO) laser sinters nylon. ShapeWays currently charges by
+the volume of sintered nylon. SLS pieces are always white.</p>
+<p>FDM (Stratasys) charges by the time it takes to make the piece. It has two
+modes: solid and sparse. Sparse mode is quicker and uses less material. In
+sparse mode the interior of the pieces are honeycombed.</p>
+<p>Having a hollowed piece will be cheaper and quicker for SLS — it will be the
+same cost and speed for FDM because a hollow piece will still have a support
+structure inside the hollow, but it will be of a different material. The thing
+to realize is that with SLS, if there are no holes to the hollow part of the
+piece, the nylon &ldquo;sand&rdquo; will be captured. This should not be a problem except
+for the weight of the piece. But keep in mind that some printing services will
+charge you for the surrounded volume as well as the for the actually printed
+volume.</p>
+<h3 id="exporting">Exporting</h3>
+<p>The main menu entry <strong><em>Export - STL</em></strong> opens the window seen in Figure
+<a href="#FigSTLExportWindow">StlExportWindow</a>. The window has a shape selector, a 3-D
+view of the selected shape and some parameters that control the shapes created.
+The exact parameters depend on the grid of the current puzzle. The 3-D view
+displays the shape the same way as it will be exported into the STL file, so
+you can see what the shape will look like. The file is written next to your
+puzzle by default, and a failed write is reported instead of silently
+producing nothing.</p>
+<p>On the bottom in the status line you can see what volume the current shape with
+the current settings has.</p>
+<p>In the status line are also two buttons to choose how the shape is displayed.
+Either normally from the outside. The 2nd view will show you the inside of the
+shape. This is useful if you print hollow shapes and need to see what the
+internal void looks like.</p>
+<figure id="FigSTLExportWindow">
+<img src="../img/Window_StlExport.png" alt="">
+<figcaption>Figure: The STL-Export window (showing older options)</figcaption>
+</figure>
+
+<p>To export a whole solution at once, use <strong><em>Export Solution to STL</em></strong> on the
+<em>Solver</em> tab instead: it writes one file per distinct piece, named after
+the shape, so a complete piece set is a single click away.</p>
+<h3 id="hollow-shapes">Hollow Shapes</h3>
+<p>There are mainly 2 different exporters. One for the sphere puzzles and one for
+all other polygon based puzzles.</p>
+<p>When creating spheres you can simply create hollow shapes by giving the inner
+radius a value that is different from zero. The resulting shapes will
+automatically have a lot of holes that connect the inside and the outside.
+Those holes will be symmetrically placed and they are in places on the sphere
+where they normally don&rsquo;t interfere with solving.</p>
+<p>For polygon based puzzles what you model is what you get: the export follows
+the voxels of the shape and chamfers all of its outer edges. (The old tube
+feature, with wall thickness, tube size and holes drilled by shift-clicking
+faces, has been removed in favour of the chamfer mesher.)</p>
+<h3 id="parameters">Parameters</h3>
+<p>The following parameters control the generated shape and file.</p>
+<p><strong><em>Filename</em></strong> and <strong><em>Path</em></strong> control the name and path of the generated file.
+Those are common parameters for all grids. New exports default to the folder
+the puzzle was loaded from.</p>
+<p><strong><em>Binary STL:</em></strong> controls whether a binary or a text STL file is created.
+Normally binary files are the right choice because they are much more compact.
+But sometimes it might be useful to use the text form. For example when you
+want to see what is going on in the inside of an STL file, or when your
+printing service has problems with the binary file.</p>
+<p>For polyhedron based grids there are the following parameters that control the
+shape of the generated pieces. All sizes are in output units.</p>
+<ul>
+<li><strong><em>Unit Size:</em></strong> controls the base length of the created voxels. <strong><em>Unit Size Y</em></strong> and <strong><em>Unit Size Z</em></strong> allow different sizes in the other
+  directions for non-cubic pieces; leaving them at zero uses the base size
+  everywhere.</li>
+<li><strong><em>Bevel:</em></strong> controls the size of the chamfer on the outer edges of the
+  piece. Chamfered edges print more cleanly and assemble more smoothly than
+  razor-sharp voxel edges.</li>
+<li><strong><em>Offset:</em></strong> allows a gap between the pieces, so that it is actually
+  possible to assemble them. If the shapes were made to correct sizes they
+  would touch, making movement impossible.</li>
+<li><strong><em>Interior chamfers:</em></strong> also chamfers the concave (inner) edges of the
+  piece, not just the outer ones. Turn it off if your printer struggles with
+  the extra geometry.</li>
+</ul>
+<p>Coplanar faces are always merged into larger triangles, which keeps the files
+much smaller while staying watertight.</p>
+<p>For spheres the parameters are as follows:</p>
+<ul>
+<li><strong><em>Sphere radius:</em></strong> controls the gap between the centres of the single
+  spheres. It also is the maximum radius the spheres can have. This value is in
+  output units</li>
+<li><strong><em>Connection radius:</em></strong> controls the radius of the connection cylinder
+  between the spheres. As the spheres mathematically only touch in one point
+  connectors need to be added. Those connectors are cylinders. The radius of
+  those cylinders can maximally be so that they touch one another. If this value
+  is 1 then the cylinders have their maximal radius, 0 would mean no connection.</li>
+<li><strong><em>Curvature radius:</em></strong> controls the radius of the transition between sphere
+  surface and cylinder surface. If this value is 0 no transition is done and
+  there will be a bend in the surface. If the value is 1 the maximally possible
+  area will be used to go from sphere surface to cylinder surface. When there is
+  only little or no space for the transition (e.g. when the connection radius is
+  close to 1) there might be a bend, even when this value is close to 1.</li>
+<li><strong><em>Offset:</em></strong> just like with the other grids this makes the spheres smaller
+  to make the puzzle actually assembable. This is in output units. Keep the
+  values small if you want to have working puzzles. Most puzzles might not even
+  require a value larger than zero. But you can get cool mathematical objects
+  with a bigger offset</li>
+<li><strong><em>Recursions:</em></strong> controls the number of used triangles to approximate the
+  surfaces. A value one bigger will result in approximately 4 times as many
+  triangles and accordingly smoother surface but also bigger STL files. Don&rsquo;t
+  make it too big as it will result in long calculation times and huge files!
+  Normally a value of 3 or 4 is enough.</li>
+<li><strong><em>Inner radius:</em></strong> controls the radius of the hole inside the sphere. This
+  radius must be smaller than the sphere radius from above. The difference of
+  these 2 values defines the wall thickness of the sphere. The Offset is
+  applied to both values in the same way so that the wall thickness stays
+  constant.</li>
+<li><strong><em>Hole diameter:</em></strong> controls the diameter of the hole that connects the void
+  inside the sphere with the outside world. If you leave that value 0 the
+  inside of the sphere will be completely surrounded by the sphere itself and
+  material inside the sphere can not get out. Depending on the printing process
+  that might not be a wise choice.</li>
+<li><strong><em>Square Hole:</em></strong> the hole from above can be round or square. This is mainly
+a matter of taste, so make your choice.</li>
+</ul>
+<nav class="pager"><a href="../solving/">← Solving Puzzles</a><a href="../scripting/">Scripting with Python →</a></nav>
+</main>
+<footer class="site">
+  BurrTools user guide — sources: <a href="https://github.com/burr-tools/burr-tools.github.io/tree/master/guide">Markdown</a>
+</footer>
+</body>
+</html>

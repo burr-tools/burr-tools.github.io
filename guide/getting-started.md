@@ -334,8 +334,8 @@ see that each solution uses 2 identical pieces but the 2 solutions each use
 mirror shapes of one another.
 
 <figure id="FigMirrorParadoxExample">
-<img src="../guide/img/MirrorParadox1.png" alt="">
-<img src="../guide/img/MirrorParadox2.png" alt="">
+<img src="img/MirrorParadox1.png" alt="">
+<img src="img/MirrorParadox2.png" alt="">
 <figcaption>Figure: Pieces, Resuls and solutions for a Puzzle</figcaption>
 </figure>
 

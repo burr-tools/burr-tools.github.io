@@ -19,7 +19,7 @@ a series of buttons to direct the solving process. Finally, some information on
 the ongoing solving process is presented.
 
 <figure id="FigSolver">
-<img src="../guide/img/Window_DDD_3.png" alt="">
+<img src="img/Window_DDD_3.png" alt="">
 <figcaption>Figure: Solving puzzles</figcaption>
 </figure>
 
@@ -184,7 +184,7 @@ often that the figure starts with ages and millennia and then the solving is
 finished within a few seconds, so be careful not to give up too soon.
 
 <figure id="FigSolverInformation">
-<img src="../guide/img/SolverProgress.png" alt="">
+<img src="img/SolverProgress.png" alt="">
 <figcaption>Figure: The solver information</figcaption>
 </figure>
 
@@ -293,7 +293,7 @@ placement tried, you have to either initialise a manual search (click the
 the assembler has finished its work.
 
 <figure id="FigPlacementBrowser">
-<img src="../guide/img/Window_Placements.png" alt="">
+<img src="img/Window_Placements.png" alt="">
 <figcaption>Figure: Placement browser</figcaption>
 </figure>
 
