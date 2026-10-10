@@ -9,3 +9,11 @@ change the Markdown chapters in `guide/*.md` and rebuild the HTML:
 
 Commit both the `.md` sources and the generated HTML. Images for the
 guide live in `guide/img/`; homepage grid screenshots in `images/shots/`.
+
+To preview locally (needed: `file://` has no directory-index fallback,
+so per-chapter `index.html` pages only resolve over HTTP):
+
+    python3 -m http.server -d /path/to/burr-tools.github.io 8000
+    # homepage:  http://localhost:8000/
+    # guide:     http://localhost:8000/guide/
+    # a chapter: http://localhost:8000/guide/shapes/
