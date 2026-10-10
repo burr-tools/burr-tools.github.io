@@ -1,437 +1,494 @@
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="./styles/formate.css">
-    <link rel="shortcut icon" href="images/burricons.ico">
-    <title>Burr Tools</title>
-  </head>
-  <body>
-    <a name='top'>
-      <table width=90% align=center class='border'>
-        <tr>
-          <td class='wrow'><!--Hauptteil der Seite-->
-            <h1>Burr Tools</h1>
-            <p>
-            This (set of) program(s) will help you solve a certain kind of puzzle. Namely puzzles that
-            are made out "glued" together basic units. As basic units the program currently supports:
-            square or dice shaped units, spheres, prisms with an equilateral triangle as base
-            or 2 grids that use tetrahedra.
-            <p>
-            The problem of the puzzle must be to assemble them into a certain shape. An additional
-            constraint says that the pieces within the result shape must again aligned relative to the
-            grid of the basic unit.
-            <p>
-            To whet your appetite here are some screenshots that show off all the important features of the
-            program. If you click the images a normal sized version of the window will be loaded.
-            <p>
-            <table width='90%' align=center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BurrTools — design, solve and take apart interlocking puzzles</title>
+<meta name="description" content="BurrTools designs, solves and analyses 3D interlocking burr puzzles. Free and open source for macOS, Windows and Linux.">
+<link rel="shortcut icon" href="images/burricons.ico">
+<style>
+  :root {
+    --bg: #16130f;
+    --bg2: #1e1a14;
+    --card: #241f17;
+    --card2: #2b2419;
+    --ink: #f2ead9;
+    --dim: #b3a78e;
+    --faint: #7d7461;
+    --accent: #f0a832;
+    --accent2: #e2682a;
+    --line: #3a3226;
+    --good: #9ccc65;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); }
+  a:hover { color: #ffd080; }
 
-              <colgroup>
-                <col width="1*">
-                <col width="1*">
-              </colgroup>
+  /* ---------- top nav ---------- */
+  nav {
+    display: flex; align-items: center; gap: 22px;
+    padding: 14px 28px; max-width: 1460px; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+  .brand img { width: 34px; height: 34px; }
+  .brand b { font-size: 20px; letter-spacing: 0.5px; }
+  .brand small { color: var(--faint); font-size: 12px; display: block; line-height: 1.2; }
+  nav .links { margin-left: auto; display: flex; gap: 4px; flex-wrap: wrap; }
+  nav .links a {
+    color: var(--dim); text-decoration: none; font-size: 15px;
+    padding: 8px 12px; border-radius: 8px;
+  }
+  nav .links a:hover { color: var(--ink); background: var(--card); }
+  nav .links a.cta {
+    background: var(--accent); color: #221a08; font-weight: 650;
+  }
+  nav .links a.cta:hover { background: #ffbe55; color: #221a08; }
 
-              <tr>
-                <td align=center valign=top class='light'><a href='images/shape2.png'><img class=big src='images/shape2_th.png'></a>
-                  <br>This image shows the window in shape editing mode editing one of the pieces of the example
-                  puzzle "Broken Sticks". It uses the anaglyph mode for red-cyan/blue glasses</td>
-                <td align=center valign=top class='dark'><a href='images/problem2.png'><img class=big src='images/problem2_th.png'></a>
-                  <br>This image displays the window in problem editing mode. It shows the Puzzle "Draculas Dental Desaster"
-                  designed by Ronald Kint Bruynseels which is included as an example</td>
-              </tr>
-              <tr>
-                <td align=center valign=top class='dark'><a href='images/solution2.png'><img class=big src='images/solution2_th.png'></a>
-                  <br>This image shows the window in solution mode. It shows "More MazeN Cube" by Derek Bosch"</td>
-                <td align=center valign=top class='light'><a href='images/export.png'><img class=big src='images/export_th.png'></a>
-                  <br>This image contains the image export window one of "Interlocking Puzzle"s truncated octahedrons, a puzzle
-                  using the tetra-octa grid.</td>
-              </tr>
-              <tr>
-                <td align=center valign=top class='light'><a href='images/triangles.png'><img class=big src='images/triangles_th.png'></a>
-                  <br>This image shows the example puzzle with the triangle grid: "Bermuda" designed by Bill Cutler</td>
-                <td align=center valign=top class='dark'><a href='images/spheres.png'><img class=big src='images/spheres_th.png'></a>
-                  <br>And one example with the sphere grid: "Ball Room" by Stewart Coffin</td>
-              </tr>
-              <tr>
-                <td align=center valign=top class='dark'><a href='images/rhombic.png'><img class=big src='images/rhombic_th.png'></a>
-                  <br>Finally an example with the rhombic grid. Again a puzzle designed by Stewart Coffin: "Permutated 
-                  Third Stellation"</td>
-                <td align=center valign=top class='light'><a href='images/stlSpheres.png'><img class=big src='images/stlSpheres_th.png'></a>
-                  <br>This shows the stl export window for a sphere piece. You can see the rounded connections
-                  between spheres</td>
-              </tr>
-              <tr>
-                <td align=center valign=top class='dark'><a href='images/stlRhombic.png'><img class=big src='images/stlRhombic_th.png'></a>
-                  <br>And of course you can also export the shapes of all other space grids. This is a piece of the example puzzle
-                  "Pieces of Eight" designed by Stewart Coffin</td>
-              </tr>
-            </table>
-            <p>There are also 2 videos available that show how a puzzle is entered and solved using
-            BurrTools. The puzzle that is used can be found 
-            <a href="http://www.asahi-net.or.jp/~rh5k-isn/Puzzle/ChocolateDipBurr">here<img src='images/extern.png'></a>.
-            The video is divided
-            into 2 parts. <a href="data/part1.avi">Part&nbsp;1<img src='images/extern.png'></a> contains 
-            the creation of the shapes and solves the puzzle the first time.
-            <a href="data/part2.avi">Part&nbsp;2<img src='images/extern.png'></a> adds colours to the shapes to make the
-            puzzle complete and the solution unique. The files are 2 and 1.5MBytes big.
-            <p>
-            You can also find a <a href="data/rdTutorial.pdf">tutorial<img src='images/extern.png'></a> made by Lee Krasnow that explains the Rhombic Grid.
-            <p>
-            So what are the features
-            <ul>
-              <li>Does nearly all that PuzzleSolver 3D which is
-              <ul>
-                <li>You can enter all puzzles that are assembled out of dice shaped units
-                <li>Find assemblies for you puzzle
-                <li>Disassemble the found assemblies
-                <li>Show everything in a 3 dimensional image
-                <li>Animate how the puzzle has to be assembled
-                <li>Toggle the visibility of pieces in the solution to have a look at the inner workings of
-                    a puzzle. This is especially helpful for box packing puzzles
-              </ul>
-              <li>Runs on Windows, OSX, Linux, FreeBSD and probably other Unix variants as well.
-              <li>Has several different grids (Cubes, Triangles, Spheres, Rhombics)
-              <li>You can specify which cubes to fill and which can be empty or full. PuzzleSolver 3D has
-                  only 2 modes. Either all cubes may be left empty in the solution, or the cubes that have
-                  an empty neighbour must be filled. BurrTools are more flexible here.
-              <li>More than one problem in one file (e.g. have several Soma Cube problems in the
-                  same file)
-              <li>Constraints to piece placements (like checkerboard)
-              <li>Group pieces together to tell the disassembler that they don't need to be taken apart.
-                  This is necessary for puzzles like "Cube In Cage" where the cage can not be taken apart
-                  but has 3 movable pieces
-              <li>No limits (or at least very high limits) to sizes and number of shapes. As long as your 
-                  computer has the memory and
-                  you the patience the program will do it for you, even if it takes aeons.
-              <li>Create <a href="images/imageexportexample.png">images<img src='images/extern.png'></a> 
-                  that contain the pieces, or an instruction how to assemble the puzzle, or create
-                  vector images for further processing
-              <li>Create files suitable for STL aware hard and software (e.g. 3D printer)
-              <li>Free as in beer. It doesn't cost you anything
-              <li>Free as in speech. The source is available, so you can do your own programming
-                  or help me writing this software or even continue improving the program in case 
-                  I have to stop working on it.
-              <li>Save puzzles with solutions in compressed XML-files. This allows you to create
-                  puzzles with other means (like your own burrgrower, ...)
-              <li>A library is provided that helps you to write your own software for puzzle
-                  design and analysis
-              </ul>
+  /* ---------- main two-column layout ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(16px, 1fr) minmax(0, 740px) minmax(16px, 1fr);
+    gap: 0 28px;
+    max-width: 1700px; margin: 0 auto; padding: 0 0 40px;
+  }
+  .content { grid-column: 2; min-width: 0; }
+  .stage {
+    grid-column: 3; grid-row: 1;
+    align-self: start; justify-self: center;
+    position: sticky; top: 20px;
+    width: 100%; max-width: 340px;
+    display: flex; flex-direction: column; gap: 8px;
+    padding: 8px 0 16px;
+  }
+  #view {
+    width: 100%; aspect-ratio: 1 / 1;
+    overflow: hidden; position: relative;
+  }
+  #view canvas { width: 100%; height: 100%; display: block; }
+  #view .tag {
+    position: absolute; top: 12px; left: 12px;
+    background: #000a; border: 1px solid var(--line); border-radius: 999px;
+    font-size: 13px; color: var(--dim); padding: 4px 12px;
+    pointer-events: none;
+  }
+  #view .tag b { color: var(--accent); font-weight: 650; }
 
-            <p>I've been asked many times why I don't sell the program. For
-            those that are interested 
-            <A HREF="why-free.html">here<img src='images/extern.png'></A>
-            I put up a small text explaining it.
+  /* ---------- content sections ---------- */
+  .hero { padding: 34px 0 6px; }
+  .kicker {
+    display: inline-block; font-size: 13px; font-weight: 650; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px;
+    background: var(--card); margin-bottom: 18px;
+  }
+  h1 { font-size: clamp(34px, 4.4vw, 54px); line-height: 1.08; margin: 0 0 16px; letter-spacing: -0.5px; }
+  h1 .em { color: var(--accent); }
+  .lede { font-size: 19px; color: var(--dim); max-width: 56ch; margin: 0 0 24px; }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 650; font-size: 16px;
+    padding: 12px 22px; border-radius: 12px; border: 1px solid transparent;
+  }
+  .btn.primary { background: var(--accent); color: #221a08; }
+  .btn.primary:hover { background: #ffbe55; }
+  .btn.ghost { border-color: var(--line); color: var(--ink); background: var(--card); }
+  .btn.ghost:hover { border-color: var(--accent); }
+  .scrollhint { color: var(--faint); font-size: 14px; }
+  .scrollhint span { display: inline-block; animation: bob 1.8s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(5px); } }
 
-            <h2>Documentation</h2>
-            <p>
-            To learn more about BurrTools you can read an online version of the user guide and the library
-            documentation. The user guide documentation is also available as a PDF below in the download
-            section and as help inside the program.
-            <p>
-            The library documentation explains the library interface and can be generated from the source
-            code of the library using doxygen. This documentation is mainly for people wanting to use the
-            library and only of limited use for those who only want to use the GUI part of BurrTools.
-            <p>
-            Both documents are always for the latest release and will be updated with each release.
-            <p>
-            Click <a href="https://burrtools.sourceforge.net/gui-doc/toc.html">here</a> for the user guide and <a href="https://burrtools.sourceforge.net/lib-doc/index.html">here</a> for the
-            library documentation.
+  section.block { padding: 26px 0 6px; }
+  section.block h2 { font-size: 26px; margin: 0 0 6px; letter-spacing: -0.3px; }
+  section.block .sub { color: var(--dim); margin: 0 0 18px; max-width: 62ch; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 16px 18px;
+  }
+  .card h3 { margin: 0 0 6px; font-size: 17px; }
+  .card h3 .ico { margin-right: 8px; }
+  .card p { margin: 0; color: var(--dim); font-size: 14.5px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 0; padding: 0; list-style: none; }
+  .chips li {
+    background: var(--card2); border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 16px; font-size: 14.5px; color: var(--ink);
+  }
+  .dl { display: grid; gap: 12px; }
+  .dl .card { display: flex; gap: 16px; align-items: flex-start; }
+  .dl .os {
+    flex: none; width: 46px; height: 46px; border-radius: 12px;
+    background: var(--card2); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
+  }
+  .dl h3 { margin: 0 0 4px; }
+  .dl p { margin: 0 0 8px; }
+  code {
+    background: #100d09; border: 1px solid var(--line); border-radius: 6px;
+    padding: 1px 7px; font-size: 0.88em; color: #ffd9a0;
+  }
+  pre {
+    background: #100d09; border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 16px; overflow-x: auto; font-size: 14px; color: #ffd9a0;
+  }
+  .news { display: grid; gap: 12px; }
+  .news article { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .news h3 { margin: 0 0 4px; font-size: 17px; }
+  .news time { color: var(--faint); font-size: 13px; }
+  .news ul { margin: 8px 0 0; padding-left: 20px; color: var(--dim); font-size: 14.5px; }
+  footer.site {
+    max-width: 1460px; margin: 0 auto; padding: 26px 28px 60px;
+    color: var(--faint); font-size: 14px;
+  }
+  footer.site .cols { display: flex; gap: 28px; flex-wrap: wrap; }
+  footer.site .cols div { flex: 1 1 220px; }
 
-            <h2>News</h2>
+  /* ---------- narrow screens: viewer stacks on top ---------- */
+  @media (max-width: 1200px) {
+    .layout { display: flex; flex-direction: column; padding: 0 16px 30px; }
+    .content { order: 2; max-width: none; }
+    .stage {
+      order: 1; width: min(100%, 380px); max-width: none; margin: 0 auto;
+      position: sticky; top: 0; z-index: 5;
+      background: var(--bg); padding: 8px 0;
+    }
+    nav { padding: 12px 16px; }
+  }
+</style>
+</head>
+<body>
 
-            <table width=90% align=center>
-              <tr>
-                <td colspan=2 class='head'>News</td>
-              </tr>
-              <tr class='dark'><!--Beginn Eintrag in den News-->
-                <td valign=top>29.10.2025</td>
-                <td>
-                  <p>BurrTools 0.7.0 has been released! This is a major update with significant improvements:
-                  <ul>
-                    <li><b>Build System Modernization:</b> Complete switch from autotools to Meson build system
-                    <li><b>Platform Support:</b> Improved macOS compatibility, Windows cross-compilation support, automated CI/CD builds for Linux, Windows, and macOS
-                    <li><b>Modern Compiler Support:</b> Fixed compilation with GCC 9-15 and C++17 standard
-                    <li><b>Updated Dependencies:</b> Upgraded to FLTK 1.4.4, libpng 1.6.50, and zlib 1.3.1
-                    <li><b>Bug Fixes:</b> Fixed Lua infinite loop, macOS Retina/HighDPI rendering, Windows terminal window issue
-                    <li><b>Code Quality:</b> Hundreds of compiler warnings fixed, deprecated features removed
-                  </ul>
-                  <p>See the <a href="https://github.com/burr-tools/burr-tools/releases/tag/v0.7.0">full release notes<img src='images/extern.png'></a> for details.
-                </td>
-              </tr>
-              <tr class='light'><!--Beginn Eintrag in den News-->
-                <td valign=top>09.05.2013</td>
-                <td>
-                  <p>BurrTools 0.6.3 has been released this is a bugfix
-                  release. Two bugs have been fixed
-                  <ul>
-                    <li>Fix a problem that made BurrTools find an
-                    unpredictable amount of solutions when you started a new
-                    puzzle and solved it. When a saved puzzles was loaded the
-                    number of solutions was right
-                    <li>Fix a problem with the rotated solution removal when
-                    using a set of pieces including some mirror pairs and when
-                    not all pieces were used in all solutions
-                  </ul>
-                </td>
-              </tr>
-              <tr class='light'><!--Beginn Eintrag in den News-->
-                <td valign=top>23.07.2011</td>
-                <td>
-                  <p>BurrTools 0.6.2 has been released this is a bugfix
-                  release. Two bugs have been fixed
-                  <ul>
-                    <li>Fix a problem with the "expensive rotation check". The
-                    check returns the wrong number of results when piece
-                    ranges are used.
-                    <li>Fix a crash when removing pieces from problems that
-                    already contain solutions.
-                  </ul>
-                </td>
-              </tr>
-              <tr class='dark'><!--Beginn Eintrag in den News-->
-                <td valign=top>12.02.2011</td>
-                <td>
-                  <p>BurrTools 0.6.1 has been released this is mainly a bugfix
-                  release fixing 2 nasty bugs:
-                  <ul>
-                    <li>STL export was broken, it sometimes crashed the
-                    program
-                    <li>The error message handling was broken, all error
-                    messages from the library were displayed as meaningless
-                    texts with a lot of zeros in there
-                  </ul>
-                </td>
-              </tr>
-              <tr class='light'><!--Beginn Eintrag in den News-->
-                <td valign=top>10.10.2010</td>
-                <td>
-                  <p>I want to use this nice date to announce that version 0.6.0 has been released. This version has the
-                  following new features:
-                  <ul>
-                    <li>completely rewritten STL-export- and OpenGL-display-code, they do now share a
-                    common base. With this come the following features:
-                    <ul>
-                      <li>STL export for all grids, including hollow shapes for all grids
-                      <li>STL export preview in the STL export window, you see exactly what the STL
-                      shape looks like
-                      <li>for the programmers: it has become simpler to support new grids all polygon
-                      based grids now can create proper STL output and code for the 3D display
-                      much easier, grids like the spheres stay complicated, though
-                      <li>bigger sensitive click spots for spheres, they also look better
-                      <li>in the 3D view you can see the natural color and the color constraint color
-                    </ul>
-                    <li>improved STL export window (tooltips, ...)
-                    <li>STL export displays the exact volume of the generated object
-                    <li>add a new way how objects are rotated in the 3-D viewer
-                  </ul>
+<nav>
+  <a class="brand" href="#">
+    <img src="images/burrtools-32.png" alt="" onerror="this.style.display='none'">
+    <span><b>BurrTools</b><small>interlocking puzzle lab</small></span>
+  </a>
+  <div class="links">
+    <a href="#features">Features</a>
+    <a href="#download">Download</a>
+    <a href="#docs">Docs</a>
+    <a href="#news">News</a>
+    <a href="https://github.com/burr-tools/burr-tools">GitHub</a>
+    <a class="cta" href="https://github.com/burr-tools/burr-tools/releases/latest">Get BurrTools</a>
+  </div>
+</nav>
 
-                  <p>This version also fixes a few problems:
-                  <ul>
-                    <li>fix a problem loading puzzle files with complex groups
-                    <li>deleting the last shape crashed the program
-                    <li>make compilabe with gcc-4.4 and fltk-1.3
-                  </ul>
+<div class="layout">
+  <div class="content">
 
-                  <p>I want to thank Derek Bosch for his help in this release.
-                  Although we had to start over twice he managed in the end to
-                  come up with the bevel and offset code required for the STL
-                  export.
-                </td>
-              </tr>
-              <tr class='dark'><!--Beginn Eintrag in den News-->
-                <td valign=top>22.10.2009</td>
-                <td>
-                  <p>Version 0.5.2 has been released. This version is another bug-fix
-                  release. But it also contains 2 small but nice new features:
-                  <ul>
-                    <li>STL export of hollow spheres. It is now possible to
-                    generate hollow sphere for the 3d printer, saving you a
-                    lot of volume and costs. Thanks to George Bell for this
-                    feature.
-                    <li>Improvements to the movement browser: in the cube grid
-                    you can now push and pull pieces around by clicking onto
-                    their faces and holding the Shift or Ctrl key down. Thanks
-                    to Barry Downes for this feature.
-                  </ul>
+    <div class="hero">
+      <span class="kicker">Free &amp; open source · macOS · Windows · Linux</span>
+      <h1>Design, solve and <span class="em">take apart</span> interlocking puzzles.</h1>
+      <p class="lede">BurrTools finds assemblies for burr-type puzzles, analyses how they come
+      apart move by move, and shows everything in 3D — from classic six-piece burrs to
+      12-piece monsters like <b>Derek&rsquo;s Dozen</b>, shown here.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://github.com/burr-tools/burr-tools/releases/latest">Download BurrTools</a>
+        <a class="btn ghost" href="https://burr-tools.github.io/burr-tools/">API documentation</a>
+      </div>
+      <p class="scrollhint"><span>↓</span> &nbsp;Keep scrolling — the puzzle disassembles as you read.</p>
+    </div>
 
-                  This version also fixes the following problems:
+    <section class="block" id="features">
+      <h2>What it does</h2>
+      <p class="sub">Enter a puzzle, let the solver find every assembly, then watch the
+      disassembler pull each one apart — level by level, move by move.</p>
+      <div class="cards">
+        <div class="card"><h3><span class="ico">🧩</span>Assembly solver</h3><p>Finds all ways to fit your pieces into the target shape — multi-core SIMD search, up to 270× faster in 0.8.</p></div>
+        <div class="card"><h3><span class="ico">🔓</span>Disassembler</h3><p>Proves each assembly can be taken apart and animates every move of the sequence.</p></div>
+        <div class="card"><h3><span class="ico">🎲</span>Six grid types</h3><p>Cubes, spheres, triangles, rhombic, tetra-octahedral and more — not just dice.</p></div>
+        <div class="card"><h3><span class="ico">🖥️</span>3D workbench</h3><p>Edit shapes, problems and colours with full undo/redo and View Cube navigation, anaglyph stereo and animation export.</p></div>
+        <div class="card"><h3><span class="ico">🖨️</span>3D-print export</h3><p>Watertight chamfered STL output for every grid, with preview, exact volume readout and batch solution export.</p></div>
+        <div class="card"><h3><span class="ico">📜</span>Library &amp; scripts</h3><p>A C++ library, Python bindings and compressed XML files for your own tooling.</p></div>
+      </div>
+    </section>
 
-                  <ul>
-                    <li>With some sphere puzzles BurrTools left in some
-                    rotations, leaving you with too many solutions. Thanks to
-                    ISHINO to give me a simple problem to investigate this
-                    problem. Also thanks to Joe Becker who thought that there
-                    was a problem but could not give me a simple example.
-                    <li>Fix a bug when importing sphere shapes from assemblies.
-                    This but caused a crash nearly every time you tries to do
-                    that.
-                    <li>Fix a bug in STL export for cubes that caused the
-                    generation of faulty STL files with some cube
-                    arrangements. Thanks to Derek Bosch for the fix.
-                  </ul>
-                </td>
-              </tr>
-              <tr class='light'><!--Beginn Eintrag in den News-->
-                <td valign=top>29.4.2009</td>
-                <td>
-                  <p>Version 0.5.1 has been released. This version is a bug-fix
-                  release. It fixes 4 problems, some of them rather important, so please update.
-                  <ul>
-                    <li>Fix a problem in the new expensive rotation check
-                    functionality that resulted in too few solutions
-                    <li>Fix a rounding bug that happened when transforming
-                    sphere shapes that resulted in too few solutions
-                    <li>Fix a crash when opening the status window with sphere
-                    puzzles
-                    <li>Deactivate movement browser when not available.
-                    Opening it in those situations caused a crash
-                    <li>Fix a possible crash when minimizing shapes
-                    <li>Documentation updates
-                  </ul>
-                </td>
-              </tr>
-              <tr class='dark'><!--Beginn Eintrag in den News-->
-                <td valign=top>5.4.2009</td>
-                <td>
-                  <p>Version 0.5.0 has been released.
-                  <p>This is a major new release with a ton of new features
-                  <p>But before we start with the features I want to mention an important bug-fix.
-                  Joe Becker found this one. When you use piece ranges and assigned different
-                  ranges to the 2 pieces of a mirror pair of pieces versions prior to this may
-                  loose solutions, so I really urge you to update.
-                  <p>But now finally let's start with the features. Again BurrTools learned a new
-                  grid. The new grid is based on tetrahedra and octahedrons. With this grid you
-                  can analyse the tetrahedra-puzzles form Interlocking Puzzles. I want to thank
-                  Wayne Daniel who provided me with 2 example puzzles to test the new
-                  functionality.
-                  <p>Another great new feature is a disassembler for the triangle grid. You can not
-                  analyse disassembly sequences for those puzzles. Be aware though that
-                  coordinated motion moves are not supported by now.
-                  <p>Also the printable manual has returned and it is better than ever. BurrTools
-                  still contains the on-line help but if you want a proper manual you can
-                  download that manual formatted for A4 or letter paper format. The size of the
-                  manual has also reached more than 100 pages. It covers all the features of
-                  BurrTools and contains a lot of hints and usage examples to make life easier.
-                  <p>BurrTools now contains some features that can be used for piece generation. It
-                  has become very easy to create all shapes that fulfil a certain property. It
-                  will probably not help in all situations but many tedious manual tasks can be
-                  simplified a lot. For that tasks I also speed up the status window
-                  calculations by a huge amount.
-                  <p>While we are talking about speed up. I replaced the sorting algorithm that
-                  sorted solutions by a usable method. If you had more than a few solutions the
-                  old algorithm was way too slow. I also replaced the whole save and load code.
-                  The file format stayed the same but internally everything has changed. The new
-                  code is much much faster. It also requires much less memory. This can be
-                  important for big puzzles. The old code might fail to save an analysis because
-                  it ran out of memory. This will no longer happen.
-                  <p>I also optimized the disassembler to require less memory. It is now possible
-                  to analyse disassembly of puzzles with many more internal states. I also
-                  removed that stupid 256 piece limitation for the disassembler, so you can now
-                  analyse puzzles with lots and lots of shapes.
-                  <p>Besides these bigger improvements there are a lot of smaller things
-                  <ul>
-                    <li>add scrollwheel support for 3D view zoom
-                    <li>millability and notchability in status window
-                    <li>fix potential symmetry calculation problem with the rhombic grid
-                    <li>different config file format, the old one is thrown away)
-                    <li>fix a cursor drawing bug in the rhombic grid
-                    <li>converter from cube to rhombic grid and from cube to tetra-octa grid
-                    <li>add a simple movement browser to analyse the movements of pieces in an
-                    assembled puzzle
-                  </ul>
+    <section class="block" id="puzzles">
+      <h2>Ships with example puzzles</h2>
+      <p class="sub">Dozens of ready-to-open classics are bundled with every download, e.g.:</p>
+      <ul class="chips">
+        <li>Derek&rsquo;s Dozen</li><li>Pelikan Burr</li><li>Cube in Cage</li>
+        <li>Ball Room</li><li>Bermuda</li><li>Broken Sticks</li><li>Burr-Glar</li>
+      </ul>
+      <p class="sub" style="margin-top:12px"><a href="https://github.com/burr-tools/burr-tools/tree/master/examples">Browse all examples on GitHub</a></p>
+    </section>
 
-                  <p>One final remark. I will no longer support the windows installer. I can not
-                  test that part of BurrTools on my computer. Lately I found out that there has
-                  been a bug in the installer that has been there for a very long time and no
-                  one cared to tell me. As I don't like to give out faulty software I will no
-                  longer support that feature. You will have to live with the ZIP-archive. I
-                  can look into the ZIP file and check everything is all right.
-                </td>
-              </tr>
-              <tr class='light'><!--Beginn Eintrag in den News-->
-                <td valign=top></td>
-                <td>
-                  <p>Older news can be found <a href="old-news.html">here</a><img src='images/extern.png'>
-                </td>
-              </tr>
-            </table>
+    <section class="block" id="download">
+      <h2>Download</h2>
+      <p class="sub">Grab the latest release for your platform:</p>
+      <div class="dl">
+        <div class="card">
+          <div class="os">🍎</div>
+          <div><h3>macOS <small style="color:var(--faint)">Apple Silicon</small></h3>
+          <p>Open the <code>.dmg</code>, drag the app to Applications, then clear the quarantine flag once:</p>
+          <pre>xattr -cr /Applications/BurrTools.app</pre>
+          <a href="https://github.com/burr-tools/burr-tools/releases/latest">Download for macOS</a></div>
+        </div>
+        <div class="card">
+          <div class="os">🪟</div>
+          <div><h3>Windows <small style="color:var(--faint)">64-bit</small></h3>
+          <p>Unpack the <code>-windows-x86_64.zip</code> archive and run <code>burrtools.exe</code>.</p>
+          <a href="https://github.com/burr-tools/burr-tools/releases/latest">Download for Windows</a></div>
+        </div>
+        <div class="card">
+          <div class="os">🐧</div>
+          <div><h3>Linux <small style="color:var(--faint)">64-bit</small></h3>
+          <p>Unpack the <code>-linux-x86_64.tar.gz</code> archive and run <code>./burrtools</code>.</p>
+          <a href="https://github.com/burr-tools/burr-tools/releases/latest">Download for Linux</a></div>
+        </div>
+        <div class="card">
+          <div class="os">🧰</div>
+          <div><h3>Source code</h3>
+          <p>Build with Meson + Ninja; see <code>BUILD.md</code>. The command-line solvers
+          <code>burrTxt</code>/<code>burrTxt2</code> ship inside the Linux and Windows archives.</p>
+          <a href="https://github.com/burr-tools/burr-tools">burr-tools/burr-tools on GitHub</a></div>
+        </div>
+      </div>
+    </section>
 
-            <h2>Download</h2>
+    <section class="block" id="docs">
+      <h2>Documentation</h2>
+      <p class="sub">The user guide walks from your first shape to printed pieces —
+      revised for 0.8 in 2026. For the library interface, read the
+      Doxygen API reference — regenerated from <code>master</code> on every push:</p>
+      <div class="btns">
+        <a class="btn ghost" href="guide/">📖 User guide</a>
+        <a class="btn ghost" href="https://burr-tools.github.io/burr-tools/">📚 API reference</a>
+      </div>
+    </section>
 
-            <table width=70% align=center>
-              <tr><td colspan=2 class='head'>Version</td></tr>
-              <tr class='light'><!--Beginn Eintrag in den News-->
-                <td valign=top>
-                  <p><a href="https://github.com/burr-tools/burr-tools/releases">Releases</a><img src='images/extern.png'>
-                </td>
-                <td>
-                  The latest development builds for Windows, MacOS, and Linux.
-                </td>
-              </tr>
-              <tr class='dark'><!--Beginn Eintrag in den News-->
-                <td valign=top>
-                  <p><a href="https://github.com/burr-tools/burr-tools/archive/refs/heads/master.zip">Source Code</a><img src='images/extern.png'>
-                </td>
-                <td>
-                  The latest source code as a ZIP archive.
-                </td>
-              </tr>
-              <tr class='light'><!--Beginn Eintrag in den News-->
-                <td valign=top>
-                  <p><a href="https://sourceforge.net/projects/burrtools/files/">Older Releases (pre-2014)</a><img src='images/extern.png'>
-                </td>
-                <td>
-                  SourceForge has older releases including for macOSX.
-                </td>
-              </tr>
-            </table>
+    <section class="block" id="news">
+      <h2>News</h2>
+      <div class="news">
+        <article>
+          <time>9 Oct 2026</time>
+          <h3>BurrTools 0.8.0 released</h3>
+          <ul>
+            <li>Multi-core solving plus a SIMD vector search core — up to 270× faster than 0.7.1, with identical results</li>
+            <li>Undo and redo across the whole editor, and a View Cube for snapping the 3D view around</li>
+            <li>Print-ready STL export with chamfered edges, batch export of all solution pieces, and an STL-accurate preview style</li>
+            <li>Python bindings, save/resume for long searches, check-for-updates, native file dialogs and menus</li>
+          </ul>
+          <p><a href="https://github.com/burr-tools/burr-tools/releases/tag/v0.8.0">Full release notes</a></p>
+        </article>
+        <article>
+          <time>Nov 2025</time>
+          <h3>BurrTools 0.7.1 released</h3>
+          <ul>
+            <li>Fixes the macOS build: aggressive symbol stripping broke the app binary</li>
+          </ul>
+          <p><a href="https://github.com/burr-tools/burr-tools/releases/tag/v0.7.1">Full release notes</a></p>
+        </article>
+        <article>
+          <time>2009 – 2025</time>
+          <h3>Earlier releases</h3>
+          <ul>
+            <li><b>0.7.0</b> (2025) — Meson build system, CI/CD binaries for all platforms, FLTK 1.4, Retina &amp; Gatekeeper fixes</li>
+            <li><b>0.6.3</b> (2013) — bugfix: solution counts with fresh puzzles, mirror-pair rotation check</li>
+            <li><b>0.6.2</b> (2011) — bugfix: rotation check with piece ranges, crash removing pieces</li>
+            <li><b>0.6.1</b> (2011) — bugfix: STL export crashes, garbled error messages</li>
+            <li><b>0.6.0</b> (2010) — rewritten STL export &amp; 3D display, hollow shapes, volume readout</li>
+            <li><b>0.5.2</b> (2009) — hollow-sphere STL export, movement browser improvements</li>
+            <li><b>0.5.1</b> (2009) — bugfix: rotation check, sphere rounding, crashes</li>
+            <li><b>0.5.0</b> (2009) — tetra-octahedron grid, triangle disassembler, movement browser</li>
+          </ul>
+        </article>
+        <p class="sub"><a href="old-news.html">News archive: versions 0.4.2 and older</a> · <a href="why-free.html">Why is it free?</a></p>
+      </div>
+    </section>
 
-            <h2>Contact</h2>
-            <p>You can make bug reports and feature requests on the
-            <a href="https://github.com/burr-tools/burr-tools/issues">issues page</a><img src='images/extern.png'>.
+    <section class="block" id="contact">
+      <h2>Contact &amp; credits</h2>
+      <p class="sub">Bug reports and feature requests go to the
+      <a href="https://github.com/burr-tools/burr-tools/issues">issues page</a>.
+      BurrTools was written by Andreas Röver, with major contributions from Ronald Kint-Bruynseels,
+      Derek Bosch, Bill Cutler — and algorithms standing on the shoulders of
+      Donald Knuth&rsquo;s dancing links. Thank you to all puzzle designers whose
+      creations ship as examples.</p>
+    </section>
 
-            <h2>Development</h2>
-            <p>
-            The repository is available at <a href="https://github.com/burr-tools/burr-tools">https://github.com/burr-tools/burr-tools</a>
-            <p>
+  </div><!-- /content -->
 
-            <h2>Credits</h2>
-            <p>My special thanks goes to the following people for continuing support or other help
-            <p>
-            <table width=90% align=center>
-              <tr class='light'>
-                <td align=center></td><td>
-                  <p>André van Kammen. His
-                  <a href='http://www.puzzle.cx/'>program (old link, no longer acitve...)</a><img src='images/extern.png'>
-                  has been a great inspiration. It has been the base for the GUI of BurrTools
-              </td></tr>
-              <tr class='dark'>
-                <td align=center></td><td>
-                  <p>Donald E. Knuth. His
-                  <a href='http://www-cs-faculty.stanford.edu/~knuth/musings.html'>dancing link</a><img src='images/extern.png'>
-                  algorithm is one base part of the program. Although it has now become modified by ideas from Wei-Hwa Huang
-              </td></tr>
-              <tr class='light'>
-                <td align=center></td><td>
-                  <p>Bill Cutler: His
-                  <a href='http://home.comcast.net/~billcutler/stock/booklet.html'>texts</a><img src='images/extern.png'>
-                  helped implementing the 2nd part of the core algorithm. And he also contributed other ideas.
-              </td></tr>
-              <tr class='dark'>
-                <td align=center></td><td>
-                  <p>Ronald Kint-Bruynseels: He is always a big source of ideas, he is beta tester, documentation writer
-                  GUI designer and usability improver, icon painter and what not all else. Without him BurrTools
-                  would not be what it is now.
-              </td></tr>
-              <tr class='light'>
-                <td align=center></td><td>
-                  <p>Derek Bosch: mainly responsible for the OSX port. But he also contributes the odd code snippet or even
-                  new feature here and there.
-              </td></tr>
-            </table>
-          </td>
-        </tr>
-      </table>
-    </a>
-  </body>
+  <aside class="stage">
+    <div id="view">
+      <canvas id="gl"></canvas>
+      <div class="tag" id="tag"><b>Derek&rsquo;s Dozen</b> · 12 pieces · scroll to disassemble</div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>BurrTools is free software under the GPL — free as in beer and as in speech.</div>
+    <div>Sources: <a href="https://github.com/burr-tools/burr-tools">code</a> ·
+    <a href="https://github.com/burr-tools/burr-tools.github.io">this site</a> ·
+    <a href="https://burr-tools.github.io/burr-tools/">API docs</a></div>
+  </div>
+</footer>
+
+<noscript><p style="text-align:center">This page needs JavaScript for the 3D puzzle viewer.</p></noscript>
+
+<script src="assets/js/three.min.js"></script>
+<script src="assets/js/OrbitControls.js"></script>
+<script src="assets/js/GLTFLoader.js"></script>
+<script src="assets/models/dereks_dozen.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var canvas = document.getElementById("gl");
+  var tagEl = document.getElementById("tag");
+
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0);   // borderless: blend into the page
+  } catch (e) {
+    tagEl.textContent = "3D viewer unavailable (WebGL missing).";
+    return;
+  }
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.12;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+  var scene = new THREE.Scene();
+  scene.add(new THREE.HemisphereLight(0xdfeaff, 0x33261f, 0.55));
+
+  var key = new THREE.DirectionalLight(0xfff1de, 1.35);
+  key.position.set(18, 26, 12);
+  key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048);
+  key.shadow.bias = -0.0002;
+  key.shadow.normalBias = 0.03;
+  scene.add(key); scene.add(key.target);
+
+  var fill = new THREE.DirectionalLight(0xbdd4ff, 0.45);
+  fill.position.set(-20, 10, -6);
+  scene.add(fill);
+
+  var rim = new THREE.DirectionalLight(0xffffff, 0.6);
+  rim.position.set(-6, 16, -24);
+  scene.add(rim);
+
+  var ground = new THREE.Mesh(
+    new THREE.PlaneGeometry(1, 1),
+    new THREE.ShadowMaterial({ opacity: 0.32 })
+  );
+  ground.rotation.x = -Math.PI / 2;
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  var camera = new THREE.PerspectiveCamera(45, 2, 0.1, 800);
+  var controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableDamping = true;
+  controls.enableZoom = false;      // page scroll owns the wheel: it drives the disassembly
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 0.7;
+  var idleTimer = null;
+  controls.addEventListener("start", function () {
+    controls.autoRotate = false;
+    if (idleTimer) clearTimeout(idleTimer);
+  });
+  controls.addEventListener("end", function () {
+    if (idleTimer) clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { controls.autoRotate = true; }, 4000);
+  });
+
+  var mixer = null, duration = 15;
+
+  function bin(b64) {
+    var s = atob(b64), n = s.length, out = new Uint8Array(n);
+    for (var i = 0; i < n; i++) out[i] = s.charCodeAt(i);
+    return out.buffer;
+  }
+
+  new THREE.GLTFLoader().parse(bin(window.MODELS.dereks_dozen), "", function (gltf) {
+    scene.add(gltf.scene);
+    var box = new THREE.Box3().setFromObject(gltf.scene);
+    var center = box.getCenter(new THREE.Vector3());
+    var size = box.getSize(new THREE.Vector3()).length();
+    gltf.scene.traverse(function (o) {
+      if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; }
+    });
+    var dist = Math.max(size * 1.35, 4);
+    var dir = new THREE.Vector3(0.9, 0.55, 1).normalize();
+    camera.position.copy(center).addScaledVector(dir, dist);
+    camera.near = dist / 100; camera.far = dist * 20;
+    camera.updateProjectionMatrix();
+    controls.target.copy(center);
+    controls.update();
+    ground.position.set(center.x, box.min.y - 0.02, center.z);
+    ground.scale.set(size * 3, size * 3, 1);
+    key.position.copy(center).addScaledVector(new THREE.Vector3(18, 26, 12).normalize(), dist * 1.6);
+    key.target.position.copy(center);
+    var e = size * 0.75, sc = key.shadow.camera;
+    sc.left = -e; sc.right = e; sc.top = e; sc.bottom = -e;
+    sc.near = dist * 0.2; sc.far = dist * 4;
+    sc.updateProjectionMatrix();
+
+    mixer = new THREE.AnimationMixer(gltf.scene);
+    mixer.clipAction(gltf.animations[0]).play();
+    mixer.setTime(0);
+    duration = gltf.animations[0].duration;
+    // ?t=seconds deep-links a disassembly stage (handy for testing/sharing);
+    // any scroll afterwards takes over again.
+    var q = new URLSearchParams(location.search);
+    if (q.has("t")) setTime(parseFloat(q.get("t")));
+    else applyScroll();
+    window.__puzzleReady = true;
+  }, function (err) {
+    tagEl.textContent = "Could not load the puzzle model.";
+    if (window.console) console.error(err);
+  });
+
+  function setTime(t) {
+    t = Math.max(0, Math.min(duration, t));
+    // Sample just below an exact hit on `duration`: three.js looping clips
+    // wrap time % duration, so setTime(duration) would snap back to the
+    // assembled pose at the very bottom of the page.
+    if (mixer) mixer.setTime(t >= duration ? Math.max(0, duration - 1e-3) : t);
+  }
+
+  function applyScroll() {
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    var p = total > 0 ? Math.max(0, Math.min(1, window.scrollY / total)) : 0;
+    setTime(p * duration);
+  }
+
+  var queued = false;
+  window.addEventListener("scroll", function () {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () { queued = false; applyScroll(); });
+  }, { passive: true });
+
+  function fit() {
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    if (!w || !h) return;
+    if (Math.abs(camera.aspect - w / h) > 0.001) {
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    if (canvas.width !== Math.floor(w * renderer.getPixelRatio()) ||
+        canvas.height !== Math.floor(h * renderer.getPixelRatio()))
+      renderer.setSize(w, h, false);
+  }
+
+  (function tick() {
+    requestAnimationFrame(tick);
+    controls.update();
+    fit();
+    renderer.render(scene, camera);
+  })();
+})();
+</script>
+</body>
 </html>
-
