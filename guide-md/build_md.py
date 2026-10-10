@@ -8,7 +8,7 @@ Usage (website repo root):
 
 Shares the dark theme of guide/build_guide.py (CSS copied, not imported, so
 the prototype stands alone). Internal '#Label' links are rewritten to
-'<page>.html#Label' when the label lives on another chapter page.
+'<page>/#Label' when the label lives on another chapter page.
 """
 import re
 import sys
@@ -61,10 +61,10 @@ TEMPLATE = '''<!DOCTYPE html>
 </head>
 <body>
 <nav class="top">
-  <a class="brand" href="../../">BurrTools</a>
+  <a class="brand" href="{root}">BurrTools</a>
   <div class="links">
-    <a href="../../">Home</a>
-    <a href="../">Guide contents</a>
+    <a href="{root}">Home</a>
+    <a href="{sitehome}">All on one page</a>
     <a href="https://burr-tools.github.io/burr-tools/">API reference</a>
     <a href="https://github.com/burr-tools/burr-tools">GitHub</a>
   </div>
@@ -107,7 +107,7 @@ def render(chapters):
     return label_page
 
 
-def fix_links(html, own_slug, label_page, depth):
+def fix_links(html, own_slug, label_page, depth, img_prefix):
     def sub(m):
         lab = m.group(1)
         page = label_page.get(lab)
@@ -116,10 +116,16 @@ def fix_links(html, own_slug, label_page, depth):
         prefix = '../' * depth
         return f'href="{prefix}{page}/#{lab}"'
     html = re.sub(r'href="#([A-Za-z0-9_]+)"', sub, html)
-    # images point at the existing guide/img/ store; keep them relative
-    html = re.sub(r'src="\.\./guide/img/',
-                  'src="' + '../' * depth + '../guide/img/', html)
+    # images live in the existing guide/img/ store; rebase to the page depth
+    # (md sources say ../guide/img/ relative to guide-md/*.md)
+    html = re.sub(r'src="\.\./guide/img/', f'src="{img_prefix}guide/img/', html)
     return html
+
+
+def chapters_nav(chapters, prefix):
+    return ('<nav class="chapters"><b>Guide contents</b><ol>' +
+            ''.join(f'<li><a href="{prefix}{c["slug"]}/">{c["title"]}</a></li>'
+                    for c in chapters) + '</ol></nav>')
 
 
 def main():
@@ -127,18 +133,19 @@ def main():
     label_page = render(chapters)
     OUT.mkdir(exist_ok=True)
 
-    nav = ('<nav class="chapters"><b>Guide contents</b><ol>' +
-           ''.join(f'<li><a href="{c["slug"]}/">{c["title"]}</a></li>'
-                   for c in chapters) + '</ol></nav>')
+    nav_top = chapters_nav(chapters, '')
+    nav_sub = chapters_nav(chapters, '../')
 
-    # multi-page
+    # multi-page: site/<slug>/index.html -> repo root is ../../../
     for i, ch in enumerate(chapters):
         prev = (f'<a href="../{chapters[i-1]["slug"]}/">← {chapters[i-1]["title"]}</a>'
                 if i > 0 else '<span></span>')
         nxt = (f'<a href="../{chapters[i+1]["slug"]}/">{chapters[i+1]["title"]} →</a>'
                if i + 1 < len(chapters) else '<span></span>')
-        body = fix_links(ch['html'], ch['slug'], label_page, depth=1)
-        page = TEMPLATE.format(title=ch['title'], css=CSS, chapters_nav=nav,
+        body = fix_links(ch['html'], ch['slug'], label_page, depth=1,
+                         img_prefix='../../../')
+        page = TEMPLATE.format(title=ch['title'], css=CSS, root='../../../',
+                               sitehome='../', chapters_nav=nav_sub,
                                body=body,
                                pager=f'<nav class="pager">{prev}{nxt}</nav>')
         d = OUT / ch['slug']
@@ -147,14 +154,17 @@ def main():
 
     # all-in-one page (parity check against guide/index.html)
     (OUT / 'contents.html').write_text(
-        TEMPLATE.format(title='Contents', css=CSS, chapters_nav='',
-                        body=nav, pager=''), encoding='utf8')
+        TEMPLATE.format(title='Contents', css=CSS, root='../../',
+                        sitehome='index.html', chapters_nav='',
+                        body=nav_top, pager=''), encoding='utf8')
     all_body = ''.join(
         f'<section id="page-{c["slug"]}">'
-        + fix_links(c['html'], c['slug'], label_page, depth=0)
+        + fix_links(c['html'], c['slug'], label_page, depth=0,
+                    img_prefix='../../')
         + '</section>' for c in chapters)
     (OUT / 'index.html').write_text(
-        TEMPLATE.format(title='User Guide', css=CSS, chapters_nav=nav,
+        TEMPLATE.format(title='User Guide', css=CSS, root='../../',
+                        sitehome='index.html', chapters_nav=nav_top,
                         body=all_body, pager=''), encoding='utf8')
 
     n_fig = sum(c['html'].count('<figure') for c in chapters)
