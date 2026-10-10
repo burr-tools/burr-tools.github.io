@@ -114,6 +114,11 @@
   .card h3 { margin: 0 0 6px; font-size: 17px; }
   .card h3 .ico { margin-right: 8px; }
   .card p { margin: 0; color: var(--dim); font-size: 14.5px; }
+  .card img.shot {
+    width: 100%; height: auto; display: block;
+    border-radius: 10px; border: 1px solid var(--line); margin-bottom: 10px;
+  }
+  .card img.shot:hover { border-color: var(--accent); }
   .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 0; padding: 0; list-style: none; }
   .chips li {
     background: var(--card2); border: 1px solid var(--line); border-radius: 999px;
@@ -170,6 +175,7 @@
   </a>
   <div class="links">
     <a href="#features">Features</a>
+    <a href="#grids">Grids</a>
     <a href="#download">Download</a>
     <a href="#docs">Docs</a>
     <a href="#news">News</a>
@@ -216,6 +222,22 @@
         <li>Ball Room</li><li>Bermuda</li><li>Broken Sticks</li><li>Burr-Glar</li>
       </ul>
       <p class="sub" style="margin-top:12px"><a href="https://github.com/burr-tools/burr-tools/tree/master/examples">Browse all examples on GitHub</a></p>
+    </section>
+
+    <section class="block" id="grids">
+      <h2>Five grids, not just cubes</h2>
+      <p class="sub">Every puzzle is built on one space grid. The editor, solver,
+      disassembler and STL export all understand each of them — screenshots
+      below are the BurrTools 0.8 editor with a bundled example per grid
+      (click to enlarge):</p>
+      <div class="cards">
+        <div class="card"><a href="images/shots/grid-cubes.png"><img class="shot" src="images/shots/grid-cubes.png" alt="Cube grid: Derek's Dozen result shape in the editor" loading="lazy"></a><h3><span class="ico">🧊</span>Cubes</h3><p>The classic: six-piece burrs, Soma, packing puzzles. Shown: <b>Derek&rsquo;s Dozen</b> result (269 voxels).</p></div>
+        <div class="card"><a href="images/shots/grid-triangles.png"><img class="shot" src="images/shots/grid-triangles.png" alt="Triangular prism grid: Bermuda in the editor" loading="lazy"></a><h3><span class="ico">🔺</span>Triangular prisms</h3><p>Prisms on a triangle base, stacked in Z — hexagons included. Shown: <b>Bermuda</b>.</p></div>
+        <div class="card"><a href="images/shots/grid-spheres.png"><img class="shot" src="images/shots/grid-spheres.png" alt="Sphere grid: Ball Room in the editor" loading="lazy"></a><h3><span class="ico">🔵</span>Spheres</h3><p>Tightly packed balls (stick to connected shapes). Shown: Stewart Coffin&rsquo;s <b>Ball Room</b>.</p></div>
+        <div class="card"><a href="images/shots/grid-rhombic.png"><img class="shot" src="images/shots/grid-rhombic.png" alt="Rhombic grid: Broken Sticks result in the editor" loading="lazy"></a><h3><span class="ico">🔷</span>Rhombic</h3><p>Cut-cube tetrahedra for rhombic-dodecahedral Coffin designs. Shown: <b>Broken Sticks</b> (384 voxels).</p></div>
+        <div class="card"><a href="images/shots/grid-tetraocta.png"><img class="shot" src="images/shots/grid-tetraocta.png" alt="Tetra-octa grid: 4-Piece Tetrahedron in the editor" loading="lazy"></a><h3><span class="ico">🔶</span>Tetra-octa</h3><p>Tetrahedra plus octahedra from the same cut cube. Shown: <b>4-Piece Tetrahedron</b>.</p></div>
+      </div>
+      <p class="sub" style="margin-top:12px">How each grid behaves is documented under <a href="guide/">User guide → Shapes → Spacegrids</a>.</p>
     </section>
 
     <section class="block" id="download">
