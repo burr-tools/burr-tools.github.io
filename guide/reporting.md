@@ -152,76 +152,94 @@ them.
 ### Introduction to 3-D printing
 
 
-There are two popular forms of 3-D printing: SLS and FDM.
+STL, the mesh format BURRTOOLS writes, is accepted by every slicer and
+print service, so there is usually no conversion step: export, slice,
+print. Most people today print pieces themselves on a home machine —
+an FDM printer with PLA or PETG for sturdy, dimensionally stable
+pieces, or a resin printer for the finest details — and whoever does
+not own a printer can order the same STL files from a print service
+instead.
 
-The SLS (ShapeWays and TNO) laser sinters nylon. ShapeWays currently charges by
-the volume of sintered nylon. SLS pieces are always white.
+BURRTOOLS always exports solid, watertight pieces. Any hollowing,
+infill, wall counts or supports are set later in the slicer, which
+does that job better than a puzzle program ever could: a little infill
+with a few perimeters gives strong pieces with little material, and
+the slicer adds supports only where they are actually needed. So there
+is no hollow-export option for the polyhedral grids, and none is
+needed — export the solid piece and configure the interior in the
+slicer.
 
-FDM (Stratasys) charges by the time it takes to make the piece. It has two
-modes: solid and sparse. Sparse mode is quicker and uses less material. In
-sparse mode the interior of the pieces are honeycombed.
-
-Having a hollowed piece will be cheaper and quicker for SLS — it will be the
-same cost and speed for FDM because a hollow piece will still have a support
-structure inside the hollow, but it will be of a different material. The thing
-to realize is that with SLS, if there are no holes to the hollow part of the
-piece, the nylon "sand" will be captured. This should not be a problem except
-for the weight of the piece. But keep in mind that some printing services will
-charge you for the surrounded volume as well as the for the actually printed
-volume.
+Two export settings decide whether the printed puzzle actually fits
+together. **_Offset_** shrinks every piece slightly so faces that are
+flush in the model end up with a real clearance gap; without it pieces
+print oversize by a nozzle width and jam. **_Bevel_** chamfers the
+sharp voxel edges, which prints more cleanly, feels better in the
+hand, and slides more smoothly. Start with the defaults, print two
+pieces that mate, and adjust: if they jam, raise the offset; if they
+are sloppy, lower it. Different materials shrink differently, so
+re-check the fit when switching filament. Orient pieces flat-face down
+in the slicer for the best surface where it matters.
 
 ### Exporting
 
 
-The main menu entry **_Export - STL_** opens the window seen in Figure
-[StlExportWindow](#FigSTLExportWindow). The window has a shape selector, a 3-D
-view of the selected shape and some parameters that control the shapes created.
-The exact parameters depend on the grid of the current puzzle. The 3-D view
-displays the shape the same way as it will be exported into the STL file, so
-you can see what the shape will look like. The file is written next to your
-puzzle by default, and a failed write is reported instead of silently
-producing nothing.
+The **_Export - STL_** entry of the *Export* menu opens the window seen in
+Figure [StlExportWindow](#FigSTLExportWindow). The top row sets the
+**_File name_** and **_Path_** of the generated file plus the **_..._**
+button to pick them with a file chooser; new exports default to the
+folder the puzzle was loaded from. The **_Binary STL_** checkbox selects
+binary (compact, the right choice for slicing and print services) or
+text STL (larger, useful only for inspecting the mesh by hand).
 
-On the bottom in the status line you can see what volume the current shape with
-the current settings has.
-
-In the status line are also two buttons to choose how the shape is displayed.
-Either normally from the outside. The 2nd view will show you the inside of the
-shape. This is useful if you print hollow shapes and need to see what the
-internal void looks like.
+Below that are the grid-dependent shape parameters (see below), a list
+of the puzzle's shapes to pick which one is exported and previewed,
+and the **_Export STL_** and **_Abort_** buttons. The large 3-D view
+shows exactly the mesh that will be written, so what you see is what
+the printer gets. The status line reports the current shape's
+**_Volume_** in cubic output units, with two buttons beside it to show
+the mesh normally from the outside or cut open to inspect the inside.
 
 <figure id="FigSTLExportWindow">
 <img src="img/Window_StlExport.png" alt="">
-<figcaption>Figure: The STL-Export window (showing older options)</figcaption>
+<figcaption>Figure: The STL-Export window</figcaption>
 </figure>
 
 To export a whole solution at once, use **_Export Solution to STL_** on the
-*Solver* tab instead: it writes one file per distinct piece, named after
-the shape, so a complete piece set is a single click away.
+*Solver* tab instead: it writes one file per distinct piece type placed
+in the currently selected solution, named after the shape, into a
+folder you choose, so a complete set of pieces is a single click away.
+It uses the same shape parameters and binary/text choice as the single
+shape export.
 
 ### Hollow Shapes
 
 
-There are mainly 2 different exporters. One for the sphere puzzles and one for
-all other polygon based puzzles.
+There are 2 different exporters: one for sphere puzzles and one for all
+other (polyhedral) grids.
 
-When creating spheres you can simply create hollow shapes by giving the inner
-radius a value that is different from zero. The resulting shapes will
-automatically have a lot of holes that connect the inside and the outside.
-Those holes will be symmetrically placed and they are in places on the sphere
-where they normally don't interfere with solving.
+The polyhedral exporters for cubes, triangular prisms, rhombic and
+tetra-octahedra grids always produce solid pieces: what you model is
+what you get, with all outer edges chamfered. If you want hollow
+pieces, hollow them in the slicer, where wall thickness, infill and
+drain holes belong. (An older BurrTools version had built-in wall
+thickness, connecting tubes and shift-click drilled holes; that
+feature was removed when the chamfer mesher replaced the old
+exporter.)
 
-For polygon based puzzles what you model is what you get: the export follows
-the voxels of the shape and chamfers all of its outer edges. (The old tube
-feature, with wall thickness, tube size and holes drilled by shift-clicking
-faces, has been removed in favour of the chamfer mesher.)
+When creating spheres you can still create hollow shapes directly by
+giving the inner radius a value different from zero. The resulting
+shapes automatically get holes that connect the inside and the
+outside. Those holes are symmetrically placed where they normally
+don't interfere with solving. For resin printing, keep a drain hole so
+uncured resin can escape; for FDM, a hollow sphere still needs the
+slicer's supports or infill inside.
 
 ### Parameters
 
 
 The following parameters control the generated shape and file.
 
-**_Filename_** and **_Path_** control the name and path of the generated file.
+**_File name_** and **_Path_** control the name and path of the generated file.
 Those are common parameters for all grids. New exports default to the folder
 the puzzle was loaded from.
 
@@ -232,26 +250,35 @@ want to see what is going on in the inside of an STL file, or when your
 printing service has problems with the binary file.
 
 For polyhedron based grids there are the following parameters that control the
-shape of the generated pieces. All sizes are in output units.
+shape of the generated pieces. All sizes are in output units (defaults:
+unit size 10, bevel 0.3, offset 0.01, interior chamfers on).
 
 - **_Unit Size:_** controls the base length of the created voxels. **_Unit Size Y_** and **_Unit Size Z_** allow different sizes in the other
   directions for non-cubic pieces; leaving them at zero uses the base size
-  everywhere.
+  everywhere. Bevel and offset stretch along with a changed unit size.
+  All three must be positive; Y and Z may additionally be zero.
 - **_Bevel:_** controls the size of the chamfer on the outer edges of the
-  piece. Chamfered edges print more cleanly and assemble more smoothly than
-  razor-sharp voxel edges.
-- **_Offset:_** allows a gap between the pieces, so that it is actually
-  possible to assemble them. If the shapes were made to correct sizes they
-  would touch, making movement impossible.
+  piece (the chamfer legs have this length). Chamfered edges print more
+  cleanly and assemble more smoothly than razor-sharp voxel edges. Must
+  not be negative; if bevel and offset together get too large for the
+  shape, the export reports an error instead of writing a broken mesh.
+- **_Offset:_** insets every face into its voxel, so neighbouring pieces
+  end up two offsets apart. This clearance gap is what makes assembly
+  possible: without it, pieces modelled face-to-face would print touching
+  and jam. Must not be negative.
 - **_Interior chamfers:_** also chamfers the concave (inner) edges of the
-  piece, not just the outer ones. Turn it off if your printer struggles with
-  the extra geometry.
+  piece, not just the convex outer ones. Keep it on for the smoothest
+  sliding fit; turn it off if your printer or a further mesh workflow
+  struggles with the extra geometry.
 
-Coplanar faces are always merged into larger triangles, which keeps the files
-much smaller while staying watertight.
+Coplanar faces are always merged into larger flat faces, which keeps the
+files much smaller while staying watertight. Shapes with variable voxels
+cannot be exported.
 
 
-For spheres the parameters are as follows:
+For spheres the parameters are as follows (defaults: sphere radius 10,
+connection radius 0.75, curvature radius 1.0, offset 0, recursions 2,
+inner radius 0, hole diameter 0, square hole off):
 
 - **_Sphere radius:_** controls the gap between the centres of the single
   spheres. It also is the maximum radius the spheres can have. This value is in
@@ -268,24 +295,25 @@ For spheres the parameters are as follows:
   only little or no space for the transition (e.g. when the connection radius is
   close to 1) there might be a bend, even when this value is close to 1.
 - **_Offset:_** just like with the other grids this makes the spheres smaller
-  to make the puzzle actually assembable. This is in output units. Keep the
+  to make the puzzle actually assemblable. This is in output units. Keep the
   values small if you want to have working puzzles. Most puzzles might not even
   require a value larger than zero. But you can get cool mathematical objects
-  with a bigger offset
+  with a bigger offset. It must not exceed the sphere radius.
 - **_Recursions:_** controls the number of used triangles to approximate the
   surfaces. A value one bigger will result in approximately 4 times as many
   triangles and accordingly smoother surface but also bigger STL files. Don't
   make it too big as it will result in long calculation times and huge files!
-  Normally a value of 3 or 4 is enough.
-- **_Inner radius:_** controls the radius of the hole inside the sphere. This
-  radius must be smaller than the sphere radius from above. The difference of
-  these 2 values defines the wall thickness of the sphere. The Offset is
-  applied to both values in the same way so that the wall thickness stays
-  constant.
+  Normally a value of 2 to 4 is enough.
+- **_Inner radius:_** controls the radius of the void inside the sphere. This
+  radius must be smaller than the sphere radius from above (zero means a
+  solid sphere). The difference of these 2 values defines the wall thickness
+  of the sphere. The Offset is applied to both values in the same way so that
+  the wall thickness stays constant.
 - **_Hole diameter:_** controls the diameter of the hole that connects the void
-  inside the sphere with the outside world. If you leave that value 0 the
-  inside of the sphere will be completely surrounded by the sphere itself and
-  material inside the sphere can not get out. Depending on the printing process
-  that might not be a wise choice.
+  inside the sphere with the outside world (at most a third of the sphere
+  radius). If you leave that value 0 the inside of the sphere will be
+  completely surrounded by the sphere itself and trapped material or resin
+  can not get out. Depending on the printing process that might not be a
+  wise choice.
 - **_Square Hole:_** the hole from above can be round or square. This is mainly
-a matter of taste, so make your choice.
+  a matter of taste, so make your choice.
