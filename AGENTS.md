@@ -31,6 +31,3 @@ homepage (dark theme, inline CSS, three.js 3D viewer under `assets/`).
   `.../index.html` file URLs directly — directory URLs render a listing).
 - Local preview over HTTP, not `file://`:
   `python3 -m http.server` from the repo root.
-- Commit on a topic branch; never push unless explicitly asked. Keep
-  unrelated uncommitted edits (e.g. the maintainer's own `index.html`
-  work) out of your commits — stage selective hunks if needed.
