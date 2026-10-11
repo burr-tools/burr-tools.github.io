@@ -160,12 +160,24 @@
      shrinks to roughly half the page width so text stays readable. */
   @media (max-width: 1200px) {
     .layout { display: flex; flex-direction: column; padding: 0 16px 30px; }
-    .content { order: 2; max-width: none; }
+    /* Flatten the wrappers so the viewer can sit between the headline
+       and the download button via `order` below (plain divs, so
+       display:contents loses no semantics). min-width:0 keeps <pre>
+       blocks from forcing sideways scrolling as flex items. */
+    .content { display: contents; }
+    .hero { display: contents; }
+    .hero h1, .hero .lede, .hero .btns, section.block {
+      min-width: 0; max-width: 100%;
+    }
+    .hero h1 { order: 1; }
+    .hero .lede { order: 2; }
     .stage {
-      order: 1; width: min(58%, 300px); max-width: none; margin: 0 auto;
+      order: 3; width: min(58%, 300px); max-width: none; margin: 8px auto;
       position: static;
       background: var(--bg); padding: 8px 0 0;
     }
+    .hero .btns { order: 4; }
+    section.block { order: 5; }
     .scrollhint { display: none; }
     /* Tag becomes a plain caption under the canvas: as an overlay it
        would cover half the small puzzle. `align-self` shrinks it to
