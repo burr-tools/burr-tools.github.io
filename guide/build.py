@@ -22,7 +22,8 @@ SRC = ROOT
 OUT = ROOT
 
 MD_EXT = ['def_list', 'attr_list', 'toc', 'sane_lists', 'smarty',
-          'fenced_code']
+          'fenced_code', 'codehilite']
+MD_EXT_CONFIGS = {'codehilite': {'guess_lang': False, 'css_class': 'codehilite'}}
 
 CSS = '''
   :root{--bg:#16130f;--bg2:#1e1a14;--card:#241f17;--card2:#2b2419;--ink:#f2ead9;
@@ -50,6 +51,18 @@ CSS = '''
   pre{background:#100d09;border:1px solid var(--line);border-radius:10px;
   padding:12px 16px;overflow-x:auto;font-size:14px;color:#ffd9a0}
   pre code{background:none;border:none;border-radius:0;padding:0;font-size:1em}
+  .codehilite{background:#100d09;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;overflow-x:auto;font-size:14px}
+  .codehilite pre{background:none;border:none;border-radius:0;padding:0;margin:0}
+  .codehilite .hll{background-color:#3a3226}
+  .codehilite .c,.codehilite .c1,.codehilite .cm,.codehilite .ch{color:#7d7461;font-style:italic}
+  .codehilite .k,.codehilite .kc,.codehilite .kd,.codehilite .kn,.codehilite .kp,.codehilite .kr,.codehilite .kt,.codehilite .ow{color:#ff8a65}
+  .codehilite .s,.codehilite .s1,.codehilite .s2,.codehilite .sa,.codehilite .sb,.codehilite .sc,.codehilite .sd{color:#9ccc65}
+  .codehilite .m,.codehilite .mi,.codehilite .mf,.codehilite .mh,.codehilite .mo{color:#e1b170}
+  .codehilite .nf,.codehilite .fm{color:#7cc7ff}
+  .codehilite .nb,.codehilite .nn,.codehilite .nc{color:#ffd9a0}
+  .codehilite .o,.codehilite .p{color:#b3a78e}
+  .codehilite .err{color:#ff5252}
   dl{margin:12px 0}dt{font-weight:650;margin-top:10px}dd{margin:2px 0 6px 22px;color:var(--dim)}
   footer.site{max-width:1000px;margin:0 auto;padding:26px 28px 60px;color:var(--faint);font-size:14px}
 '''
@@ -99,7 +112,8 @@ def load_chapters():
 
 def render(chapters):
     for ch in chapters:
-        ch['html'] = markdown.markdown(ch['body'], extensions=MD_EXT)
+        ch['html'] = markdown.markdown(ch['body'], extensions=MD_EXT,
+                                       extension_configs=MD_EXT_CONFIGS)
         ch['labels'] = set(re.findall(r'id="([A-Za-z0-9_]+)"', ch['html']))
         ch['labels'] |= set(re.findall(r'<h[1-4][^>]* id="([A-Za-z0-9_]+)"',
                                         ch['html']))

@@ -15,7 +15,9 @@ homepage (dark theme, inline CSS, three.js 3D viewer under `assets/`).
 - Commit the `.md` sources **and** the generated HTML together.
 - Markdown limits, handled by convention: definition lists need the
   `def_list` extension (already on); GUI-element emphasis is `**_x_**`;
-  code blocks use fenced ``` (only `fenced_code` is on, no highlighter).
+  code blocks use fenced ``` with a language tag (```python) for
+  Pygments highlighting via `codehilite` (needs `pip install pygments`).
+  Token colours live in the `CSS` string in `guide/build.py`.
 - After rebuilding, check for stray `**` outside `<pre>/<code>` and run a
   link pass: every `#anchor`, `<page>/#anchor` and `<img src>` must resolve.
 

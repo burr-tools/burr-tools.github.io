@@ -13,7 +13,7 @@ with on-the-fly disassembly:
 
 `PYTHONPATH=build python3`
 
-```
+```python
 import burrtools
 puzzle = burrtools.load("examples/PelikanBurr.xmpuzzle")
 for sol in puzzle.problems[0].solve(disassemble=True):
