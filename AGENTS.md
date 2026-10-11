@@ -12,14 +12,15 @@ homepage (dark theme, inline CSS, three.js 3D viewer under `assets/`).
   deps in the script header, no manual installs) → `guide/index.html`
   (all-in-one, keeps the `guide/` URL) + `guide/<chapter>/` (multi-page,
   contents nav, prev/next, cross-page `#Label` links). Theme and token
-  colours live in `guide/style.css`, linked from every page.
+  colours live in `guide/style.css`, linked from every page. The script
+  ends with a self-check (no stray `**` outside `<pre>/<code>`; every
+  `#anchor`, `<page>/#anchor` and `<img src>` resolves) that fails the
+  build on errors.
 - Commit the `.md` sources **and** the generated HTML together.
 - Markdown limits, handled by convention: definition lists need the
   `def_list` extension (already on); GUI-element emphasis is `**_x_**`;
   code blocks use fenced ``` with a language tag (```python) for
   Pygments highlighting via `codehilite`.
-- After rebuilding, check for stray `**` outside `<pre>/<code>` and run a
-  link pass: every `#anchor`, `<page>/#anchor` and `<img src>` must resolve.
 
 ## Conventions
 
