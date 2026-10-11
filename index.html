@@ -153,12 +153,27 @@
   footer.site .cols { display: flex; gap: 28px; flex-wrap: wrap; }
   footer.site .cols div { flex: 1 1 220px; }
 
-  /* ---------- narrow screens: compact static viewer on top ---------- */
+  /* ---------- medium screens: side viewer, no centering gutters ---------- */
+  /* Below 1200px the centered 740px column plus two gutters wastes too
+     much space, but there is still room to keep the puzzle at the side:
+     drop the gutters, let the content breathe, keep the sticky
+     scroll-driven viewer. */
+  @media (max-width: 1200px) {
+    .layout {
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+      gap: 0 24px; max-width: none; margin: 0; padding: 0 20px 40px;
+    }
+    .content { grid-column: 1; min-width: 0; }
+    .stage { grid-column: 2; width: 100%; max-width: none; }
+    nav { padding: 12px 20px; }
+  }
+
+  /* ---------- true mobile: compact static viewer inline ---------- */
   /* Not sticky: on a phone a pinned viewer would hog the viewport while
      reading. The puzzle disassembles on a loop in place instead (see
      tick()); scroll-driven disassembly is desktop-only. The stage
      shrinks to roughly half the page width so text stays readable. */
-  @media (max-width: 1200px) {
+  @media (max-width: 800px) {
     .layout { display: flex; flex-direction: column; padding: 0 16px 30px; }
     /* Flatten the wrappers so the viewer can sit between the headline
        and the download button via `order` below (plain divs, so
@@ -463,9 +478,10 @@
 
   var mixer = null, duration = 15;
 
-  // Same breakpoint as the CSS: narrow screens get a static viewer with
-  // an in-place disassembly loop; wide screens get scroll-driven time.
-  var mq = window.matchMedia("(max-width: 1200px)");
+  // Same breakpoint as the CSS: true-mobile screens get a static viewer
+  // with an in-place disassembly loop; medium and wide screens keep the
+  // sticky side viewer with scroll-driven time.
+  var mq = window.matchMedia("(max-width: 800px)");
   var autoDir = 1, lastFrame = 0;
 
   function updateTag() {
