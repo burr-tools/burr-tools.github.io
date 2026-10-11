@@ -960,9 +960,9 @@ design. All the tools to do so are just below the <strong><em>Shapes</em></stron
 completely new shape with an empty grid, while <strong><em>Copy</em></strong> allows you to edit a
 previously entered shape without destroying the first. Obsolete and redundant
 shapes can be discarded with the <strong><em>Delete</em></strong> button.</p>
-<p>All shapes are identified with an &lsquo;<strong><em>S</em>x</strong><strong>&rsquo; prefix. This prefix serves as
+<p>All shapes are identified with an &lsquo;<strong><em>Sx</em></strong>&rsquo; prefix. This prefix serves as
 a unique identifier for the shape throughout the GUI and cannot be removed or
-altered, but </strong><em>Label</em>** allows you to add a more meaningful name. Note that on
+altered, but <strong><em>Label</em></strong> allows you to add a more meaningful name. Note that on
 the status line the shapes will be referred to only by their prefixes.</p>
 <p>By clicking an identifier in the list, the shape becomes selected and ready to
 be edited. Also a short description of that shape appears on the status line.
@@ -1038,7 +1038,7 @@ have an impact on the shape itself by scaling it up or down.</p>
 with an indication of the reason they were introduced into BURRTOOLS. No doubt
 you&rsquo;ll soon find other situations in which these tools can prove to be
 valuable.</p>
-<p><strong><em>Grid</em> tools.</strong> Most of these tools are somewhat extended versions of the
+<p><strong><em>Grid tools.</em></strong> Most of these tools are somewhat extended versions of the
 more general transformation tools (→<a href="#ChTransformationTools">TransformationTool</a>)
 and have the advantage that they can act on all shapes at once
 (→<a href="#ChAdjustAllShapes">AdjustAllShapes</a>).</p>
@@ -1061,7 +1061,7 @@ possible to the origin of the grid. It can very useful if you want to make a
 descending series of rectangular blocks by copying the shape and manually
 adjusting the grid dimensions.</dd>
 </dl>
-<p><strong><em>Shape</em> tools.</strong> Use the following functions wisely because unnecessary
+<p><strong><em>Shape tools.</em></strong> Use the following functions wisely because unnecessary
 and extreme scaling up of the shapes will put a heavy load on your system
 resources and can increase solving time dramatically. Also, trying to undo such
 &lsquo;ridiculous&rsquo; upscalings with the 1:1 tool can take a long time.
@@ -1313,11 +1313,11 @@ comparison (unless the default colour is selected, which makes the dialogue to
 show the default medium grey). Note that the default colour can be neither
 removed nor changed. It&rsquo;s important to realise that the BURRTOOLS engine
 discriminates custom colours only by number as indicated in their prefix
-&lsquo;<strong><em>C</em>x</strong><strong>&rsquo; and not by the actual colours themselves. Hence it is possible
+&lsquo;<strong><em>Cx</em></strong>&rsquo; and not by the actual colours themselves. Hence it is possible
 to create identical colours that nevertheless will be treated as different. So,
 it&rsquo;s strongly advised to introduce only colours whose difference can easily be
 discerned. Otherwise, finding out why a puzzle has no solutions can be very
-hard. The </strong><em>Remove</em>** button will not only discard the colour from the list,
+hard. The <strong><em>Remove</em></strong> button will not only discard the colour from the list,
 but will also remove it from any voxel that has it as an attribute by replacing
 it with the default colour.</p>
 <p>When you add a colour, BURRTOOLS automatically adds a constraint rule that
@@ -1857,10 +1857,10 @@ clicking the <strong><em>New</em></strong> button to start a completely new one,
 <strong><em>Copy</em></strong> to edit a previously created problem definition without destroying
 the original. Accordingly, problems can be removed with the <strong><em>Delete</em></strong>
 button. All problems find their place in the problems list below these buttons
-and are identified with a &lsquo;<strong><em>P</em>x</strong><strong>&rsquo; prefix to which a more meaningful
-description can be added by clicking the </strong><em>Label</em>*<em> button. Also the methods
+and are identified with a &lsquo;<strong><em>Px</em></strong>&rsquo; prefix to which a more meaningful
+description can be added by clicking the <strong><em>Label</em></strong> button. Also the methods
 for selecting and rearranging problems are similar to their counterparts on the
-</em>Entities* tab and need no further explanation here.</p>
+<em>Entities</em> tab and need no further explanation here.</p>
 <h3 id="ChPieceAssignment">Piece Assignment</h3>
 <p>Until now we dealt with shapes as rather abstract concepts. Only by
 <em>assigning</em> these shapes to the pieces or the goal of a puzzle do they become
@@ -2802,10 +2802,11 @@ driven from Python. Building from source produces a <code>burrtools</code> exten
 module that builds shapes and problems, solves them, and streams solutions
 with on-the-fly disassembly:</p>
 <p><code>PYTHONPATH=build python3</code></p>
-<p><code>import burrtools
-puzzle = burrtools.load("examples/PelikanBurr.xmpuzzle")
+<pre><code>import burrtools
+puzzle = burrtools.load(&quot;examples/PelikanBurr.xmpuzzle&quot;)
 for sol in puzzle.problems[0].solve(disassemble=True):
-    print(sol.solution_number, sol.level, sol.moves_text)</code></p>
+    print(sol.solution_number, sol.level, sol.moves_text)
+</code></pre>
 <p>Puzzles can also be created entirely in memory and saved as <code>.xmpuzzle</code>
 files. See &ldquo;Python Wrapper&rdquo; in <code>BUILD.md</code> in the source tree and the
 runnable examples in <code>example_scripts/</code> for the full interface.</p></section><section id="page-appendix"><h1 id="appendix">Appendix</h1>

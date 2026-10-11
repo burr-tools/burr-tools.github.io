@@ -27,14 +27,14 @@ a *3-D viewport* on the right.
 Below is a brief overview of the main menu entries with references to the
 places in the text where a more detailed explanation is provided.
 
-***File***
+**_File_**
 :   This menu holds the procedures for handling files within BURRTOOLS and for
 exiting the program (→[File Menu](#ChFileMenu)).
 
-***Toggle 3-D***
+**_Toggle 3-D_**
 :   Swaps the 2-D and the 3-D grids for the *Entities* tab (→[Navigating in 2-D and 3-D](#ChNavigating)).
 
-***Export***
+**_Export_**
 :   Contains a sub-menu with 3 entries. One allows you to export the contents of the
 3-D viewer that can be used to create high quality solution sheets
 (→[Exporting Images](#ChExportingImages)). The next allows you to
@@ -42,23 +42,23 @@ create STL files for 3-D printers (→[Exporting to STL](#ChExportingSTL)).
 The final entry exports the current content of the 3D-view
 to a vector image (→[Exporting vector images](#ChExportingVectors))
 
-***Status***
+**_Status_**
 :   This opens up a window containing lots of possibly useful information about the
 shapes of the puzzles (→[Chapter Status](#ChStatus)).
 
-***Edit Comment***
+**_Edit Comment_**
 :   Allows appending textual information to the puzzle file
 (→[Adding Comments](#ChAddingComments)).
 
-***Settings***
+**_Settings_**
 :   This menu item opens the preferences dialogue
 (→ [Settings Dialogue](#ChConfigMenu)). On macOS it lives in the application
 menu, as do *About* and *Check for Updates*.
 
-***About***
+**_About_**
 :   Shows a window with some information about the program.
 
-***Check for Updates***
+**_Check for Updates_**
 :   Asks GitHub whether a newer BurrTools release exists and, if so, shows its
 release notes with a button that opens the download page. A version can be
 skipped. The same check can run automatically at startup (→[Settings
@@ -68,23 +68,23 @@ Dialogue ChConfigMenu]).
 ### The File Menu {#ChFileMenu}
 
 
-The ***File*** menu has all the traditional entries for handling files. Many of
+The **_File_** menu has all the traditional entries for handling files. Many of
 these are well known from other software and don't need much explanation. Some
 of the items also have keyboard shortcuts as indicated in the menus. Prior to
 executing most of these commands a warning (and option to cancel) is given
 whenever changes to the current design haven't been saved yet.
 
-***New***
+**_New_**
 :   Starts a new design after removing all the information of the current one. The
 first thing that happens when you start a new puzzle is that you will be asked
 which spacegrid to use. When BURRTOOLS is started it defaults to using the
 cubes spacegrid, so if you want to use another grid you need to use this menu.
 
-***Load***
+**_Load_**
 :   Opens a BURRTOOLS `*.xmpuzzle` file. A notification will pop up when a
 *partially* solved design is loaded. Short cut: `[F3]`.
 
-***Import***
+**_Import_**
 :   This entry opens a traditional file dialogue that allows importing
 PUZZLESOLVER3D files (`*.puz`) into BURRTOOLS. Although these imported
 designs often can be subjected to the solver right away, some postediting may
@@ -101,25 +101,25 @@ outskirts of the result shape) to make the solver run. Also, duplicated pieces
 should preferably be deleted from the *Shapes* list
 (→[Creating Shapes](#ChCreatingShapes)).
 
-***Save***
+**_Save_**
 :   Saves your work into a `*.xmpuzzle` file. If the design had not been saved
 before (indicated with '`Unknown`' in the BURRTOOLS windows title bar) the
 *Save As* command will be activated. Short cut: `[F2]`.
 
-***Save As***
+**_Save As_**
 :   Allows you to save any changes to a new file, thus keeping the original design
 the way it was.
 
-***Convert***
+**_Convert_**
 :   Allows you to convert the current puzzle from its current gridtype into another
 grid type (→Chapter [Converting Shapes](#ChConvert)
 
-***Import Assms***
+**_Import Assms_**
 :   With this menu entry you can import a set of existing assembly solutions of one
 problem as new shapes into your puzzle
 (→Chapter [Importing Assemblies as Shapes](#ChImportAssms))
 
-***Quit***
+**_Quit_**
 :   Shuts down BURRTOOLS.
 
 
@@ -134,7 +134,7 @@ your computer for other tasks.
 ### The Settings Dialogue {#ChConfigMenu}
 
 
-The ***Settings*** item on the menu bar opens a new window (Figure
+The **_Settings_** item on the menu bar opens a new window (Figure
 [settings dialogue](#FigConfig)) to set some options for the program. Every option is
 explained right in the dialogue, and *Restore Defaults* brings them all
 back to their factory values. These settings are stored in a configuration
@@ -145,12 +145,12 @@ file in your home directory and the program uses them each time it is started.
 <figcaption>Figure: The settings dialogue (showing older options)</figcaption>
 </figure>
 
-***Use Tooltips***
+**_Use Tooltips_**
 :   By default BURRTOOLS shows tooltips for most of its controls, but to the more
 experienced user these soon become very annoying. This option allows you to
 switch these tooltips off.
 
-***Use Lights in 3D View***
+**_Use Lights in 3D View_**
 :   This option toggles the use of a spotlight in the 3-D viewer. When disabled,
 the items in the 3-D viewport get a uniform (high) illumination, whereas
 enabling this option provides a more rendered appearance of the objects by
@@ -158,47 +158,47 @@ adding a spotlight in the upper right corner of the 3-D viewport and shading
 the faces of the objects. However, on some systems this may result in a
 relatively dark left bottom corner that can hamper a clear view of the objects.
 
-***Fade Out Pieces***
+**_Fade Out Pieces_**
 :   This option affects the way pieces that *become* *separated* from the rest
 are depicted. Hence, the effects are visible only after running the solver
 (→[Visibility of Pieces](#ChVisibilityOfPieces)).
 
-***Use openGL display lists***
+**_Use openGL display lists_**
 :   This option enables an optimisation for the 3-D viewer which makes it faster
 when drawing complex shapes. Sadly it seems to be that some OpenGL
 implementations don't properly support that option. So when you experience
 crashes when you edit shapes or rotate something in the 3-D view, try disabling
 this option. It is off by default.
 
-***Use new rotation method***
+**_Use new rotation method_**
 :   This option allows you to toggle between the old way the shapes are rotated and a
 new way. With the old method a shape always returned to the same orientation when
 the mouse was dragged back to the starting position. The new method allows rotating
 a shape by drawing circles on the screen.
 
-***Reverse scroll zoom direction***
+**_Reverse scroll zoom direction_**
 :   Reverses the direction the 3-D view zooms when you turn the mouse wheel.
 
-***Show View Cube***
+**_Show View Cube_**
 :   Displays the View Cube navigation widget in a corner of the 3-D view. Click a
 face, edge or corner of the cube to snap the view to it with a smooth animated
 rotation; the Home button resets pan and zoom. Turn this off if you find it in
 the way.
 
-***Undo History Depth***
+**_Undo History Depth_**
 :   How many editing steps the undo/redo history keeps: 25, 50, 100 or 200.
 Higher values use more memory for large puzzles. Nearly every edit to shapes,
 colours and problems can be undone with `[Ctrl+Z]` and redone with
 `[Ctrl+Shift+Z]` (`[Cmd+Z]` / `[Cmd+Shift+Z]` on macOS); undoing also
 takes you back to the tab where the change was made.
 
-***Worker Threads***
+**_Worker Threads_**
 :   How many CPU cores the solver may use for assembling and disassembling. Both
 stages share this pool. The default is 60% of your machine's cores, so a long
 solve still leaves room for other work; lower it if your computer should stay
 fully responsive, raise it to the full core count for maximum speed.
 
-***Check for updates at startup***
+**_Check for updates at startup_**
 :   At most once a day, BURRTOOLS quietly asks GitHub whether a newer release
 exists and, if so, shows its release notes with a button to the download page.
 A version can be skipped, and *Check for Updates* in the menu performs the

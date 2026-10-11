@@ -244,7 +244,7 @@ these shapes could be crafted in the workshop is beyond the scope of the
 program.
 
 All functions and tools for creating and editing shapes — once the grid type is
-set — are located on the ***Entities*** tab which has — from top to bottom —
+set — are located on the **_Entities_** tab which has — from top to bottom —
 three main sections (Figure [EntitiesTab](#FigEntitiesTab)):
 
 <figure id="FigEntitiesTab">
@@ -260,8 +260,8 @@ list (→[CreatingShapes](#ChCreatingShapes)).
 **The *Edit* panel**
 :   This section provides the tools to build or edit the currently selected shape.
 This panel contains a series of subtabs with several tools for adjusting the
-***Size*** of the shapes, ***Transform*** them in 3-D space, and some extra
-editing ***Tools***. Below these subtabs there's a toolbar with the devices for
+**_Size_** of the shapes, **_Transform_** them in 3-D space, and some extra
+editing **_Tools_**. Below these subtabs there's a toolbar with the devices for
 actually constructing the shapes in the 2-D grid at the bottom of the panel
 (→[BuildingShapes](#ChBuildingShapes)).
 
@@ -277,15 +277,15 @@ placements of the pieces (→[Adding Colour](#ChAddingColour)).
 
 
 The very first step is to draw the shapes that can be used in your puzzle
-design. All the tools to do so are just below the ***Shapes*** caption (Figure
-[EntitiesTab](#FigEntitiesTab)). Clicking the ***New*** button starts a
-completely new shape with an empty grid, while ***Copy*** allows you to edit a
+design. All the tools to do so are just below the **_Shapes_** caption (Figure
+[EntitiesTab](#FigEntitiesTab)). Clicking the **_New_** button starts a
+completely new shape with an empty grid, while **_Copy_** allows you to edit a
 previously entered shape without destroying the first. Obsolete and redundant
-shapes can be discarded with the ***Delete*** button.
+shapes can be discarded with the **_Delete_** button.
 
-All shapes are identified with an '***S*x****' prefix. This prefix serves as
+All shapes are identified with an '**_Sx_**' prefix. This prefix serves as
 a unique identifier for the shape throughout the GUI and cannot be removed or
-altered, but ***Label*** allows you to add a more meaningful name. Note that on
+altered, but **_Label_** allows you to add a more meaningful name. Note that on
 the status line the shapes will be referred to only by their prefixes.
 
 By clicking an identifier in the list, the shape becomes selected and ready to
@@ -322,8 +322,8 @@ Have a look at the chapter about
 Since shapes are defined as objects in 3-D space, and theoretically 3-D space
 is unlimited in size, it's convenient somehow to be able to define a more
 feasible subspace to work with. This, and some more advanced scalings of the
-shapes, can be accomplished with the functions on the ***Size*** subtab (Figure
-[SizeSubtab](#FigSizeSubtab)) of the ***Edit*** panel.
+shapes, can be accomplished with the functions on the **_Size_** subtab (Figure
+[SizeSubtab](#FigSizeSubtab)) of the **_Edit_** panel.
 
 <figure id="FigSizeSubtab">
 <img src="img/Subtab_Size.png" alt="">
@@ -370,7 +370,7 @@ to 14x14x14 and centring the 'core' in that enlarged grid.
 
 BURRTOOLS has some powerful time-saving functions to manipulate the position of
 the shape in its grid or to rescale a shape together with the grid. These
-features are grouped below the captions ***Grid*** and ***Shape*** on the right
+features are grouped below the captions **_Grid_** and **_Shape_** on the right
 side of the *Size* subtab. The first set of three will affect only the grid
 and/or the position of the shape in the grid, the other procedures however will
 have an impact on the shape itself by scaling it up or down.
@@ -380,7 +380,7 @@ with an indication of the reason they were introduced into BURRTOOLS. No doubt
 you'll soon find other situations in which these tools can prove to be
 valuable.
 
-***Grid* tools.** Most of these tools are somewhat extended versions of the
+**_Grid tools._** Most of these tools are somewhat extended versions of the
 more general transformation tools (→[TransformationTool](#ChTransformationTools))
 and have the advantage that they can act on all shapes at once
 (→[AdjustAllShapes](#ChAdjustAllShapes)).
@@ -406,7 +406,7 @@ descending series of rectangular blocks by copying the shape and manually
 adjusting the grid dimensions.
 
 
-***Shape* tools.** Use the following functions wisely because unnecessary
+**_Shape tools._** Use the following functions wisely because unnecessary
 and extreme scaling up of the shapes will put a heavy load on your system
 resources and can increase solving time dramatically. Also, trying to undo such
 'ridiculous' upscalings with the 1:1 tool can take a long time.
@@ -443,9 +443,9 @@ introduce *'pins and holes'* into your design.
 ### Adjusting All Shapes {#ChAdjustAllShapes}
 
 
-A last, but certainly not least, item to mention is the ***Apply to All Shapes***
+A last, but certainly not least, item to mention is the **_Apply to All Shapes_**
 checkbox. When checked, *all* shapes — whether they are selected
-or not — will be affected by the settings and procedures on the ***Size***
+or not — will be affected by the settings and procedures on the **_Size_**
 subtab. This is very useful and time saving when a certain adaptation needs to
 be done to all the shapes, e.g. transforming a six-piece burr with length 6
 into one with length 8.
@@ -463,7 +463,7 @@ mixture of differently scaled shapes.
 
 
 Once a shape has been initialised, the 2-D grid in which it can be built
-becomes accessible on the ***Edit*** panel. Basically one needs only three
+becomes accessible on the **_Edit_** panel. Basically one needs only three
 tools to create any shape, but some more features are added to make life easy.
 All these are on the toolbar right above the 2-D grid (Figure
 [FigureToolbarGrid](#FigToolbarGrid)). The first four buttons are the
@@ -523,7 +523,7 @@ top very easy.
 With larger grid sizes the cells of the 2-D grid can become very small, even
 when the available area for the grid on the *Entities* tab is maximised. To
 overcome this inconvenience the 2-D grid and the 3-D viewport can be exchanged.
-To do so, click the ***Toggle 3D*** item on the menu bar or press `[F4]`.
+To do so, click the **_Toggle 3D_** item on the menu bar or press `[F4]`.
 Note that this affects only the position of the 3-D viewport for the
 *Entities* tab.
 
@@ -695,22 +695,22 @@ to make the solver run.
 ### Creating and Editing Custom Colours
 
 
-The tools for creating and editing colours are located on the ***Colours***
-panel of the ***Entities*** tab. This panel also has a list in which the
-colours can be selected to be used in the design or to be edited. The ***New***
+The tools for creating and editing colours are located on the **_Colours_**
+panel of the **_Entities_** tab. This panel also has a list in which the
+colours can be selected to be used in the design or to be edited. The **_New_**
 button allows you to create a custom colour. A dialogue will pop up and present
 you the necessary tools to create the colour you need. Accordingly the
-***Edit*** button allows you to transform an already existing colour using a
+**_Edit_** button allows you to transform an already existing colour using a
 similar dialogue. This dialogue also shows the currently selected colour for
 comparison (unless the default colour is selected, which makes the dialogue to
 show the default medium grey). Note that the default colour can be neither
 removed nor changed. It's important to realise that the BURRTOOLS engine
 discriminates custom colours only by number as indicated in their prefix
-'***C*x****' and not by the actual colours themselves. Hence it is possible
+'**_Cx_**' and not by the actual colours themselves. Hence it is possible
 to create identical colours that nevertheless will be treated as different. So,
 it's strongly advised to introduce only colours whose difference can easily be
 discerned. Otherwise, finding out why a puzzle has no solutions can be very
-hard. The ***Remove*** button will not only discard the colour from the list,
+hard. The **_Remove_** button will not only discard the colour from the list,
 but will also remove it from any voxel that has it as an attribute by replacing
 it with the default colour.
 
@@ -772,7 +772,7 @@ a part of the surface.
 Voxels that have a custom colour added (the yellow voxels in Figure
 [Representation](#FigRepresentations)) show this colour as an inset in the
 2-D grid, whereas in the 3-D viewer they are completely painted with this
-colour (provided that the ***Colour 3D View*** on the status line is checked,
+colour (provided that the **_Colour 3D View_** on the status line is checked,
 otherwise they will be painted in the default colour). Note that in both grids
 the default colours also have a slightly checkered pattern which can assist
 navigating in space (except for the spheres, which have no checkering).
@@ -784,7 +784,7 @@ Editing complex shapes can be very cumbersome and often requires a lot of
 navigating through the 2-D grid. So, properly positioning and/or orientating
 the shape in the 2-D grid can save a lot of time. BURRTOOLS comes with a set
 of functions that help you adjust the position and orientation of the shapes.
-These functions are grouped on the ***Transform*** subtab of the ***Edit***
+These functions are grouped on the **_Transform_** subtab of the **_Edit_**
 panel (Figure [TransformationTools](#FigTransformationTools)). The first
 thing to see is that the transform tab looks quite different for all 3
 available gridtypes. At the top of the figure you see the tab for cubes, below
@@ -832,7 +832,7 @@ is possible to rotate only by 180° around these axes.
 ## Miscellaneous Editing Tools
 
 
-The ***Tools*** subtab (Figure [Tools](#FigTools)) offers extra editing
+The **_Tools_** subtab (Figure [Tools](#FigTools)) offers extra editing
 tools. Currently only some constraint related tools are available.
 
 <figure id="FigTools">
@@ -895,7 +895,7 @@ Currently the following conversions are implemented:
 - cube grid to tetra-octa grid
 
 
-To do one of those conversations choose ***File - Convert***. A Window will
+To do one of those conversations choose **_File - Convert_**. A Window will
 pop up showing you to what other grids you can convert the current puzzle. If
 no grids are available a message will display this information.
 
@@ -980,7 +980,7 @@ buttons of the *Shapes* section.
 ## Shape Information {#ChStatus}
 
 
-When using the main menu entry ***Status*** a window (Figure
+When using the main menu entry **_Status_** a window (Figure
 [WindowStatus](#FigWindowStatus)) like the one above opens and displays all kinds
 of information about all the shapes available inside the puzzle. The table
 columns have the following meanings:

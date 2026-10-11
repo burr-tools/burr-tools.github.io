@@ -51,10 +51,11 @@ driven from Python. Building from source produces a <code>burrtools</code> exten
 module that builds shapes and problems, solves them, and streams solutions
 with on-the-fly disassembly:</p>
 <p><code>PYTHONPATH=build python3</code></p>
-<p><code>import burrtools
-puzzle = burrtools.load("examples/PelikanBurr.xmpuzzle")
+<pre><code>import burrtools
+puzzle = burrtools.load(&quot;examples/PelikanBurr.xmpuzzle&quot;)
 for sol in puzzle.problems[0].solve(disassemble=True):
-    print(sol.solution_number, sol.level, sol.moves_text)</code></p>
+    print(sol.solution_number, sol.level, sol.moves_text)
+</code></pre>
 <p>Puzzles can also be created entirely in memory and saved as <code>.xmpuzzle</code>
 files. See &ldquo;Python Wrapper&rdquo; in <code>BUILD.md</code> in the source tree and the
 runnable examples in <code>example_scripts/</code> for the full interface.</p>

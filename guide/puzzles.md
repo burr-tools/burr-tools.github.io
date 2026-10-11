@@ -14,7 +14,7 @@ or *complex puzzle problems* contain also colour constraints and/or grouped
 pieces.
 
 As stated before, a puzzle can be a collection of problems, either simple,
-complex or a mixture of both. The ***Puzzle*** tab (Figure [PuzzleTab](#FigPuzzleTab))
+complex or a mixture of both. The **_Puzzle_** tab (Figure [PuzzleTab](#FigPuzzleTab))
 provides all the tools needed to build a variety of puzzle problems that are
 suited for the *Solver*.
 
@@ -38,13 +38,13 @@ and *assigning* shapes to the pieces and the result.
 
 
 The first step is to *initialise* the problem(s). All the tools to do so are
-just below the ***Problems*** caption. Just as with shapes, this can be done by
-clicking the ***New*** button to start a completely new one, or by using
-***Copy*** to edit a previously created problem definition without destroying
-the original. Accordingly, problems can be removed with the ***Delete***
+just below the **_Problems_** caption. Just as with shapes, this can be done by
+clicking the **_New_** button to start a completely new one, or by using
+**_Copy_** to edit a previously created problem definition without destroying
+the original. Accordingly, problems can be removed with the **_Delete_**
 button. All problems find their place in the problems list below these buttons
-and are identified with a '***P*x****' prefix to which a more meaningful
-description can be added by clicking the ***Label*** button. Also the methods
+and are identified with a '**_Px_**' prefix to which a more meaningful
+description can be added by clicking the **_Label_** button. Also the methods
 for selecting and rearranging problems are similar to their counterparts on the
 *Entities* tab and need no further explanation here.
 
@@ -54,7 +54,7 @@ for selecting and rearranging problems are similar to their counterparts on the
 Until now we dealt with shapes as rather abstract concepts. Only by
 *assigning* these shapes to the pieces or the goal of a puzzle do they become
 meaningful. All available shapes are presented in the top list of the
-***Piece Assignment*** panel, in which they can be selected and be given their
+**_Piece Assignment_** panel, in which they can be selected and be given their
 purpose in the puzzle. Since a strict distinction is made between shapes and
 pieces, it's not necessary that all shapes be used in a single problem or in
 any problem at all.
@@ -65,13 +65,13 @@ any problem at all.
 </figure>
 
 Although not mandatory, it's probably best to assign the result shape first:
-select the appropriate shape and click ***Set Result***. The result shape is
+select the appropriate shape and click **_Set Result_**. The result shape is
 then depicted in the top left part of the 3-D viewport (which also shows a
 smaller example of the currently selected shape) and the status line shows some
 information about the problem at hand.
 
 Next, any other shape can be assigned to the pieces of the puzzle by selecting
-it and clicking ***+1***. This adds a single copy of the shape to the second
+it and clicking **_+1_**. This adds a single copy of the shape to the second
 list which holds all the shapes used as pieces. If multipieces are involved,
 just add as many instances of the shape as required by the same means.
 
@@ -79,15 +79,15 @@ In the list of pieces any multipiece has an instance counter added (in
 parentheses) to its identifier. A single instance of every shape used in the
 puzzle is shown in the lower part of the 3-D viewer. To make corrections,
 pieces can be removed from the puzzle by selecting them (they also can be
-selected by clicking them in the pieces list) and clicking ***-1***. Again,
+selected by clicking them in the pieces list) and clicking **_-1_**. Again,
 this removes only a single instance and needs to be repeated for removing
 multipieces.
 
 Most of the time it is necessary to add one instance of all defined shapes to
 the puzzle. If there are a lot of them this can take while. This is what the
-***all +1*** button is for. It increases the piece counter for each shape
+**_all +1_** button is for. It increases the piece counter for each shape
 (except the one assigned for the result) by one. Or it adds a first instance of
-the shape to the problem. The ***Clr*** button removes all pieces from the
+the shape to the problem. The **_Clr_** button removes all pieces from the
 problem.
 
 Since it doesn't make sense for any shape to be both the result and a piece at
@@ -117,7 +117,7 @@ ranges. Simply tell BURRTOOLS that the result should be made out of 0-6 pieces
 of shape A and 0-6 pieces of shape B, or if you want to ensure that at least
 one of each shape is used, use ranges 1-6. Then solve.
 
-Piece ranges can be easily defined using the ***min=0*** button. This will set
+Piece ranges can be easily defined using the **_min=0_** button. This will set
 the minimum of the piece range for the current shape to zero. With that you can
 define the range by first adding max-min pieces (meaning the difference between
 the maximum and the minimum number of pieces), then set the minimum to zero and
@@ -125,10 +125,10 @@ then add the missing minimum pieces. This should cover the most used usage cases
 
 For example: suppose you want to add a piece that you want to use 3, 4, 5 or 6
 times in your puzzle. The piece range is 3-6. To enter those values you first
-add 6-3=3 pieces. Then you press the ***min=0*** button getting a piece range
+add 6-3=3 pieces. Then you press the **_min=0_** button getting a piece range
 0-3. Now you add another 3 pieces and you get the range you want.
 
-Except for the ***min=0*** button, all other buttons always change the minimum
+Except for the **_min=0_** button, all other buttons always change the minimum
 and the maximum of the piece range.
 
 If this calculation is too hard for you, you can use the problem detail
@@ -278,8 +278,8 @@ feature will help in the design of lots of puzzles new and crazy ideas.
 
 
 All settings that cannot be set directly on the main problem tab can be set
-within the ***Problem Details*** window (Figure [GroupEditor](#FigGroupEditor))
-which opens by clicking the ***Detail*** button. This window allows you to
+within the **_Problem Details_** window (Figure [GroupEditor](#FigGroupEditor))
+which opens by clicking the **_Detail_** button. This window allows you to
 define groups and to define piece ranges without having to subtract values. The
 window also contains rarely-used parameters.
 
@@ -290,13 +290,13 @@ window also contains rarely-used parameters.
 
 Let's first see how piece groups are defined using this window. Although the
 above section may sound complicated, implementing piece groups is actually very
-simple. All actions take place in the ***Problem Details Editor***. Initially
+simple. All actions take place in the **_Problem Details Editor_**. Initially
 the *Group Editor* shows a tabulated overview of the pieces used in the
 problem. The first column (*Shape*) lists the pieces by their prefix and
 name, the second and third (*min* and *max*) show the instances range
 of each.
 
-Creating piece groups is straightforward as the ***Add Group*** button simply
+Creating piece groups is straightforward as the **_Add Group_** button simply
 adds a new group to the problem. Each new group gets its own column (*Gr 1*,
 *Gr 2*, etc...) in which one can specify the *maximum* number of
 instances of a certain piece that can go in that particular group. Just click
@@ -317,7 +317,7 @@ for shapes that are already used in the current problem. You cannot (yet) add
 another shape to the problem using this dialogue, but you can remove a shape by
 setting the minimum and the maximum to zero.
 
-Finally, this window also contains an entry field called ***Maximum Number of Holes***
+Finally, this window also contains an entry field called **_Maximum Number of Holes_**
 (empty variable cubes). This value is used by the program, when piece ranges
 are used, in which case it is not possible for the program to determine how many
 holes there will be in the final solution. Because this missing information
@@ -335,7 +335,7 @@ a result voxel of colour C*x*. If you don't want that or if you need
 additional placement possibilities, you can change the colour constraint rules
 in the colour assignment section.
 
-The ***Colour Assignment*** panel (Figure [ColourAssignment](#FigColourAssignment))
+The **_Colour Assignment_** panel (Figure [ColourAssignment](#FigColourAssignment))
 has two lists. The first one shows all the available custom colours and allows
 selecting a certain colour for which then some relations can be set. These
 relations simply indicate which colour(s) in the result can accommodate which
@@ -346,7 +346,7 @@ second list. This list has three columns, of which the first shows the 'piece
 colours', the last shows the 'result colours', and the one in between clearly
 depicts the relationships by a series of arrows pointing from the piece colours
 to the result colours. The list is sorted either by the piece colours or by the
-result colours. The buttons ***Sort by Piece*** and ***Sort by Result*** switch
+result colours. The buttons **_Sort by Piece_** and **_Sort by Result_** switch
 between these two views.
 
 <figure id="FigColourAssignment">

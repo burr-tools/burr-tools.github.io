@@ -24,7 +24,7 @@ Roman: This font is used for the main text.
 
 *Sans Serif*: Used for elements of the GUI. The same wording is used as in the GUI.
 
-***Sans Serif Bold***: Used for elements of the GUI and indicating that an in-depth explanation follows.
+**_Sans Serif Bold_**: Used for elements of the GUI and indicating that an in-depth explanation follows.
 
 CAPITALS: Used for program names and puzzle names.
 

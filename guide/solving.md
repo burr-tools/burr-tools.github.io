@@ -11,7 +11,7 @@ the program would be nothing more than a simple tool for drawing a very
 specific kind of 3-D objects... a task a lot of other software is no doubt even
 better suited for.
 
-Solving puzzles is very straightforward with BURRTOOLS even if the ***Solver***
+Solving puzzles is very straightforward with BURRTOOLS even if the **_Solver_**
 tab (Figure [Solver](#FigSolver)) has quite a few controls. On top there is
 the *Parameters* panel that contains a list allowing you to select a
 specific problem to be solved, provides option settings for the solver, and has
@@ -31,7 +31,7 @@ solutions in detail, and to organize the solutions that have been found.
 
 
 In order to make the solver run, a problem must be selected first. A list of
-all previously defined problems is available right below the ***Parameters***
+all previously defined problems is available right below the **_Parameters_**
 caption. Selecting problems to be solved is similar to selecting shapes,
 colours, or problems on the other tabs. Note that only the selected problem
 will be solved, and that solving one problem will preserve the results of any
@@ -39,7 +39,7 @@ already solved or partially solved problem. Currently there are the following
 options for the solver. All deal with the kind of information the solver will
 report.
 
-***Disassemble***
+**_Disassemble_**
 :   When checked, the solver will try to disassemble any assemblies found, and only
 those that indeed can be disassembled will be added to the list of solutions.
 If this option is left unchecked, the solver will merely search for all
@@ -50,12 +50,12 @@ always can be disassembled (e.g. PENTOMINO problems and other packing
 problems). For that kind of puzzles, running the disassembler would only slow
 down the process without any gain in information.
 
-***Just Count***
+**_Just Count_**
 :   When checked, the solver will only count the number of solutions; it will drop
 the solutions right after they are found. Check this option if you're
 interested only in the number of solutions and not in the solutions themselves.
 
-***Drop Disassemblies***
+**_Drop Disassemblies_**
 :   When checked, the program functions the same as with *Disassemble*
 enabled, except that the disassembly is *not* stored, only the assemblies and
 some information *about* the disassemblies (like their level). This is useful
@@ -65,7 +65,7 @@ computer so it is useful to just save some information while solving the puzzle
 and then later on, when everything is finished, recalculate the disassemblies
 for the interesting solutions.
 
-***Keep Mirror Solutions***
+**_Keep Mirror Solutions_**
 :   When this box is checked, the program will not remove mirror solutions. Two
 solutions are mirror solutions are solutions when one solution is a real mirror
 of the other. This can happen only, when either all pieces are self mirroring
@@ -76,20 +76,20 @@ are still removed. This option is useful when using piece ranges, as the mirror
 removal would remove too many solutions, like solutions with different piece
 sets.
 
-***Keep Rotated Solutions***
+**_Keep Rotated Solutions_**
 :   When this box is checked, the program will not exclude solutions that are only
 rotations of other solutions. So the final solution count will be wrong. It will
 even be completely unpredictable somewhere in the range of the right number of
 solutions and a 120 fold of that value (for spheres). This option is useful if
 you just want to know if there are any solutions *at all*.
 
-***Expnsv Rot Check***
+**_Expnsv Rot Check_**
 :   When this box is checked, BURRTOOLS will do a more thorough but also more CPU time
 consuming check for double solutions. The basic idea behind it is explained
 in the chapter about [Rotation Removal](#ChRotationRemoval2). A use of this
 switch is explained in the [piece generation example](#ChPieceGeneration)
 
-***Sort by***
+**_Sort by_**
 :   This option lets you choose the order in which the solutions are presented
 while the solver runs. There are 3 possibilities:
 
@@ -101,7 +101,7 @@ while the solver runs. There are 3 possibilities:
   moves required to completely disassemble the puzzle.
 
 
-***Drop***
+**_Drop_**
 :   If a puzzle has very many solutions, it might not be necessary or even possible
 to save all of them. E.g for polyomino-like puzzles it might be nice to keep
 just every 1000th of the millions of solutions, so as to have a profile of the
@@ -109,7 +109,7 @@ possible solutions. Here you can specify every how many-th solution you want to
 keep. A 1 means you keep every solution, a 100 means you keep the first and the
 101st and the 201st and so on.
 
-***Limit***
+**_Limit_**
 :   Limits the number of solutions to be saved. There will never be more than the
 specified number of solutions in the list. When the list is full the program
 has 2 choices:
@@ -138,7 +138,7 @@ differ between runs.
 
 A paused or stopped search can be saved into the puzzle file and continued
 later without repeating solutions already found: just save the puzzle while
-the solver is paused or after stopping it, and press ***Continue*** after
+the solver is paused or after stopping it, and press **_Continue_** after
 reloading. Note that a paused search saved by a newer version of BURRTOOLS
 generally cannot be continued by an older one, so finish long solves before
 updating.
@@ -155,11 +155,11 @@ Problems can be solved either in an automatic way or (manually) step-by-step.
 
 An automatic search will proceed until all solutions, i.e. assemblies and
 disassemblies (when requested), are found. To begin an automated search, click
-the ***Start*** button. Typically the solving process consists of a preparation
+the **_Start_** button. Typically the solving process consists of a preparation
 phase followed by several cycles of assembling and disassembling. The latter is
 of course omitted when the *Solve Disassembly* option is left unchecked.
 
-The automatic solving process can be interrupted by clicking ***Stop***, but
+The automatic solving process can be interrupted by clicking **_Stop_**, but
 often the solver needs to finish some tasks first before it can actually halt
 (→[Solver Information](#ChSolverStateInformation)). Any interrupted solving process
 can be saved to the puzzle file and be resumed in another session with
@@ -169,7 +169,7 @@ inform you about the possibility to continue with the search for solutions.
 When the solver is interrupted, the shapes (→ Chapter [Shapes](#ChShapes))
 and/or the problems (→ Chapter [Puzzles](#ChPuzzles)) can be
 edited. If no editing whatsoever of these has been done, the solving process
-can be simply resumed (***Continue***), otherwise you need to start all over
+can be simply resumed (**_Continue_**), otherwise you need to start all over
 again. But keep in mind that the saving of the internal state of the solver is
 very version dependent. So it is likely that a new version of BURRTOOLS cannot
 resume solving a puzzle saved with an older version. So it is good practice to
@@ -192,8 +192,8 @@ finished within a few seconds, so be careful not to give up too soon.
 
 
 The first line of the solver information is a progress bar indicating the
-percentage of work it has done. The fifth (***Time Used***) and the sixth
-(***Time Left***) line respectively show the time already spent on the search
+percentage of work it has done. The fifth (**_Time Used_**) and the sixth
+(**_Time Left_**) line respectively show the time already spent on the search
 and an estimate of the time still needed to finish the solving process. Note
 that these are *very rough estimates* since these are based on the possible
 placements of the pieces already tested and still to test. However, the
@@ -204,7 +204,7 @@ Placements BrowsingPlacements]).
 #### Solver State Information {#ChSolverStateInformation}
 
 
-Probably most important is the ***Activity*** and result information provided
+Probably most important is the **_Activity_** and result information provided
 by the solver. The *Activity* line tells you not only what the solver is
 currently doing, but also whether the solver can be interrupted or not. The
 following is an overview of the activities of the solver:
@@ -249,9 +249,9 @@ error
 specific information on the error, is usually displayed.
 
 
-Finally, the solver gives information about the ***Assemblies*** found thus far
+Finally, the solver gives information about the **_Assemblies_** found thus far
 (i.e. assemblies for which the pieces do not overlap in 3-D space) and
-***Solutions*** or disassemblies (i.e. assemblies that also can be constructed
+**_Solutions_** or disassemblies (i.e. assemblies that also can be constructed
 in real life using the particular pieces of the puzzle). Note that the
 *Solutions* are reported (and in fact tested) only if the
 *Solve Disassembly* option is enabled.
@@ -273,14 +273,14 @@ you quickly see when the program tries invalid placements for some or all
 pieces of your puzzle. The same can be done in the placement browser.
 
 A manual search needs the initial preparation phase as well as an automatic
-search. This can be accomplished by clicking ***Prepare***. The solver will
+search. This can be accomplished by clicking **_Prepare_**. The solver will
 halt after this initial phase and the subsequent steps of the assembler can be
-seen in the 3-D viewer by clicking the ***Step*** button.
+seen in the 3-D viewer by clicking the **_Step_** button.
 
 ## Browsing Placements {#ChBrowsingPlacements}
 
 
-The ***Browse Placements*** button opens a window (Figure
+The **_Browse Placements_** button opens a window (Figure
 [Placement Browser](#FigPlacementBrowser)) that lets you examine the
 positions for each piece that will by tried by the assembler. The placements
 displayed in this window are the possible positions left in the current state
@@ -297,7 +297,7 @@ the assembler has finished its work.
 <figcaption>Figure: Placement browser</figcaption>
 </figure>
 
-The ***Placement Browser*** window (Figure [Placement Browser](#FigPlacementBrowser))
+The **_Placement Browser_** window (Figure [Placement Browser](#FigPlacementBrowser))
 has a very simple layout and consist mainly of a 3-D viewer and some
 additional scrollbars. This 3-D viewport, which shows the outline of the result
 shape and therein the shape for which the possible positions are to be
@@ -354,7 +354,7 @@ when pressing ctrl with the click you will pull the piece.
 
 
 As soon as any result is found, the solutions list becomes available on the
-***Solutions*** panel and the 3-D viewer shows the first solution in the list.
+**_Solutions_** panel and the 3-D viewer shows the first solution in the list.
 Note that subsequent solutions are simply added to that list, and that they can
 get sorted by the total number of moves (in case disassembly was requested)
 after the search is completed. All solutions that have been found can be
@@ -364,8 +364,8 @@ solutions may be needed to show the solutions properly ordered.
 
 This panel has four components:
 
-- a scrollbar (***Solution***) to browse the different solutions,
-- a second scrollbar (***Move***) to view the moves involved in the
+- a scrollbar (**_Solution_**) to browse the different solutions,
+- a second scrollbar (**_Move_**) to view the moves involved in the
   disassembly,
 - an array of buttons with very short labels to organize the solution list, and
 - a list of all instances of the pieces in the puzzle problem, which allows you
@@ -375,7 +375,7 @@ This panel has four components:
 ### Selecting Solutions and Animating Disassemblies
 
 
-By moving the slider of the top scrollbar (***Solution***), any solution from
+By moving the slider of the top scrollbar (**_Solution_**), any solution from
 the list can be selected as is indicated by its number in the text box left of
 the it. Above the scrollbar there is an indication of the total number of
 solutions in the list. When the scrollbar is active it can also be controlled
@@ -384,7 +384,7 @@ solutions in the list may be different from the real number of solutions. The
 correct number of solutions for the problem is shown in the solver progress
 section.
 
-The second scrollbar (***Move***) also has a text box on the left, this time
+The second scrollbar (**_Move_**) also has a text box on the left, this time
 reflecting the stage of disassembly (i.e. the number of moves executed in the
 disassembling process) of the currently selected solution. Moving the slider to
 the right will animate the disassembly, moving it to the left will reassemble
@@ -451,43 +451,43 @@ at the end.
 The second row of buttons allows the deletion of certain solutions from the
 list.
 
-***Del All***
+**_Del All_**
 :   removes all solutions
 
-***Del Before***
+**_Del Before_**
 :   removes all solution before the currently selected solution. The selected
 solution is the first one in the list that is not removed
 
-***Del At***
+**_Del At_**
 :   removes the currently selected solution
 
-***Del After***
+**_Del After_**
 :   removes all solutions behind the currently selected one. The selected on is the
 last one that is kept
 
-***Del w/o DA***
+**_Del w/o DA_**
 :   remove all solutions that have no disassembly
 
 
 The last row of buttons allow the addition or removal of disassemblies to the
 list of puzzles.
 
-***D DA***
+**_D DA_**
 :   deletes the disassembly of the currently selected solution. The disassembly is
 replaced by data containing only information *about* the disassembly, so you
 can still sort the solutions
 
-***D A DA***
+**_D A DA_**
 :   deletes all disassemblies
 
-***A DA***
+**_A DA_**
 :   adds the disassembly to the currently selected solution
 
-***A A DA***
+**_A A DA_**
 :   add the disassembly to all solutions. Already existing disassemblies are thrown
 away
 
-***A M DA***
+**_A M DA_**
 :   add the disassembly to all solutions that do not have one. Solutions that
 already have a disassembly are left unchanged
 
@@ -497,7 +497,7 @@ already have a disassembly are left unchanged
 
 In the list at the bottom of the *Solutions* panel, all pieces used in the
 problem are represented by their identifier. Instances of multipieces have a
-counter added to their prefix which now takes the form '***Sx.n***' and their
+counter added to their prefix which now takes the form '**_Sx.n_**' and their
 default colour may be slightly modified to tell them apart.
 
 By clicking an identifier, the visibility state of that particular piece is

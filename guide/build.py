@@ -21,7 +21,8 @@ ROOT = Path(__file__).resolve().parent
 SRC = ROOT
 OUT = ROOT
 
-MD_EXT = ['def_list', 'attr_list', 'toc', 'sane_lists', 'smarty']
+MD_EXT = ['def_list', 'attr_list', 'toc', 'sane_lists', 'smarty',
+          'fenced_code']
 
 CSS = '''
   :root{--bg:#16130f;--bg2:#1e1a14;--card:#241f17;--card2:#2b2419;--ink:#f2ead9;
