@@ -127,7 +127,9 @@ also contains the command-line solvers <code>burrTxt.exe</code> and <code>burrTx
 <code>Applications</code> folder. On the first start macOS may complain that
 &ldquo;BurrTools.app is damaged and can&rsquo;t be opened&rdquo;. This is only the Gatekeeper
 quarantine flag on unsigned downloads; clear it once with:</p>
-<p><code>xattr -cr /Applications/BurrTools.app</code></p>
+<div class="codehilite"><pre><span></span><code>xattr<span class="w"> </span>-cr<span class="w"> </span>/Applications/BurrTools.app
+</code></pre></div>
+
 <p>After that the app starts normally. Puzzles can be opened by double-clicking
 them in Finder or by dropping them onto the Dock icon.</p>
 <h4 id="linux-unix">Linux / Unix</h4>
@@ -2775,7 +2777,9 @@ a matter of taste, so make your choice.</li>
 driven from Python. Building from source produces a <code>burrtools</code> extension
 module that builds shapes and problems, solves them, and streams solutions
 with on-the-fly disassembly:</p>
-<p><code>PYTHONPATH=build python3</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nv">PYTHONPATH</span><span class="o">=</span>build<span class="w"> </span>python3
+</code></pre></div>
+
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">burrtools</span>
 <span class="n">puzzle</span> <span class="o">=</span> <span class="n">burrtools</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"examples/PelikanBurr.xmpuzzle"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">sol</span> <span class="ow">in</span> <span class="n">puzzle</span><span class="o">.</span><span class="n">problems</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">disassemble</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>

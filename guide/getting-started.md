@@ -76,7 +76,9 @@ Download the `.dmg` for Apple Silicon, open it and drag the app into your
 "BurrTools.app is damaged and can't be opened". This is only the Gatekeeper
 quarantine flag on unsigned downloads; clear it once with:
 
-`xattr -cr /Applications/BurrTools.app`
+```bash
+xattr -cr /Applications/BurrTools.app
+```
 
 After that the app starts normally. Puzzles can be opened by double-clicking
 them in Finder or by dropping them onto the Dock icon.

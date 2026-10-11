@@ -11,7 +11,9 @@ driven from Python. Building from source produces a `burrtools` extension
 module that builds shapes and problems, solves them, and streams solutions
 with on-the-fly disassembly:
 
-`PYTHONPATH=build python3`
+```bash
+PYTHONPATH=build python3
+```
 
 ```python
 import burrtools
