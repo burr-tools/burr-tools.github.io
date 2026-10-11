@@ -44,7 +44,7 @@
   </div>
 </nav>
 <main>
-<nav class="chapters"><b>Guide contents</b><ol><li><a href="prologue/">Prologue</a></li><li><a href="getting-started/">Getting Started</a></li><li><a href="interface/">The BurrTools Interface</a></li><li><a href="shapes/">Shapes</a></li><li><a href="puzzles/">Defining Puzzles</a></li><li><a href="solving/">Solving Puzzles</a></li><li><a href="reporting/">Reporting with BurrTools</a></li><li><a href="scripting/">Scripting with Python</a></li><li><a href="what-came-next/">What Came Next</a></li><li><a href="appendix/">Appendix</a></li></ol></nav>
+<nav class="chapters"><b>Guide contents</b><ol><li><a href="prologue/">Prologue</a></li><li><a href="getting-started/">Getting Started</a></li><li><a href="interface/">The BurrTools Interface</a></li><li><a href="shapes/">Shapes</a></li><li><a href="puzzles/">Defining Puzzles</a></li><li><a href="solving/">Solving Puzzles</a></li><li><a href="reporting/">Reporting with BurrTools</a></li><li><a href="scripting/">Scripting with Python</a></li><li><a href="appendix/">Appendix</a></li></ol></nav>
 <section id="page-prologue"><h1 id="prologue">Prologue</h1>
 <p><em>to my mother (1950-2005)</em></p>
 <p>What are BURRTOOLS? BURRTOOLS consists of two main parts. On the one hand
@@ -2808,19 +2808,7 @@ for sol in puzzle.problems[0].solve(disassemble=True):
     print(sol.solution_number, sol.level, sol.moves_text)</code></p>
 <p>Puzzles can also be created entirely in memory and saved as <code>.xmpuzzle</code>
 files. See &ldquo;Python Wrapper&rdquo; in <code>BUILD.md</code> in the source tree and the
-runnable examples in <code>example_scripts/</code> for the full interface.</p></section><section id="page-what-came-next"><h1 id="what-came-next">What Came Next</h1>
-<p>Two chapters of the 2010 edition are gone from this revision because they
-described software that did not exist: &ldquo;Future Plans&rdquo;, a personal wish list,
-and &ldquo;Burr Design Tools&rdquo;, design automation that was explicitly written as if
-already implemented.</p>
-<p>For the record, several wishes from that 2010 list have since come true. The
-solver gained faster SIMD search cores and parallel solving across all CPU
-cores, disassembly runs concurrently on a thread pool, and STL export was
-rebuilt around a chamfer mesher. Still open are ideas like a shape generator,
-libraries of shapes to import from, better piece-colouring tools, and a debug
-window that explains why an assembly fails. Those live on as GitHub issues,
-and contributions are welcome at
-<code>https://github.com/burr-tools/burr-tools</code>.</p></section><section id="page-appendix"><h1 id="appendix">Appendix</h1>
+runnable examples in <code>example_scripts/</code> for the full interface.</p></section><section id="page-appendix"><h1 id="appendix">Appendix</h1>
 <h2 id="ChExamples">Examples</h2>
 <p>BURRTOOLS comes with some examples that illustrate the capabilities and
 functions of the program. We&rsquo;d like to thank the designers for allowing us to
