@@ -153,18 +153,20 @@
   footer.site .cols { display: flex; gap: 28px; flex-wrap: wrap; }
   footer.site .cols div { flex: 1 1 220px; }
 
-  /* ---------- narrow screens: compact viewer stacked on top ---------- */
-  /* The stage stays sticky so the scroll-driven disassembly keeps
-     playing, but shrinks to roughly half the page width: full-width
-     would eat most of a phone viewport and leave text unreadable. */
+  /* ---------- narrow screens: compact static viewer on top ---------- */
+  /* Not sticky: on a phone a pinned viewer would hog the viewport while
+     reading. The puzzle disassembles on a loop in place instead (see
+     tick()); scroll-driven disassembly is desktop-only. The stage
+     shrinks to roughly half the page width so text stays readable. */
   @media (max-width: 1200px) {
     .layout { display: flex; flex-direction: column; padding: 0 16px 30px; }
     .content { order: 2; max-width: none; }
     .stage {
       order: 1; width: min(58%, 300px); max-width: none; margin: 0 auto;
-      position: sticky; top: 0; z-index: 5;
-      background: var(--bg); padding: 8px 0;
+      position: static;
+      background: var(--bg); padding: 8px 0 0;
     }
+    .scrollhint { display: none; }
     /* Tag becomes a plain caption under the canvas: as an overlay it
        would cover half the small puzzle. `align-self` shrinks it to
        the text instead of stretching it across the stage. */
@@ -449,6 +451,20 @@
 
   var mixer = null, duration = 15;
 
+  // Same breakpoint as the CSS: narrow screens get a static viewer with
+  // an in-place disassembly loop; wide screens get scroll-driven time.
+  var mq = window.matchMedia("(max-width: 1200px)");
+  var autoDir = 1, lastFrame = 0;
+
+  function updateTag() {
+    if (!window.__puzzleReady) return;
+    tagEl.innerHTML = mq.matches
+      ? "<b>Derek&rsquo;s Dozen</b> · 12 pieces · disassembling on loop"
+      : "<b>Derek&rsquo;s Dozen</b> · 12 pieces · scroll to disassemble";
+  }
+  if (mq.addEventListener) mq.addEventListener("change", updateTag);
+  else if (mq.addListener) mq.addListener(updateTag);
+
   function bin(b64) {
     var s = atob(b64), n = s.length, out = new Uint8Array(n);
     for (var i = 0; i < n; i++) out[i] = s.charCodeAt(i);
@@ -489,6 +505,7 @@
     if (q.has("t")) setTime(parseFloat(q.get("t")));
     else applyScroll();
     window.__puzzleReady = true;
+    updateTag();
   }, function (err) {
     tagEl.textContent = "Could not load the puzzle model.";
     if (window.console) console.error(err);
@@ -510,6 +527,7 @@
 
   var queued = false;
   window.addEventListener("scroll", function () {
+    if (mq.matches) return;  // mobile plays its own loop, ignore scroll
     if (queued) return;
     queued = true;
     requestAnimationFrame(function () { queued = false; applyScroll(); });
@@ -527,9 +545,22 @@
       renderer.setSize(w, h, false);
   }
 
-  (function tick() {
+  (function tick(now) {
     requestAnimationFrame(tick);
     controls.update();
+    if (mixer && mq.matches) {
+      // Mobile loop: apart and back together, ~20s per cycle.
+      if (lastFrame) {
+        var dt = Math.min(0.1, (now - lastFrame) / 1000);
+        var t = mixer.time + autoDir * dt * (duration / 10);
+        if (t >= duration - 1e-3) { t = duration - 1e-3; autoDir = -1; }
+        else if (t <= 0) { t = 0; autoDir = 1; }
+        mixer.setTime(t);
+      }
+      lastFrame = now;
+    } else {
+      lastFrame = 0;
+    }
     fit();
     renderer.render(scene, camera);
   })();
