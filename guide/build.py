@@ -49,6 +49,7 @@ CSS = '''
   padding:1px 7px;font-size:.88em;color:#ffd9a0}
   pre{background:#100d09;border:1px solid var(--line);border-radius:10px;
   padding:12px 16px;overflow-x:auto;font-size:14px;color:#ffd9a0}
+  pre code{background:none;border:none;border-radius:0;padding:0;font-size:1em}
   dl{margin:12px 0}dt{font-weight:650;margin-top:10px}dd{margin:2px 0 6px 22px;color:var(--dim)}
   footer.site{max-width:1000px;margin:0 auto;padding:26px 28px 60px;color:var(--faint);font-size:14px}
 '''

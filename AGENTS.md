@@ -14,9 +14,8 @@ homepage (dark theme, inline CSS, three.js 3D viewer under `assets/`).
   cross-page `#Label` links).
 - Commit the `.md` sources **and** the generated HTML together.
 - Markdown limits, handled by convention: definition lists need the
-  `def_list` extension (already on); GUI-element emphasis is `**_x_**`
-  (triple-star `***x***` misrenders — never use it); code blocks need
-  fenced ``` (the `fenced_code` extension is on, nothing else is).
+  `def_list` extension (already on); GUI-element emphasis is `**_x_**`;
+  code blocks use fenced ``` (only `fenced_code` is on, no highlighter).
 - After rebuilding, check for stray `**` outside `<pre>/<code>` and run a
   link pass: every `#anchor`, `<page>/#anchor` and `<img src>` must resolve.
 
