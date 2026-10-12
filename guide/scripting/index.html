@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scripting with Python — BurrTools User Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="top">
+  <a class="brand" href="../../">BurrTools</a>
+  <div class="links">
+    <a href="../../">Home</a>
+    <a href="../">All on one page</a>
+    <a href="https://burr-tools.github.io/burr-tools/">API reference</a>
+    <a href="https://github.com/burr-tools/burr-tools">GitHub</a>
+  </div>
+</nav>
+<main>
+<nav class="chapters"><b>Guide contents</b><ol><li><a href="../prologue/">Prologue</a></li><li><a href="../getting-started/">Getting Started</a></li><li><a href="../interface/">The BurrTools Interface</a></li><li><a href="../shapes/">Shapes</a></li><li><a href="../puzzles/">Defining Puzzles</a></li><li><a href="../solving/">Solving Puzzles</a></li><li><a href="../reporting/">Reporting with BurrTools</a></li><li><a href="../scripting/">Scripting with Python</a></li><li><a href="../appendix/">Appendix</a></li></ol></nav>
+<h1 id="scripting-with-python">Scripting with Python</h1>
+<p>Beyond the GUI and the <code>burrTxt</code> command-line solvers, BURRTOOLS can be
+driven from Python. Building from source produces a <code>burrtools</code> extension
+module that builds shapes and problems, solves them, and streams solutions
+with on-the-fly disassembly:</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">PYTHONPATH</span><span class="o">=</span>build<span class="w"> </span>python3
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">burrtools</span>
+<span class="n">puzzle</span> <span class="o">=</span> <span class="n">burrtools</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"examples/PelikanBurr.xmpuzzle"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">sol</span> <span class="ow">in</span> <span class="n">puzzle</span><span class="o">.</span><span class="n">problems</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">disassemble</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">solution_number</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">level</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">moves_text</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Puzzles can also be created entirely in memory and saved as <code>.xmpuzzle</code>
+files. See &ldquo;Python Wrapper&rdquo; in <code>BUILD.md</code> in the source tree and the
+runnable examples in <code>example_scripts/</code> for the full interface.</p>
+<nav class="pager"><a href="../reporting/">← Reporting with BurrTools</a><a href="../appendix/">Appendix →</a></nav>
+</main>
+<footer class="site">
+  BurrTools user guide — sources: <a href="https://github.com/burr-tools/burr-tools.github.io/tree/master/guide">Markdown</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prologue — BurrTools User Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="top">
+  <a class="brand" href="../../">BurrTools</a>
+  <div class="links">
+    <a href="../../">Home</a>
+    <a href="../">All on one page</a>
+    <a href="https://burr-tools.github.io/burr-tools/">API reference</a>
+    <a href="https://github.com/burr-tools/burr-tools">GitHub</a>
+  </div>
+</nav>
+<main>
+<nav class="chapters"><b>Guide contents</b><ol><li><a href="../prologue/">Prologue</a></li><li><a href="../getting-started/">Getting Started</a></li><li><a href="../interface/">The BurrTools Interface</a></li><li><a href="../shapes/">Shapes</a></li><li><a href="../puzzles/">Defining Puzzles</a></li><li><a href="../solving/">Solving Puzzles</a></li><li><a href="../reporting/">Reporting with BurrTools</a></li><li><a href="../scripting/">Scripting with Python</a></li><li><a href="../appendix/">Appendix</a></li></ol></nav>
+<h1 id="prologue">Prologue</h1>
+<p><em>to my mother (1950-2005)</em></p>
+<p>What are BURRTOOLS? BURRTOOLS consists of two main parts. On the one hand
+there is a program that assembles and disassembles burr-type puzzles. That
+program contains a graphical user interface (GUI) which allows creating and
+editing puzzle definitions, solving the puzzle, and the display and animation
+of the solutions found. This is probably the most interesting part for most
+people. On the other hand there is also a C++ library that may help with the
+search for and design of new puzzles. This library contains all the necessary
+tools to write programs that do what the graphical interface does (and more).</p>
+<p>This document describes the graphical program. It contains
+descriptions of all concepts and explains how to use them in the GUI program.</p>
+<p>For those that want to use or just look at the library part of BURRTOOLS there
+are doxygen comments within the library source code. Besides the user interface
+they explain the basic ideas of the library and also some of the algorithms
+used. But this is only for the interested and not required for the understanding
+of the GUI.</p>
+<p>But first a little bit of history of this program. There are already two
+programs with similar functionality to BURRTOOLS can do. One is BCPBOX/GENDA
+written by Bill Cutler. Cutler&rsquo;s programs are very versatile, they even can
+handle different space grids. The other one is PUZZLESOLVER3D by André van
+Kammen. I had bought this program a while ago and have generally been quite
+satisfied with it. I have taken over quite some ideas from the GUI that André
+developed. So why another program, you might ask. Here are a few reasons:</p>
+<ul>
+<li>The available programs are not for LINUX, which is my operating system of
+  choice, they only run on Windows so they leave out all users of OSX, Unix and
+  all those other operating systems,</li>
+<li>the available programs are binary only programs and hence it is quite hard to
+  do more complex research or design tasks,</li>
+<li>the programs do cost money,</li>
+<li>PUZZLESOLVER3D seems to be abandoned. There hasn&rsquo;t been any update for quite
+  a while, its website is also gone by now,</li>
+<li>PUZZLESOLVER3D has some nasty limits to the shape, sizes, and the number of
+  possible placements.</li>
+</ul>
+<p>Anyway, I was not completely satisfied with the available software. Then in
+summer 2003 a German computer magazine started a competition to write a program
+that counts the number of solutions to a merchandising puzzle as fast as
+possible. My program wasn&rsquo;t the fastest but it was the starting point for
+BURRTOOLS.</p>
+<p>As there are many people out there that are a lot more creative than I am and
+that could use a program like this to design nice puzzles, I decided to make it
+public and free (see www.gnu.org).</p>
+<p>I added a GUI that can work on many operating systems, including LINUX and
+WINDOWS. This has the disadvantage that the GUI looks a bit different from what
+the normal WINDOWS user is used to, so stay calm if things look a bit unusual,
+they behave in fact quite similar to how a normal WINDOWS-program behaves.</p>
+<p>Lately 2 people played important roles in the development of the program.
+These 2 are Ronald Kint-Bruynseels and Derek Bosch. Ronald has rewritten this
+manual and has generally contributed lots of well organized suggestions. Derek
+is responsible for the OSX port of the program. Without him there would be no
+binary for this operating system available.</p>
+<p>I want to thank both of them for their work. I also want to thank all the other
+people that have sent in bug reports, suggestions and praise. Their input is
+very welcome and crucial to the further development of the program.</p>
+<p>Now BURRTOOLS has become a kind of de-facto standard in the puzzle World. Many
+designer seem to use it. It is suitable for transmitting puzzle ideas from the
+designer to the producer or a friend for comments.</p>
+<p>BURRTOOLS now also has a few capabilities that no other puzzle program has. It
+can do movement analysis of some non-cube-based grids (like the triangle-grid).
+It can produce STL output which can directly go to the 3D printer which become
+more and more sensible priced and which can quickly print out the most
+complicated shapes for quick testing of puzzle ideas.</p>
+<p>It has taken all those years since 2003 for BURRTOOLS to reach the current
+state and there is no end in sight for new features that could be added. I hope
+that you enjoy your puzzle experience with BURRTOOLS.</p>
+<p>Andreas Röver</p>
+<nav class="pager"><span></span><a href="../getting-started/">Getting Started →</a></nav>
+</main>
+<footer class="site">
+  BurrTools user guide — sources: <a href="https://github.com/burr-tools/burr-tools.github.io/tree/master/guide">Markdown</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,319 @@
+---
+title: "Reporting with BurrTools"
+nav_order: 6
+---
+
+# Reporting with BurrTools
+
+
+BURRTOOLS comes with some extra features to assist you in making puzzle
+solution sheets, either for your personal archives or to be issued with your
+exchange puzzles and commercially produced puzzles. Currently, these
+capabilities are very basic and need to be improved in a future update of the
+program. So, don't expect too much from them right now, but rather consider
+them to be merely a preview of coming attractions.
+
+## Adding Comments {#ChAddingComments}
+
+
+The **_Edit Comment_** entry on the menu bar opens a new window that allows you
+to add textual information to the puzzle file. It can be used to append extra
+information such as the name of the designer, or a 'to do' list for your own
+designs.
+
+## Exporting Images {#ChExportingImages}
+
+
+The **_Export - Images_** entry on the menu opens a window that allows you to
+export a portion of the current puzzle to (a list of) images (see Figure
+[ImageExport](#FigImageExport)). On the right the window has a 3D view, and
+on the left it has input elements that control what is being created. On the
+very bottom of these controls you can select what you want to create images of.
+Depending on what is present in the puzzle, the following things can be
+exported:
+
+<figure id="FigImageExport">
+<img src="img/Window_ImageExport.png" alt="">
+<figcaption>Figure: The image export window</figcaption>
+</figure>
+
+**_Shape_**
+:   An image of a single shape (a shape that was made on the entities tab) is
+created. You can select which shape with the shape selector below.
+
+**_Problem_**
+:   An image containing all shapes that are used for a problem is created. Again
+you will find the problem selector below that is used to select which problem
+you are going to create images of.
+
+**_Assembly_**
+:   An image showing the positions of the pieces in an assembly is created. You can
+select the problem. The first assembly of that problem is exported.
+
+**_Solution_**
+:   An image containing all steps necessary to disassemble a problem is created. In
+this case you also select the problem with the selector below. The images will
+be created for the last solution of that problem.
+
+
+What to export is the first thing that you have to select. Naturally only the
+choices are available for which the puzzle has data. So if you have not run the
+solver on the current puzzle, it is impossible to export solutions or
+assemblies.
+
+Above these selectors you find the file output parameters. First the name and
+the path to where the images are supposed to be created. If you give no path,
+the images are put into the working directory of the program. The file name is
+just a prefix, so if you keep 'test' as file name you get files of the form
+'test000.png', 'test001.png', ... . (BURRTOOLS creates only PNG image files)
+
+Finally, you can say how many images you intend to create. BURRTOOLS will try
+to do so, but might use less. If you only have one assembly to export, only one
+page can be created. The **_Number of images_** entry is ignored by the
+software for the time being, it will be used later on.
+
+Above these input elements you find the last section that defines your output.
+Here you can define the quality and some additional parameters that influence
+how the images look, but not what is to be seen.
+
+In the top left corner you find the definition of the background of the image.
+You can choose between transparent or white. Transparent is useful if you want
+to have a background with patterns or want to further edit the images.
+
+Below you find the settings for the oversampling factor. The higher that is,
+the smoother the images will look, but the more memory and calculation time is
+required.
+
+Below you can choose whether you want to use the constraint colours for the
+output or rather the default colour of the shapes.
+
+The checkbox **_Dim static pieces_** makes BURRTOOLS draw pieces that are not
+involved in the current move in a lighter colour, so that the pieces actually
+moving are easier to spot. This, of course, only works when exporting
+solutions.
+
+Finally there are the parameters for the image size that the program creates.
+There are 2 choices: either define the pixel size directly, or define the size
+of the image in millimetres and the DPI printer resolution. If you want to
+create A4 or letter sized images for printing, you can use the predefined
+sizes.
+
+To position the shapes in the output images, you can use the 3D view at the
+right of the export window. All images exported will use the same settings for
+angle and zoom as in that 3D view. If the shapes reach above or below the 3D
+view they will be trimmed. Left and right is different. The width of the images
+to generate is not fixed. So the program will make them quite a bit wider to
+accommodate the horizontal spread of the pieces.
+
+When you have finished with all settings, press **_Export Image(s)_**. You
+will see a flurry of images in the 3-D view. The program draws the shapes there
+and grabs the content from the display. This may take a while. First the size
+of the images is determined, then the images are drawn in the required high
+resolution for the output. The progress can be seen on the left beside the 2
+buttons. You will see how many images are finished and how many there are
+overall.
+
+Hint: If you get unexpected results and broken images, try to do nothing while
+the images are exported. On Linux it is forbidden to change the virtual desktop
+because then nothing is drawn.
+
+The export facilities are far from what we want them to be, many important
+features are missing, so you can expect some progress in later versions of
+BURRTOOLS.
+
+## Exporting Vector Images {#ChExportingVectors}
+
+
+As well as the bitmap images explained in the section above BURRTOOLS can also
+export vector images in various different formats. These images have the
+advantage of being freely scalable without loss of precision.
+
+The vector image export doesn't have functionality to export a complete
+assembly or disassembly sequence, but only one image. The image exported is the
+one currently visible in the 3D view.
+
+To export that display into a vector image select **_Vector Image_** from the
+*Export* menu. A small window will open which lets you select the possible
+image format and the file name. You have to append the right extension to the
+file name on your own.
+
+The export may take a while (a few seconds up to a minute or so) and within
+that time the application is unresponsive so please be patient.
+
+## Exporting to STL {#ChExportingSTL}
+
+
+STL, which stands for Standard Triangulation Language or Standard Tesselation
+Language is a file format used by stereolithography software. STL-Files
+describe the surface of 3-dimensional objects. BURRTOOLS can export single
+shapes into STL files so that 3D printers can quickly fabricate prototypes of
+them.
+
+### Introduction to 3-D printing
+
+
+STL, the mesh format BURRTOOLS writes, is accepted by every slicer and
+print service, so there is usually no conversion step: export, slice,
+print. Most people today print pieces themselves on a home machine —
+an FDM printer with PLA or PETG for sturdy, dimensionally stable
+pieces, or a resin printer for the finest details — and whoever does
+not own a printer can order the same STL files from a print service
+instead.
+
+BURRTOOLS always exports solid, watertight pieces. Any hollowing,
+infill, wall counts or supports are set later in the slicer, which
+does that job better than a puzzle program ever could: a little infill
+with a few perimeters gives strong pieces with little material, and
+the slicer adds supports only where they are actually needed. So there
+is no hollow-export option for the polyhedral grids, and none is
+needed — export the solid piece and configure the interior in the
+slicer.
+
+Two export settings decide whether the printed puzzle actually fits
+together. **_Offset_** shrinks every piece slightly so faces that are
+flush in the model end up with a real clearance gap; without it pieces
+print oversize by a nozzle width and jam. **_Bevel_** chamfers the
+sharp voxel edges, which prints more cleanly, feels better in the
+hand, and slides more smoothly. Start with the defaults, print two
+pieces that mate, and adjust: if they jam, raise the offset; if they
+are sloppy, lower it. Different materials shrink differently, so
+re-check the fit when switching filament. Orient pieces flat-face down
+in the slicer for the best surface where it matters.
+
+### Exporting
+
+
+The **_Export - STL_** entry of the *Export* menu opens the window seen in
+Figure [StlExportWindow](#FigSTLExportWindow). The top row sets the
+**_File name_** and **_Path_** of the generated file plus the **_..._**
+button to pick them with a file chooser; new exports default to the
+folder the puzzle was loaded from. The **_Binary STL_** checkbox selects
+binary (compact, the right choice for slicing and print services) or
+text STL (larger, useful only for inspecting the mesh by hand).
+
+Below that are the grid-dependent shape parameters (see below), a list
+of the puzzle's shapes to pick which one is exported and previewed,
+and the **_Export STL_** and **_Abort_** buttons. The large 3-D view
+shows exactly the mesh that will be written, so what you see is what
+the printer gets. The status line reports the current shape's
+**_Volume_** in cubic output units, with two buttons beside it to show
+the mesh normally from the outside or cut open to inspect the inside.
+
+<figure id="FigSTLExportWindow">
+<img src="img/Window_StlExport.png" alt="">
+<figcaption>Figure: The STL-Export window</figcaption>
+</figure>
+
+To export a whole solution at once, use **_Export Solution to STL_** on the
+*Solver* tab instead: it writes one file per distinct piece type placed
+in the currently selected solution, named after the shape, into a
+folder you choose, so a complete set of pieces is a single click away.
+It uses the same shape parameters and binary/text choice as the single
+shape export.
+
+### Hollow Shapes
+
+
+There are 2 different exporters: one for sphere puzzles and one for all
+other (polyhedral) grids.
+
+The polyhedral exporters for cubes, triangular prisms, rhombic and
+tetra-octahedra grids always produce solid pieces: what you model is
+what you get, with all outer edges chamfered. If you want hollow
+pieces, hollow them in the slicer, where wall thickness, infill and
+drain holes belong. (An older BurrTools version had built-in wall
+thickness, connecting tubes and shift-click drilled holes; that
+feature was removed when the chamfer mesher replaced the old
+exporter.)
+
+When creating spheres you can still create hollow shapes directly by
+giving the inner radius a value different from zero. The resulting
+shapes automatically get holes that connect the inside and the
+outside. Those holes are symmetrically placed where they normally
+don't interfere with solving. For resin printing, keep a drain hole so
+uncured resin can escape; for FDM, a hollow sphere still needs the
+slicer's supports or infill inside.
+
+### Parameters
+
+
+The following parameters control the generated shape and file.
+
+**_File name_** and **_Path_** control the name and path of the generated file.
+Those are common parameters for all grids. New exports default to the folder
+the puzzle was loaded from.
+
+**_Binary STL:_** controls whether a binary or a text STL file is created.
+Normally binary files are the right choice because they are much more compact.
+But sometimes it might be useful to use the text form. For example when you
+want to see what is going on in the inside of an STL file, or when your
+printing service has problems with the binary file.
+
+For polyhedron based grids there are the following parameters that control the
+shape of the generated pieces. All sizes are in output units (defaults:
+unit size 10, bevel 0.3, offset 0.01, interior chamfers on).
+
+- **_Unit Size:_** controls the base length of the created voxels. **_Unit Size Y_** and **_Unit Size Z_** allow different sizes in the other
+  directions for non-cubic pieces; leaving them at zero uses the base size
+  everywhere. Bevel and offset stretch along with a changed unit size.
+  All three must be positive; Y and Z may additionally be zero.
+- **_Bevel:_** controls the size of the chamfer on the outer edges of the
+  piece (the chamfer legs have this length). Chamfered edges print more
+  cleanly and assemble more smoothly than razor-sharp voxel edges. Must
+  not be negative; if bevel and offset together get too large for the
+  shape, the export reports an error instead of writing a broken mesh.
+- **_Offset:_** insets every face into its voxel, so neighbouring pieces
+  end up two offsets apart. This clearance gap is what makes assembly
+  possible: without it, pieces modelled face-to-face would print touching
+  and jam. Must not be negative.
+- **_Interior chamfers:_** also chamfers the concave (inner) edges of the
+  piece, not just the convex outer ones. Keep it on for the smoothest
+  sliding fit; turn it off if your printer or a further mesh workflow
+  struggles with the extra geometry.
+
+Coplanar faces are always merged into larger flat faces, which keeps the
+files much smaller while staying watertight. Shapes with variable voxels
+cannot be exported.
+
+
+For spheres the parameters are as follows (defaults: sphere radius 10,
+connection radius 0.75, curvature radius 1.0, offset 0, recursions 2,
+inner radius 0, hole diameter 0, square hole off):
+
+- **_Sphere radius:_** controls the gap between the centres of the single
+  spheres. It also is the maximum radius the spheres can have. This value is in
+  output units
+- **_Connection radius:_** controls the radius of the connection cylinder
+  between the spheres. As the spheres mathematically only touch in one point
+  connectors need to be added. Those connectors are cylinders. The radius of
+  those cylinders can maximally be so that they touch one another. If this value
+  is 1 then the cylinders have their maximal radius, 0 would mean no connection.
+- **_Curvature radius:_** controls the radius of the transition between sphere
+  surface and cylinder surface. If this value is 0 no transition is done and
+  there will be a bend in the surface. If the value is 1 the maximally possible
+  area will be used to go from sphere surface to cylinder surface. When there is
+  only little or no space for the transition (e.g. when the connection radius is
+  close to 1) there might be a bend, even when this value is close to 1.
+- **_Offset:_** just like with the other grids this makes the spheres smaller
+  to make the puzzle actually assemblable. This is in output units. Keep the
+  values small if you want to have working puzzles. Most puzzles might not even
+  require a value larger than zero. But you can get cool mathematical objects
+  with a bigger offset. It must not exceed the sphere radius.
+- **_Recursions:_** controls the number of used triangles to approximate the
+  surfaces. A value one bigger will result in approximately 4 times as many
+  triangles and accordingly smoother surface but also bigger STL files. Don't
+  make it too big as it will result in long calculation times and huge files!
+  Normally a value of 2 to 4 is enough.
+- **_Inner radius:_** controls the radius of the void inside the sphere. This
+  radius must be smaller than the sphere radius from above (zero means a
+  solid sphere). The difference of these 2 values defines the wall thickness
+  of the sphere. The Offset is applied to both values in the same way so that
+  the wall thickness stays constant.
+- **_Hole diameter:_** controls the diameter of the hole that connects the void
+  inside the sphere with the outside world (at most a third of the sphere
+  radius). If you leave that value 0 the inside of the sphere will be
+  completely surrounded by the sphere itself and trapped material or resin
+  can not get out. Depending on the printing process that might not be a
+  wise choice.
+- **_Square Hole:_** the hole from above can be round or square. This is mainly
+  a matter of taste, so make your choice.

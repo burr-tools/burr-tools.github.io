@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The BurrTools Interface — BurrTools User Guide</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="top">
+  <a class="brand" href="../../">BurrTools</a>
+  <div class="links">
+    <a href="../../">Home</a>
+    <a href="../">All on one page</a>
+    <a href="https://burr-tools.github.io/burr-tools/">API reference</a>
+    <a href="https://github.com/burr-tools/burr-tools">GitHub</a>
+  </div>
+</nav>
+<main>
+<nav class="chapters"><b>Guide contents</b><ol><li><a href="../prologue/">Prologue</a></li><li><a href="../getting-started/">Getting Started</a></li><li><a href="../interface/">The BurrTools Interface</a></li><li><a href="../shapes/">Shapes</a></li><li><a href="../puzzles/">Defining Puzzles</a></li><li><a href="../solving/">Solving Puzzles</a></li><li><a href="../reporting/">Reporting with BurrTools</a></li><li><a href="../scripting/">Scripting with Python</a></li><li><a href="../appendix/">Appendix</a></li></ol></nav>
+<h1 id="the-burrtools-interface">The BurrTools Interface</h1>
+<p>When BURRTOOLS is started for the very first time the GUI will look like Figure
+<a href="#FigMainWindowStart">MainWindowStart</a> which shows the main window. Although
+some small variations may occur depending on your operating system, screen
+resolution, and display preferences settings. The GUI has four major parts. On
+top there is a <em>menu bar</em> that allows handling of files and offers extra
+functionality as well as some preferences settings for the program. At the
+bottom there is a traditional <em>status bar</em> presenting relevant information
+about the task at hand. In between there is a <em>tools section</em> on the left and
+a <em>3-D viewport</em> on the right.</p>
+<figure id="FigMainWindowStart">
+<img src="../img/Window_StartUp.png" alt="">
+<figcaption>Figure: The main window on start-up</figcaption>
+</figure>
+
+<h2 id="the-burrtools-menus">The BurrTools Menus</h2>
+<p>Below is a brief overview of the main menu entries with references to the
+places in the text where a more detailed explanation is provided.</p>
+<dl>
+<dt><strong><em>File</em></strong></dt>
+<dd>This menu holds the procedures for handling files within BURRTOOLS and for
+exiting the program (→<a href="#ChFileMenu">File Menu</a>).</dd>
+<dt><strong><em>Toggle 3-D</em></strong></dt>
+<dd>Swaps the 2-D and the 3-D grids for the <em>Entities</em> tab (→<a href="../shapes/#ChNavigating">Navigating in 2-D and 3-D</a>).</dd>
+<dt><strong><em>Export</em></strong></dt>
+<dd>Contains a sub-menu with 3 entries. One allows you to export the contents of the
+3-D viewer that can be used to create high quality solution sheets
+(→<a href="../reporting/#ChExportingImages">Exporting Images</a>). The next allows you to
+create STL files for 3-D printers (→<a href="../reporting/#ChExportingSTL">Exporting to STL</a>).
+The final entry exports the current content of the 3D-view
+to a vector image (→<a href="../reporting/#ChExportingVectors">Exporting vector images</a>)</dd>
+<dt><strong><em>Status</em></strong></dt>
+<dd>This opens up a window containing lots of possibly useful information about the
+shapes of the puzzles (→<a href="../shapes/#ChStatus">Chapter Status</a>).</dd>
+<dt><strong><em>Edit Comment</em></strong></dt>
+<dd>Allows appending textual information to the puzzle file
+(→<a href="../reporting/#ChAddingComments">Adding Comments</a>).</dd>
+<dt><strong><em>Settings</em></strong></dt>
+<dd>This menu item opens the preferences dialogue
+(→ <a href="#ChConfigMenu">Settings Dialogue</a>). On macOS it lives in the application
+menu, as do <em>About</em> and <em>Check for Updates</em>.</dd>
+<dt><strong><em>About</em></strong></dt>
+<dd>Shows a window with some information about the program.</dd>
+<dt><strong><em>Check for Updates</em></strong></dt>
+<dd>Asks GitHub whether a newer BurrTools release exists and, if so, shows its
+release notes with a button that opens the download page. A version can be
+skipped. The same check can run automatically at startup (→[Settings
+Dialogue ChConfigMenu]).</dd>
+</dl>
+<h3 id="ChFileMenu">The File Menu</h3>
+<p>The <strong><em>File</em></strong> menu has all the traditional entries for handling files. Many of
+these are well known from other software and don&rsquo;t need much explanation. Some
+of the items also have keyboard shortcuts as indicated in the menus. Prior to
+executing most of these commands a warning (and option to cancel) is given
+whenever changes to the current design haven&rsquo;t been saved yet.</p>
+<dl>
+<dt><strong><em>New</em></strong></dt>
+<dd>Starts a new design after removing all the information of the current one. The
+first thing that happens when you start a new puzzle is that you will be asked
+which spacegrid to use. When BURRTOOLS is started it defaults to using the
+cubes spacegrid, so if you want to use another grid you need to use this menu.</dd>
+<dt><strong><em>Load</em></strong></dt>
+<dd>Opens a BURRTOOLS <code>*.xmpuzzle</code> file. A notification will pop up when a
+<em>partially</em> solved design is loaded. Short cut: <code>[F3]</code>.</dd>
+<dt><strong><em>Import</em></strong></dt>
+<dd>This entry opens a traditional file dialogue that allows importing
+PUZZLESOLVER3D files (<code>*.puz</code>) into BURRTOOLS. Although these imported
+designs often can be subjected to the solver right away, some postediting may
+be required because of the differences in the way BURRTOOLS handles holes in
+the result and duplicated pieces. BURRTOOLS will import <em>all</em> the pieces from
+the <code>*.puz</code> file and assign them to the shapes S1 to Sn-1. Accordingly,
+the <em>result</em> from the PUZZLESOLVER3D file will be assigned to the last shape
+(S<em>n</em>). Also a problem definition is automatically created (→Chapter
+<a href="../puzzles/#ChPuzzles">Puzzles</a> and <a href="../getting-started/#ChImportingPS3D">Importing</a>).</dd>
+</dl>
+<p>Since all imported shapes consist only of fixed voxels, the result shape may
+need some editing (puzzles that have internal holes or pieces not filling the
+outskirts of the result shape) to make the solver run. Also, duplicated pieces
+should preferably be deleted from the <em>Shapes</em> list
+(→<a href="../shapes/#ChCreatingShapes">Creating Shapes</a>).</p>
+<dl>
+<dt><strong><em>Save</em></strong></dt>
+<dd>Saves your work into a <code>*.xmpuzzle</code> file. If the design had not been saved
+before (indicated with &lsquo;<code>Unknown</code>&rsquo; in the BURRTOOLS windows title bar) the
+<em>Save As</em> command will be activated. Short cut: <code>[F2]</code>.</dd>
+<dt><strong><em>Save As</em></strong></dt>
+<dd>Allows you to save any changes to a new file, thus keeping the original design
+the way it was.</dd>
+<dt><strong><em>Convert</em></strong></dt>
+<dd>Allows you to convert the current puzzle from its current gridtype into another
+grid type (→Chapter <a href="../shapes/#ChConvert">Converting Shapes</a></dd>
+<dt><strong><em>Import Assms</em></strong></dt>
+<dd>With this menu entry you can import a set of existing assembly solutions of one
+problem as new shapes into your puzzle
+(→Chapter <a href="../shapes/#ChImportAssms">Importing Assemblies as Shapes</a>)</dd>
+<dt><strong><em>Quit</em></strong></dt>
+<dd>Shuts down BURRTOOLS.</dd>
+</dl>
+<p>Except when the solver is actually <em>running</em>, saving your work is always
+possible. This means that after stopping (pausing) the solver it is possible to
+save the results found thus far. Later on these partially solved puzzles can be
+loaded again and the solving process may be resumed. This allows you to subject
+&lsquo;huge&rsquo; problems (e.g. &ldquo;Coming of Age&rdquo; from Brian Young) to BURRTOOLS
+and have them solved in several sessions overnight or whenever you don&rsquo;t need
+your computer for other tasks.</p>
+<h3 id="ChConfigMenu">The Settings Dialogue</h3>
+<p>The <strong><em>Settings</em></strong> item on the menu bar opens a new window (Figure
+<a href="#FigConfig">settings dialogue</a>) to set some options for the program. Every option is
+explained right in the dialogue, and <em>Restore Defaults</em> brings them all
+back to their factory values. These settings are stored in a configuration
+file in your home directory and the program uses them each time it is started.</p>
+<figure id="FigConfig">
+<img src="../img/Window_Config.png" alt="">
+<figcaption>Figure: The settings dialogue (showing older options)</figcaption>
+</figure>
+
+<dl>
+<dt><strong><em>Use Tooltips</em></strong></dt>
+<dd>By default BURRTOOLS shows tooltips for most of its controls, but to the more
+experienced user these soon become very annoying. This option allows you to
+switch these tooltips off.</dd>
+<dt><strong><em>Use Lights in 3D View</em></strong></dt>
+<dd>This option toggles the use of a spotlight in the 3-D viewer. When disabled,
+the items in the 3-D viewport get a uniform (high) illumination, whereas
+enabling this option provides a more rendered appearance of the objects by
+adding a spotlight in the upper right corner of the 3-D viewport and shading
+the faces of the objects. However, on some systems this may result in a
+relatively dark left bottom corner that can hamper a clear view of the objects.</dd>
+<dt><strong><em>Fade Out Pieces</em></strong></dt>
+<dd>This option affects the way pieces that <em>become</em> <em>separated</em> from the rest
+are depicted. Hence, the effects are visible only after running the solver
+(→<a href="../solving/#ChVisibilityOfPieces">Visibility of Pieces</a>).</dd>
+<dt><strong><em>Use openGL display lists</em></strong></dt>
+<dd>This option enables an optimisation for the 3-D viewer which makes it faster
+when drawing complex shapes. Sadly it seems to be that some OpenGL
+implementations don&rsquo;t properly support that option. So when you experience
+crashes when you edit shapes or rotate something in the 3-D view, try disabling
+this option. It is off by default.</dd>
+<dt><strong><em>Use new rotation method</em></strong></dt>
+<dd>This option allows you to toggle between the old way the shapes are rotated and a
+new way. With the old method a shape always returned to the same orientation when
+the mouse was dragged back to the starting position. The new method allows rotating
+a shape by drawing circles on the screen.</dd>
+<dt><strong><em>Reverse scroll zoom direction</em></strong></dt>
+<dd>Reverses the direction the 3-D view zooms when you turn the mouse wheel.</dd>
+<dt><strong><em>Show View Cube</em></strong></dt>
+<dd>Displays the View Cube navigation widget in a corner of the 3-D view. Click a
+face, edge or corner of the cube to snap the view to it with a smooth animated
+rotation; the Home button resets pan and zoom. Turn this off if you find it in
+the way.</dd>
+<dt><strong><em>Undo History Depth</em></strong></dt>
+<dd>How many editing steps the undo/redo history keeps: 25, 50, 100 or 200.
+Higher values use more memory for large puzzles. Nearly every edit to shapes,
+colours and problems can be undone with <code>[Ctrl+Z]</code> and redone with
+<code>[Ctrl+Shift+Z]</code> (<code>[Cmd+Z]</code> / <code>[Cmd+Shift+Z]</code> on macOS); undoing also
+takes you back to the tab where the change was made.</dd>
+<dt><strong><em>Worker Threads</em></strong></dt>
+<dd>How many CPU cores the solver may use for assembling and disassembling. Both
+stages share this pool. The default is 60% of your machine&rsquo;s cores, so a long
+solve still leaves room for other work; lower it if your computer should stay
+fully responsive, raise it to the full core count for maximum speed.</dd>
+<dt><strong><em>Check for updates at startup</em></strong></dt>
+<dd>At most once a day, BURRTOOLS quietly asks GitHub whether a newer release
+exists and, if so, shows its release notes with a button to the download page.
+A version can be skipped, and <em>Check for Updates</em> in the menu performs the
+same check on demand, whether this option is on or off.</dd>
+</dl>
+<h2 id="the-status-bar">The Status Bar</h2>
+<p>The status bar has two parts. On the left is given information about the task
+at hand, and on the right are two groups of buttons to alter the 3-D view.
+The first group selects <em>how</em> the 3-D view shows the shapes. You have the choice
+between the normal view where each piece is drawn with its default colour, or a
+view where each piece is drawn with its colour constraint colour (if it has one
+assigned →<a href="../shapes/#ChAddingColour">Adding Colour</a>). The last two options are for a mode
+called <em>anaglyph</em> (see figure <a href="#FigWindowAnaglyph">Window Anaglyph</a>). In this
+mode the pieces are drawn using the red-cyan method to display real 3-D. You
+can view these with red-green, red-blue, or red-cyan glasses. The icon shows
+you which way around the colours must be in front of your eyes.</p>
+<p>The second group selects the <em>render style</em>: each voxel drawn separately
+(the classic look), flat faces with lines only at the real piece edges, or the
+chamfered mesh that the STL export writes, so the preview shows exactly what a
+printed piece will look like (→<a href="../reporting/#ChExportingSTL">Exporting to STL</a>). The choice
+is remembered between sessions.</p>
+<figure id="FigWindowAnaglyph">
+<img src="../img/Window_Anaglyph.png" alt="">
+<figcaption>Figure: Disassembler in Anaglyph Mode</figcaption>
+</figure>
+
+<h2 id="the-tools-section">The Tools Section</h2>
+<p>In between the menu bar and the status line is the most important part of
+BURRTOOLS: The section that allows you to submit existing puzzles to the
+solver, but more even important lets you create and test your own designs.</p>
+<h3 id="the-puzzle-people">The Puzzle People</h3>
+<p>The tools section has three major tabs that might can be thought of by analogy
+with real people in the world of mechanical puzzles. First there is the
+<em>Entities</em> tab, which can be seen as the craftsman who <em>creates</em>
+different <em>shapes</em> but is not concerned with their purpose of these
+(→Chapter <a href="../shapes/#ChShapes">Shapes</a>). As long as his saw blade is sharp he&rsquo;s the
+happiest man in the whole wide world. Next, we have the <em>Puzzle</em> tab. This
+is the weirdo who thinks it&rsquo;s fun to come up with completely insane
+<em>problems</em> to be solved with the otherwise very innocent objects produced by
+our craftsman (→Chapter <a href="../puzzles/#ChPuzzles">Puzzles</a>). However, his contribution to
+the preservation of our planet is considerable&hellip; by saving a lot of wood
+scraps from the incinerator. And last we have the <em>Solver</em>, the poor guy
+who spends not only a great deal of his money on these finely crafted puzzles
+but almost all of his leisure time on <em>solving</em> them
+(→Chapter <a href="../solving/#ChSolver">Solver</a>), only to feel very euphoric when he finally
+succeeds. But scientists are still breaking their heads over the question
+whether this is caused by the sweet smell of success, or is merely due to
+severe sleep deprivation.</p>
+<h3 id="resizing-the-elements">Resizing the Elements</h3>
+<p>Although the layout of the GUI is designed to suit the needs of most users, it
+sometimes may be useful to resize some elements for convenience in using
+BURRTOOLS. Besides the traditional resizing of the main window, BURRTOOLS has a
+couple of features to alter the relative importance of its controls.</p>
+<p>First, the tools tabs can be made wider or narrower (thus making the 3-D
+viewport more or less important) by dragging the right edge of the tools
+section. Hovering your mouse pointer over that edge will make it change into a
+left-right arrow, indicating that you can start dragging it.</p>
+<p>Second, within each of the three main tabs some sections (panels) can be
+resized as well. For example, if you have a design with many different shapes
+but no colour constraints at all, reducing the size of all colour related
+controls and maximising those concerning shapes could be very advantageous. The
+panels on the tool tabs are separated by so called resize handles (Figure
+<a href="#FigResize">Resize</a>). The separators that allow resizing are easily
+recognised by a little beveled square on their right end. Hover your mouse
+pointer over the lines until it changes into an up-down arrow, indicating that
+you can drag the separator up or down to resize the panel.</p>
+<figure id="FigResize">
+<img src="../img/SizeBar.png" alt="">
+<figcaption>Figure: Resize handles</figcaption>
+</figure>
+
+<p>Note that each section has a minimum size. It is not possible to make it
+smaller than that minimum size.</p>
+<h2 id="the-3-d-viewer">The 3-D Viewer</h2>
+<p>Normally the biggest part of the GUI is reserved for the 3-D viewport. In fact
+this 3-D viewer is threefold and has different properties for each of the tabs
+of the tools section. For the <em>Entities</em> tab the 3-D viewport shows the
+currently selected shape and reflects all editing operations performed on that
+shape. Also the x-, y- and z-axes are shown to assist navigating in space.
+With the <em>Puzzle</em> tab activated an overview of the current problem is
+presented: the result shape (double sized) on top and a single instance of each
+shape used as pieces below it. Finally, for the <em>Solver</em> tab, the 3-D
+viewer can be used to browse all assemblies found and/or show an animation of
+the moves involved in the disassembly of the puzzle.</p>
+<p>Any object in the 3-D view can be <em>rotated</em> by simply dragging it, and the
+scrollbar on the right allows <em>zooming</em> in or out on that object by
+respectively moving the slider down or up or by using your mouse-wheel. Note
+that the zoom settings are independent for each of the three tools tabs. For
+precise orientation, click a face, edge or corner of the <em>View Cube</em> in the
+corner of the view to snap to it with an animated rotation, or press its Home
+button to reset pan and zoom (→<a href="#ChConfigMenu">Settings Dialogue</a>).</p>
+<p>Extra options for the 3-D viewer are available in the <em>Settings</em> dialogue
+(→<a href="#ChConfigMenu">Settings Dialogue</a>).</p>
+<h2 id="undo-and-redo">Undo and Redo</h2>
+<p>Nearly every edit can be undone: voxel painting, shape transforms, colour
+changes, adding, removing or renaming shapes and colours, and problem setup.
+A continuous stroke, such as painting or deleting many voxels with one mouse
+press, or a burst of rotations, counts as a single undo step, and undoing
+takes you back to the tab where the change was made. Use <code>[Ctrl+Z]</code> to undo
+and <code>[Ctrl+Shift+Z]</code> to redo (<code>[Cmd+Z]</code> / <code>[Cmd+Shift+Z]</code> on macOS), or
+the corresponding menu entries. How many steps are remembered is set with
+<em>Undo History Depth</em> in the settings dialogue (→[Settings Dialogue
+ChConfigMenu]); the default of 25 is plenty for most designs.</p>
+<nav class="pager"><a href="../getting-started/">← Getting Started</a><a href="../shapes/">Shapes →</a></nav>
+</main>
+<footer class="site">
+  BurrTools user guide — sources: <a href="https://github.com/burr-tools/burr-tools.github.io/tree/master/guide">Markdown</a>
+</footer>
+</body>
+</html>
